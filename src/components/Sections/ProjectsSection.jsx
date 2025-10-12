@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useInView} from "framer-motion";
 import { ArrowUpRight, Code2, Globe, Zap, Users } from "lucide-react";
-import ProjectCard from "../projectCard";
+import ProjectCard from "../ProjectCard";
 import { useTheme } from "../../context/ThemeContext";
 import { PROJECTS } from "../../utils/data";
 import { containeVariants, itemVariants } from "../../utils/helper";
