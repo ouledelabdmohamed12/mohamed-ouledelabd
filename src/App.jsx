@@ -12,7 +12,7 @@ const App = () => {
         <Navbar />
         <HeroSection />
         <SkillsSection />
-        <ProductsSection />
+        <ProjectSection />
         <AboutSection />
       </div>
     </ThemeProvider>
