@@ -87,6 +87,7 @@ export const TECH_STACK = [
     "Java",
     "Vite",
     "Swift",
+    "Flutter",
     "Kotlin",
     "Figma",
     "Notion",
