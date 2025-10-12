@@ -3,7 +3,7 @@ import { ThemeProvider } from './context/ThemeContext'
 import Navbar from './components/Navbar'
 import HeroSection from './components/Sections/HeroSection'
 import SkillsSection from './components/Sections/SkillsSection'
-import ProductsSection from './components/Sections/ProductsSection'
+import ProductsSection from './components/Sections/ProjectsSection'
 
 const App = () => {
   return (
@@ -13,6 +13,7 @@ const App = () => {
         <HeroSection />
         <SkillsSection />
         <ProductsSection />
+        <AboutSection />
       </div>
     </ThemeProvider>
     
