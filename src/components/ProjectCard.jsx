@@ -3,7 +3,7 @@ import { ExternalLink } from "lucide-react";
 
 import { FiGithub } from "react-icons/fi";
 
-const ProjectCard = ({project, index, isDarkMode}) => {
+const projectCard = ({project, index, isDarkMode}) => {
     const cardVariants = {
         hidden: { y: 20, opacity: 0},
         visible: {
@@ -125,4 +125,4 @@ const ProjectCard = ({project, index, isDarkMode}) => {
     </motion.div>
 };
 
-export default ProjectCard
+export default projectCard
