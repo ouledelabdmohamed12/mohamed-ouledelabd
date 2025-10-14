@@ -236,14 +236,14 @@ export const SOCIAL_LINKS = [
     {
         name: "LinkedIn",
         icon: FiLinkedin,
-        url: "https://linkedin.com",
+        url: "https://www.linkedin.com/in/mohamed-ouledelabd/",
         color: "hover: text-blue-400",
         bgColor: "hover:bg-blue-500/10",
     },
     {
         name: "GitHub",
         icon: FiGithub,
-        url: "https://github.com",
+        url: "https://github.com/ouledelabdmohamed12",
         color: "hover:text-gray-400",
         bgColor: "hover:bg-gray-800",
     },
