@@ -80,7 +80,7 @@ const ProjectCard = ({project, index, isDarkMode}) => {
                     </motion.a>
 
                     <motion.a
-                        href={project.gitHubUrl}
+                        href={project.githuburl}
                         initial={{ y: 20, opacity: 0.5}}
                         whileHover={{ y: 0, opacity: 1, scale: 1.05}}
                         transition={{ duration: 0.3, delay: 0.2}}

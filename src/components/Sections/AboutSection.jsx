@@ -193,8 +193,108 @@ const AboutSection = () => {
             </motion.div>
 
             {/* Developer Journey Timeline */}
+            <motion.div
+              ref={timelinRef}
+              initial="hidden"
+              animate={timelineInView ? "visible" : "hidden"}
+              variants={timelineVariants}
+              className="relative"
+            >
+              <h3 className="text-2xl font-medium mb-8 text-center lg:text-left">
+                My Developer Journey
+              </h3>
 
+              {/* Timeline Line */}
+              <div 
+                className={`absolute left-8 top-16 bottom-0 w-px ${
+                  isDarkMode ? "bg-gray-700" : "bg-gray-300"
+                }`}
+              />
+
+              <div className="space-y-8">
+                {JOURNEY_STEPS.map((step, index) => (
+                  <motion.div
+                    key={step.year}
+                    variants={stepVariants}
+                    whileHover={{x:4}}
+                    className="relative flex items-start space-x-6 group"
+                  >
+                    {/* Timeline Dot */}
+                    <div 
+                      className={`relative z-10 flex-shrink-0 w-16 h-16 rounded-full ${step.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <step.icon size={24} className="text-white" />
+                    </div>
+
+                    {/* Content */}
+                    <div 
+                      className={`flex-grow p-6 rounded-xl border transition-all duration-300 ${
+                        isDarkMode 
+                          ? "bg-gray-800/50 border-gray-700 group-hover:border-gray-600 group-hover:bg-gray-800/70"
+                          : "bg-white/80 border-gray-200 group-hover:border-gray-300 group-hover:bg-white"
+                      } backdrop-blur-sm`}
+                    >
+                      <div className="flex items-center justify-between mb-2">
+                        <h4 className="text-xl font-medium">{step.title}</h4>
+                        <span 
+                          className={`text-sm px-3 py-1 rounded-full ${
+                            isDarkMode 
+                              ? "bg-gray-700 text-gray-300"
+                              : "bg-gray-100 text-gray-700"
+                          }`}
+                        >
+                          {step.year}
+                        </span>
+                      </div>
+                      <div 
+                        className={`text-sm font-medium ${
+                          isDarkMode ? "text-blue-400" : "text-blue-600"
+                        } mb-3`}
+                      >
+                        {step.company}
+                      </div>
+                      <p 
+                        className={`text-sm leading-relaxed ${
+                          isDarkMode ? "text-gray-400" : "text-gary-600"
+                        }`}
+                      >
+                        {step.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </div>
+
+          {/* Call to Action */}
+          <motion.div
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={containeVariants}
+            className="text-center mt-20"
+          >
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col items-center space-y-6"
+            >
+              <p 
+                className={`text-lg ${
+                  isDarkMode ? "text-gray-400" : "text-gray-600"
+                }`}
+              >
+                Ready to bring your ideas to life?
+              </p>
+
+              <motion.button
+                whileHover={{ y:2, scale:1.05 }}
+                whileTap={{ scale:0.98 }}
+                className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full text-sm uppercase tracking-wider font-medium transition-all duration-300"
+              >
+                Let's Work Together
+              </motion.button>
+            </motion.div>
+          </motion.div>
       </div>
     </section>
   )

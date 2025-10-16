@@ -5,6 +5,7 @@ import { useTheme } from "../../context/ThemeContext";
 
 import PROFILE_PIC from '../../assets/images/Profile1.avif';
 import { containeVariants, itemVariants } from "../../utils/helper";
+import { SOCIAL_LINKS } from "../../utils/data";
 
 const HeroSection = () => {
     const { isDarkMode } = useTheme();
@@ -51,7 +52,7 @@ const HeroSection = () => {
     >
         {/* Hero Section */}
         <motion.section
-            id="Home"
+            id="home"
             style={{ y: heroY }}
             className="min-h-screen flex items-center justify-center relative px-6 pt-10"
         >
@@ -194,14 +195,10 @@ const HeroSection = () => {
                             variants={itemVariants}
                             className="flex justify-center space-x-6 mb-8"
                         >
-                            {[
-                                {icon: FiGithub, herf: "#"},
-                                {icon: FiLinkedin, herf: "#"},
-                                {icon: Mail, herf: "#"}
-                            ].map((social, index) => (
+                            {SOCIAL_LINKS.map((social, index) => (
                                 <motion.a
                                     key={index}
-                                    href={social.href}
+                                    href={social.url}
                                     whileHover={{ y: -3, scale: 1.1}}
                                     className={`p-3 rounded-full transition-colors ${
                                         isDarkMode
@@ -321,14 +318,10 @@ const HeroSection = () => {
                             variants={itemVariants}
                             className="flex space-x-6 mb-12"
                         >
-                            {[
-                                {icon: FiGithub, herf: "#"},
-                                {icon: FiLinkedin, herf: "#"},
-                                {icon: Mail, herf: "#"}
-                            ].map((social, index) => (
+                            {SOCIAL_LINKS.map((social, index) => (
                                 <motion.a
                                     key={index}
-                                    href={social.href}
+                                    href={social.url}
                                     whileHover={{ y: -3, scale: 1.1}}
                                     className={`p-3 rounded-full transition-colors ${
                                         isDarkMode

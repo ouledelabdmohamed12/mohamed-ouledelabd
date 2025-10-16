@@ -172,28 +172,12 @@ export const PROJECTS = [
 
 export const JOURNEY_STEPS = [
     {
-        year: "2023",
-        title: "Technicien spécialisé en infrastructure digitale option système et réseaux",
-        company: "ISTA JBEL LEKHDER Marrakech",
-        description: "Formation axée sur l'administration des systèmes, la gestion des réseaux informatiques, la virtualisation, la cybersécurité et le support technique. Acquisition de compétences pratiques pour déployer et maintenir des infrastructures digitales sécurisées.",
-        icon: GraduationCap,
-        color: "bg-blue-500",
-    },
-    {
-        year: "2023",
-        title: "Cycle d’ingénierie Informatique et Réseaux",
-        company: "EMSI – Ecole Marocaine des Sciences de l’Ingénieur, Marrakech",
-        description: "Formation d’ingénieur axée sur le développement logiciel, l’administration des réseaux, l’architecture des systèmes, l’intelligence artificielle et la gestion de projets informatiques. Acquisition de compétences avancées pour concevoir, développer et sécuriser des solutions technologiques.",
-        icon: GraduationCap,
-        color: "bg-green-600",
-    },
-    {
-        year: "2024",
-        title: "Stagiaire en développement web",
-        company: "Faculté des Lettres et Sciences Humaines - Marrakech",
-        description: "Stage pratique en développement d'applications web full-stack avec Laravel pour le backend et React pour le frontend. Réalisation de modules fonctionnels, intégration API, et participation à l’amélioration de l’interface utilisateur.",
+        year: "2025",
+        title: "Stagiaire en développement fullstack web",
+        company: "Norsys – Groupe Afriquia, Marrakech",
+        description: "Développement d’un site web dynamique pour la commercialisation de la plateforme Norsys Eval. Réalisation de l’interface client et du back-office en React, avec un backend robuste en Spring Boot. Intégration de fonctionnalités avancées telles que la gestion des utilisateurs, le suivi des abonnements, et le paiement en ligne sécurisé.",
         icon: Briefcase,
-        color: "bg-purple-500",
+        color: "bg-orange-600",
     },
     {
         year: "2025",
@@ -204,14 +188,29 @@ export const JOURNEY_STEPS = [
         color: "bg-cyan-600",
     },
     {
-        year: "2025",
-        title: "Stagiaire en développement fullstack web",
-        company: "Norsys – Groupe Afriquia, Marrakech",
-        description: "Développement d’un site web dynamique pour la commercialisation de la plateforme Norsys Eval. Réalisation de l’interface client et du back-office en React, avec un backend robuste en Spring Boot. Intégration de fonctionnalités avancées telles que la gestion des utilisateurs, le suivi des abonnements, et le paiement en ligne sécurisé.",
+        year: "2024",
+        title: "Stagiaire en développement web",
+        company: "Faculté des Lettres et Sciences Humaines - Marrakech",
+        description: "Stage pratique en développement d'applications web full-stack avec Laravel pour le backend et React pour le frontend. Réalisation de modules fonctionnels, intégration API, et participation à l’amélioration de l’interface utilisateur.",
         icon: Briefcase,
-        color: "bg-orange-600",
+        color: "bg-purple-500",
+    },
+    {
+        year: "2023",
+        title: "Cycle d’ingénierie Informatique et Réseaux",
+        company: "EMSI – Ecole Marocaine des Sciences de l’Ingénieur, Marrakech",
+        description: "Formation d’ingénieur axée sur le développement logiciel, l’administration des réseaux, l’architecture des systèmes, l’intelligence artificielle et la gestion de projets informatiques. Acquisition de compétences avancées pour concevoir, développer et sécuriser des solutions technologiques.",
+        icon: GraduationCap,
+        color: "bg-green-600",
+    },
+    {
+        year: "2023",
+        title: "Technicien spécialisé en infrastructure digitale option système et réseaux",
+        company: "ISTA JBEL LEKHDER Marrakech",
+        description: "Formation axée sur l'administration des systèmes, la gestion des réseaux informatiques, la virtualisation, la cybersécurité et le support technique. Acquisition de compétences pratiques pour déployer et maintenir des infrastructures digitales sécurisées.",
+        icon: GraduationCap,
+        color: "bg-blue-500",
     }
-
 ]
 
 export const PASSIONS = [
@@ -237,7 +236,7 @@ export const SOCIAL_LINKS = [
         name: "LinkedIn",
         icon: FiLinkedin,
         url: "https://www.linkedin.com/in/mohamed-ouledelabd/",
-        color: "hover: text-blue-400",
+        color: "hover:text-blue-400",
         bgColor: "hover:bg-blue-500/10",
     },
     {
@@ -250,8 +249,8 @@ export const SOCIAL_LINKS = [
     {
         name: "Email",
         icon: Mail,
-        url: "ouledelabd.moahmed@gmail.com",
-        color: "hover: text-green-400",
+        url: "mailto:ouledelabd.moahmed@gmail.com",
+        color: "hover:text-green-400",
         bgColor: "hover:bg-green-500/10",
     }
 ]
