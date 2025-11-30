@@ -2,6 +2,7 @@ import { useState } from "react";
 import {motion, useScroll, AnimatePresence, isDragActive,} from "framer-motion";
 import {Code2, Sun, Moon, Menu, X} from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
+import MonLogo from '../assets/mylogo.svg?react';
 
 const Navbar = () => {
   const { isDarkMode, toggleDarkMode } = useTheme();
@@ -28,7 +29,7 @@ const Navbar = () => {
         whileHover={{ scale: 1.05 }}
         className="flex items-center space-x-2"
       >
-        <Code2 size={24} className="text-blue-500" />{" "}
+        <MonLogo width={50} height="auto" className="text-blue-500" />
         <span className={`${isDarkMode ? "text-white" : "text-gray-900"} text-lg ml-1`}>Time to Program</span>
       </motion.div>
 
