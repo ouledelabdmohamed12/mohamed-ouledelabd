@@ -186,9 +186,6 @@ const AboutSection = () => {
                 <div className="flex justify-center">
                   <img src={SIGNATURE} alt="Mohamed" className="w-45" />
                 </div>
-                <div className="text-lg font-medium text-blue-500 mt-2">
-                  Mohamed Ouledelabd
-                </div>
               </motion.div>
             </motion.div>
 
