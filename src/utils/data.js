@@ -264,7 +264,7 @@ export const CONTACT_INFO = [
     {
         icon: Mail,
         label: "Email",
-        value: "ouledelabd.moahmed@gmail.com",
+        value: "ouledelabd.mohamed@gmail.com",
     },
     {
         icon: Phone,
