@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 
 import { FiGithub, FiLinkedin, FiTwitter } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 
 import PROJECT_IMG_1 from "../assets/images/gestion_hotel.png";
 import PROJECT_IMG_2 from "../assets/images/eyegard.png";
@@ -27,57 +28,49 @@ import PROJECT_IMG_6 from "../assets/images/gestion_rendezVous.png";
 
 export const SKILLS_CATEGORY = [
     {
-        title: "Frontend",
+        title: "Frontend & Mobile",
         icon: Code2,
-        description: "Crafting beautiful, responsive user interfaces",
+        description: "Création d'interfaces modernes et applications mobiles performantes pour le marché marocain.",
         skills: [
-            { name: "React", level: 95, color: "bg-blue-500" },
-            { name: "TypeScript", level: 90, color: "bg-blue-600" },
-            { name: "Angular", level: 80, color: "bg-gray-800" },
-            { name: "Tailwind CSS", level: 92, color: "bg-cyan-500" },
-            { name: "Framer Motion", level: 85, color: "bg-pink-500" },
+            { name: "React / React Native" },
+            { name: "TypeScript" },
+            { name: "Tailwind CSS" },
+            { name: "Expérience Utilisateur (UX)" }
         ]
     },
-
     {
-        title: "Backend",
+        title: "Backend & Solutions Métiers",
         icon: Server,
-        description: "Building robust server-side solutions",
+        description: "Architecture robuste pour automatiser la gestion de votre entreprise (ERP, CRM, Tableaux de bord).",
         skills: [
-            { name: "Spring Boot", level: 95, color: "bg-pink-600" },
-            { name: "Python", level: 88, color: "bg-yellow-500" },
-            { name: "Php", level: 85, color: "bg-gray-700" },
-            { name: "C# Asp.net WPF", level: 80, color: "bg-green-500" },
-            { name: "REST APIs", level: 90, color: "bg-orange-500" },
+            { name: "Spring Boot (Java)" },
+            { name: "PHP / Laravel" },
+            { name: "Python / IA" },
+            { name: "Architecture Microservices" }
         ]
     },
-
     {
-        title: "Database",
+        title: "Bases de Données & Data",
         icon: Database,
-        description: "Managing and optimizing data storage",
+        description: "Conception et optimisation de bases de données sécurisées pour une gestion fiable de vos actifs.",
         skills: [
-            { name: "Mysql", level: 95, color: "bg-blue-700" },
-            { name: "PostgreSQL", level: 90, color: "bg-gray-900" },
-            { name: "MongoDB", level: 88, color: "bg-green-600" },
-            { name: "Firebase", level: 78, color: "bg-yellow-600" },
-            
+            { name: "MySQL / PostgreSQL" },
+            { name: "MongoDB" },
+            { name: "Optimisation de requêtes" },
+            { name: "Sécurité des données" }
         ]
     },
-
     {
-        title: "DevOps",
+        title: "DevOps & Assurance Qualité",
         icon: Cloud,
-        description: "Deploying and scaling applications",
+        description: "Déploiement continu et tests rigoureux pour garantir la disponibilité de vos services 24/7.",
         skills: [
-            { name: "Docker", level: 90, color: "bg-blue-600" },
-            { name: "AWS", level: 78, color: "bg-orange-600" },
-            { name: "Vercel", level: 80, color: "bg-gray-900" },
-            { name: "Git", level: 95, color: "bg-orange-700" },
-            { name: "CI/CD", level: 90, color: "bg-purple-600" },
+            { name: "Docker / Kubernetes" },
+            { name: "CI/CD (GitLab, Jenkins)" },
+            { name: "Tests Automatisés (QA)" },
+            { name: "Cloud (AWS / Azure)" }
         ]
     },
-
 ]
 
 export const TECH_STACK = [
@@ -95,10 +88,10 @@ export const TECH_STACK = [
 ]
 
 export const STATS = [
-    { number: "10+", label: "Projects Completed" },
-    { number: "1+", label: "Years Experience" },
-    { number: "20+", label: "Technologies" },
-    { number: "99%", label: "Client Satisfaction" },
+    { number: "100%", label: "Respect des Délais" },
+    { number: "10+", label: "Projets Déployés" },
+    { number: "24/7", label: "Support Technique" },
+    { number: "0", label: "Compromis Qualité" },
 ]
 
 export const PROJECTS = [
@@ -252,7 +245,14 @@ export const SOCIAL_LINKS = [
         url: "mailto:ouledelabd.moahmed@gmail.com",
         color: "hover:text-green-400",
         bgColor: "hover:bg-green-500/10",
-    }
+    },
+    {
+        name: "WhatsApp",
+        icon: FaWhatsapp,
+        link: "https://wa.me/212682484400",
+        color: "hover:text-[#25D366]",
+        bgColor: "hover:bg-[#25D366]/10",
+    },
 ]
 
 export const CONTACT_INFO = [
@@ -271,4 +271,12 @@ export const CONTACT_INFO = [
         label: "Phone",
         value: "+ (212) 682-484400",
     }
+]
+
+export const NAV_LINKS = [
+    { id: "home", title: "Home" },
+    { id: "skills", title: "Skills" },
+    { id: "work", title: "Work" },
+    { id: "about", title: "About" },
+    { id: "contact", title: "Contact" },
 ]
