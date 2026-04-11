@@ -25,7 +25,7 @@ const ContactSection = () => {
     
     // UI States
     const [showSuccess, setShowSuccess] = useState(false);
-    const [errorMessage, setErrorMessage] = useState(""); // State for error message
+    const [errorMessage, setErrorMessage] = useState(""); 
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     // Animation Refs
@@ -37,22 +37,15 @@ const ContactSection = () => {
     });
     const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
     
-    // Handle Input Change
     const handleInputChange = (key, value) => {
-        setFormData({
-            ...formData,
-            [key]: value,
-        });
-        // Clear error when user starts typing again
+        setFormData({ ...formData, [key]: value });
         if (errorMessage) setErrorMessage("");
     };
 
-    // Handle Form Submit
     const handleSubmit = (e) => {
         e.preventDefault();
-        setErrorMessage(""); // Clear previous errors
+        setErrorMessage(""); 
 
-        // 1. Validation: Check if fields are empty
         if (!formData.name || !formData.email || !formData.message) {
             setErrorMessage("Please fill in all fields.");
             return;
@@ -60,7 +53,6 @@ const ContactSection = () => {
 
         setIsSubmitting(true);
 
-        // 2. Prepare Data for EmailJS
         const templateParams = {
             name: formData.name,       
             email: formData.email,     
@@ -68,7 +60,6 @@ const ContactSection = () => {
             title: "Portfolio Inquiry"
         };
 
-        // 3. Send Email
         emailjs
             .send(
                 "service_gq5hc6f",  
@@ -77,19 +68,13 @@ const ContactSection = () => {
                 "SAbE7J_X_PEmfaP8h"  
             )
             .then(
-                (response) => {
-                    console.log("SUCCESS!", response.status, response.text);
+                () => {
                     setIsSubmitting(false);
                     setShowSuccess(true);
-                    
-                    // Reset Form
                     setFormData({ name: "", email: "", message: "" });
-
-                    // Auto hide success message
                     setTimeout(() => setShowSuccess(false), 3000);
                 },
                 (error) => {
-                    console.log("FAILED...", error);
                     setIsSubmitting(false);
                     setErrorMessage("Something went wrong. Please try again later.");
                 }
@@ -100,59 +85,60 @@ const ContactSection = () => {
         <section
             id="contact"
             ref={sectionRef}
-            className={`py-24 px-6 ${
-                isDarkMode ? "bg-gray-900 text-white" : "bg-white text-gray-900"
-            } relative overflow-hidden`}
+            className={`py-32 px-6 ${
+                isDarkMode ? "bg-[#0a0c10] text-white" : "bg-white text-gray-900"
+            } relative overflow-hidden transition-colors duration-500`}
         >
-            {/* Background Elements */}
-            <motion.div style={{ y }} className="absolute inset-0 overflow-hidden">
+            {/* Background Elements (Subtle Yellow Glow) */}
+            <motion.div style={{ y }} className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div
-                    className={`absolute top-20 left-1/4 w-72 h-72 rounded-full blur-3xl opacity-5 ${
-                        isDarkMode ? 'bg-blue-500' : 'bg-blue-400' 
+                    className={`absolute top-20 left-1/4 w-72 h-72 rounded-full blur-[120px] opacity-[0.03] ${
+                        isDarkMode ? 'bg-[#ccff00]' : 'bg-yellow-400' 
                     }`}
                 />
                 <div
-                    className={`absolute bottom-40 right-1/4 w-80 h-80 rounded-full blur-3xl opacity-5 ${
-                        isDarkMode ? 'bg-purple-500' : 'bg-purple-400'
+                    className={`absolute bottom-40 right-1/4 w-80 h-80 rounded-full blur-[120px] opacity-[0.03] ${
+                        isDarkMode ? 'bg-[#ccff00]' : 'bg-yellow-400'
                     }`}
                 />
             </motion.div>
 
-            <div className="max-w-6xl mx-auto relative z-10">
+            <div className="max-w-7xl mx-auto relative z-10">
                 {/* Section Header */}
                 <motion.div
                     initial="hidden"
                     animate={isInView ? 'visible' : 'hidden'}
                     variants={containeVariants}
-                    className="text-center mb-20"
+                    className="text-center mb-24"
                 >
                     <motion.div
                         variants={itemVariants}
-                        className={`text-sm uppercase tracking-widest ${
-                            isDarkMode ? 'text-gray-500' : 'text-gray-600'
-                        } mb-4`}
+                        className={`text-xs uppercase tracking-[0.4em] font-bold ${
+                            isDarkMode ? 'text-gray-500' : 'text-gray-400'
+                        } mb-6`}
                     >
-                        Let's Connect
+                        Collaborons ensemble
                     </motion.div>
+                    
                     <motion.h2
                         variants={itemVariants}
-                        className="text-3xl md:text-5xl font-light mb-6"
+                        className="text-5xl md:text-7xl font-bold mb-8 tracking-tight"
                     >
-                        Get In
-                        <span className="text-blue-500 font-medium"> Touch</span>
+                        Parlons de votre <span className="text-[#ccff00]">Projet</span>
                     </motion.h2>
 
                     <motion.p
                         variants={itemVariants}
-                        className={`text-xl max-w-2xl mx-auto ${
+                        className={`text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed ${
                             isDarkMode ? 'text-gray-400' : 'text-gray-600'
                         }`}
                     >
-                        Ready to start your next project? Let's discuss how we can bring your ideas to life.
+                        Basé à <span className={isDarkMode ? 'text-white' : 'text-black'}>Marrakech</span>, 
+                        je vous accompagne dans la digitalisation de votre activité partout au Maroc avec des solutions sur-mesure.
                     </motion.p>
                 </motion.div>
 
-                <div className="grid lg:grid-cols-2 gap-16 items-start">
+                <div className="grid lg:grid-cols-2 gap-20 items-start">
                     {/* Contact Form Area */}
                     <motion.div
                         initial="hidden"
@@ -161,20 +147,19 @@ const ContactSection = () => {
                     >
                         <motion.div
                             variants={itemVariants}
-                            className={`p-8 rounded-2xl border ${
+                            className={`p-10 rounded-3xl border ${
                                 isDarkMode 
-                                    ? 'bg-gray-800/50 border-gray-700 backdrop-blur-sm' 
-                                    : 'bg-gray-50/80 border-gray-200 backdrop-blur-sm'
+                                    ? 'bg-[#111418] border-white/5 backdrop-blur-sm' 
+                                    : 'bg-gray-50/80 border-gray-200 backdrop-blur-sm shadow-xl'
                             }`}
                         >
-                            <h3 className="text-2xl font-medium mb-4">Send me a message</h3>
+                            <h3 className="text-2xl font-bold mb-8 tracking-tight">Send me a message</h3>
 
-                            {/* 🔴 Error Message Display */}
                             {errorMessage && (
                                 <motion.div 
                                     initial={{ opacity: 0, y: -10 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    className={`mb-6 p-4 rounded-xl flex items-center gap-3 ${
+                                    className={`mb-8 p-4 rounded-xl flex items-center gap-3 ${
                                         isDarkMode 
                                             ? 'bg-red-500/10 border border-red-500/20 text-red-400' 
                                             : 'bg-red-50 border border-red-100 text-red-600'
@@ -185,23 +170,19 @@ const ContactSection = () => {
                                 </motion.div>
                             )}
 
-                            <div className="space-y-6">
-                                <div className="grid md:grid-cols-2 gap-6">
+                            <div className="space-y-8">
+                                <div className="grid md:grid-cols-2 gap-8">
                                     <TextInput 
                                         isDarkMode={isDarkMode}
                                         value={formData.name}
-                                        handleInpuChange={(text) => 
-                                            handleInputChange('name', text)
-                                        }
+                                        handleInpuChange={(text) => handleInputChange('name', text)}
                                         label="Your Name"
                                     />
                                     <TextInput
                                         isDarkMode={isDarkMode}
                                         label="Email Address"
                                         value={formData.email}
-                                        handleInpuChange={(text) =>
-                                            handleInputChange('email', text)
-                                        }
+                                        handleInpuChange={(text) => handleInputChange('email', text)}
                                     />
                                 </div>
 
@@ -210,34 +191,28 @@ const ContactSection = () => {
                                     label="Your Message"
                                     value={formData.message}
                                     textarea
-                                    handleInpuChange={(text) =>
-                                        handleInputChange('message', text)
-                                    }
+                                    handleInpuChange={(text) => handleInputChange('message', text)}
                                 />
 
                                 <motion.button
                                     disabled={isSubmitting}
-                                    whileHover={{ y: -2, scale: 1.02 }}
+                                    whileHover={{ y: -4, scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
-                                    className="w-full bg-blue-500 hover:bg-blue-600 disabled:bg-blue-400 text-white py-4 rounded-xl text-sm uppercase tracking-wider font-medium transition-all duration-300 flex items-center justify-center space-x-2"
                                     onClick={handleSubmit}
+                                    className="w-full bg-[#ccff00] hover:bg-[#b8e600] disabled:bg-[#ccff00]/50 text-black py-4 rounded-xl text-sm uppercase tracking-[0.2em] font-bold transition-all duration-300 flex items-center justify-center space-x-3 shadow-xl shadow-[#ccff00]/10"
                                 >
                                     {isSubmitting ? (
                                         <>
                                             <motion.div
                                                 animate={{ rotate: 360 }}
-                                                transition={{
-                                                    duration: 1,
-                                                    repeat: Infinity,
-                                                    ease: "linear",
-                                                }}
-                                                className="w-4 h-4 border-2 border-white border-t-transparent rounded-full"
+                                                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                                                className="w-4 h-4 border-2 border-black border-t-transparent rounded-full"
                                             />
                                             <span>Sending...</span>
                                         </>
                                     ) : (
                                         <>
-                                            <Send size={18} />
+                                            <Send size={18} strokeWidth={3} />
                                             <span>Send Message</span>
                                         </>
                                     )}
@@ -251,39 +226,33 @@ const ContactSection = () => {
                         initial="hidden"
                         animate={isInView ? 'visible' : 'hidden'}
                         variants={containeVariants}
-                        className="space-y-8"
+                        className="space-y-12"
                     >
                         {/* Contact Information */}
                         <motion.div variants={itemVariants}>
-                            <h3 className="text-2xl font-medium mb-6">Contact Information</h3>
+                            <h3 className="text-2xl font-bold mb-8 tracking-tight px-2">Contact Information</h3>
                             <div className="space-y-4">
-                                {CONTACT_INFO.map((info, index) => (
+                                {CONTACT_INFO.map((info) => (
                                     <motion.div
                                         key={info.label}
                                         variants={itemVariants}
-                                        whileHover={{ x:4 }}
-                                        className={`flex items-center space-x-4 p-4 rounded-xl ${
+                                        whileHover={{ x: 8 }}
+                                        className={`flex items-center space-x-6 p-6 rounded-2xl border transition-all duration-300 ${
                                             isDarkMode
-                                                ? 'bg-gray-800/30 hover:bg-gray-800/50'
-                                                : 'bg-gray-50/50 hover:bg-gray-100/50'
-                                        } transition-all duration-300`}
+                                                ? 'bg-[#111418] border-white/5 hover:border-[#ccff00]/20 hover:bg-[#ccff00]/5'
+                                                : 'bg-gray-50 border-gray-100 hover:bg-gray-100'
+                                        }`}
                                     >    
-                                        <div
-                                            className={`p-3 rounded-lg ${
-                                                isDarkMode ? "bg-gray-700"  : "bg-white"  
-                                            }`}
-                                        >
-                                            <info.icon size={20} className="text-blue-500" />
+                                        <div className={`p-4 rounded-xl ${isDarkMode ? "bg-white/5" : "bg-white shadow-sm"}`}>
+                                            <info.icon size={22} className="text-[#ccff00]" />
                                         </div>
                                         <div>
-                                            <div 
-                                                className={`text-sm ${
-                                                    isDarkMode ? 'text-gray-500' : 'text-gray-600'
-                                                }`}
-                                            >
+                                            <div className={`text-[10px] uppercase tracking-[0.2em] font-bold mb-1 ${
+                                                isDarkMode ? 'text-gray-500' : 'text-gray-400'
+                                            }`}>
                                                 {info.label}
                                             </div>           
-                                            <div className="font-medium">{info.value}</div>                            
+                                            <div className="font-bold text-lg tracking-tight">{info.value}</div>                            
                                         </div>
                                     </motion.div>
                                 ))}
@@ -292,52 +261,48 @@ const ContactSection = () => {
 
                         {/* Social Links */}
                         <motion.div variants={itemVariants}>
-                            <h3 className="text-xl font-medium mb-6">Follow Me</h3>
+                            <h3 className="text-xl font-bold mb-8 tracking-tight px-2">Follow Me</h3>
                             <div className="grid grid-cols-2 gap-4">
-                                {SOCIAL_LINKS.map((Social) => (
+                                {SOCIAL_LINKS.map((social) => (
                                     <motion.a
-                                        key={Social.label}
-                                        href={Social.link}
+                                        key={social.label}
+                                        href={social.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        whileHover={{ scale: 1.05, y: -2}}
-                                        whileTap={{ scale: 0.95}}
-                                        className={`flex items-center space-x-3 p-4 rounded-xl border transition-all duration-300 ${
+                                        whileHover={{ scale: 1.02, y: -4 }}
+                                        whileTap={{ scale: 0.98 }}
+                                        className={`flex items-center space-x-4 p-5 rounded-2xl border transition-all duration-300 ${
                                             isDarkMode
-                                                ? "bg-gray-800/50 border-gray-700 hover:border-gray-600"
-                                                : "bg-white/80 border-gray-200 hover:border-gray-300"
-                                        } ${Social.bgColor} ${Social.color}`}
+                                                ? "bg-[#111418] border-white/5 hover:border-[#ccff00]/20 hover:text-[#ccff00]"
+                                                : "bg-white border-gray-200 hover:border-gray-300 shadow-sm"
+                                        }`}
                                     >
-                                        <Social.icon size={20} />
-                                        <span className="font-medium">{Social.name}</span>
+                                        <social.icon size={20} className="text-[#ccff00]" />
+                                        <span className="font-bold text-sm tracking-wide">{social.name}</span>
                                     </motion.a>
                                 ))}
                             </div>
                         </motion.div>
 
-                        {/* Availability Status */}
+                        {/* Disponibilité */}
                         <motion.div
                             variants={itemVariants}
-                            className={`p-6 rounded-xl border ${
+                            className={`p-8 rounded-3xl border ${
                                 isDarkMode
-                                    ? 'bg-green-500/10 border-green-500/20'
+                                    ? 'bg-[#ccff00]/5 border-[#ccff00]/10'
                                     : 'bg-green-50 border-green-200'
                             }`}
                         >
-                            <div className="flex items-center space-x-3 mb-2">
-                                <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />    
-                                <span className="font-medium text-green-500" >
-                                    Available for work
+                            <div className="flex items-center space-x-3 mb-3">
+                                <div className="w-3 h-3 bg-[#ccff00] rounded-full animate-pulse shadow-[0_0_10px_#ccff00]" />    
+                                <span className={`font-bold uppercase tracking-widest text-xs ${isDarkMode ? 'text-[#ccff00]' : 'text-green-600'}`}>
+                                    Disponible immédiatement
                                 </span>
                             </div>
-                            <p
-                                className={`text-sm ${
-                                    isDarkMode ? 'text-gray-400' : 'text-gray-600'
-                                }`}
-                            >
-                                I'm currently Available for freelance projects and full-time opportunities.
+                            <p className={`text-sm font-light leading-relaxed ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                                Je suis actuellement ouvert aux opportunités en <span className={isDarkMode ? 'text-white' : 'text-black font-medium'}>CDI</span> ou pour des missions en <span className={isDarkMode ? 'text-white' : 'text-black font-medium'}>Freelance</span>. Donnons vie à vos idées.
                             </p>
-                        </motion.div>   
+                        </motion.div>
                     </motion.div>
                 </div>
             </div>
