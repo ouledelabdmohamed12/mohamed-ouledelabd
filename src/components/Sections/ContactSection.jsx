@@ -1,6 +1,5 @@
 import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import emailjs from '@emailjs/browser';
 import { Send, AlertCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../context/ThemeContext';
@@ -58,30 +57,27 @@ const ContactSection = () => {
             phone: formData.phone,
             website: formData.website,
             message: formData.message,
-            title: "Portfolio Inquiry"
+            title: "Koda Atlas Inquiry"
         };
 
-        emailjs
-            .send(
-                "service_gq5hc6f",
-                "template_bbujlih",
-                templateParams,
-                "SAbE7J_X_PEmfaP8h"
-            )
-            .then(
-                () => {
-                    setIsSubmitting(false);
-                    setShowSuccess(true);
-                    setFormData({ name: "", email: "", phone: "", website: "", message: "" });
-                    setCaptchaToken(null);
-                    turnstileRef.current?.reset();
-                    setTimeout(() => setShowSuccess(false), 3000);
-                },
-                () => {
-                    setIsSubmitting(false);
-                    setErrorMessage(t("contact.form.errorGeneric"));
-                }
-            );
+        fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(templateParams),
+        })
+            .then((res) => {
+                if (!res.ok) throw new Error("Request failed");
+                setIsSubmitting(false);
+                setShowSuccess(true);
+                setFormData({ name: "", email: "", phone: "", website: "", message: "" });
+                setCaptchaToken(null);
+                turnstileRef.current?.reset();
+                setTimeout(() => setShowSuccess(false), 3000);
+            })
+            .catch(() => {
+                setIsSubmitting(false);
+                setErrorMessage(t("contact.form.errorGeneric"));
+            });
     };
 
     return (

@@ -3,7 +3,7 @@ import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 // Cloudflare's official public test key ("always passes"). Replace with your
 // real site key via the VITE_TURNSTILE_SITE_KEY env var once you have one —
 // see https://dash.cloudflare.com/?to=/:account/turnstile
-const SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || "1x00000000000000000000AA";
+const SITE_KEY = (import.meta.env.VITE_TURNSTILE_SITE_KEY || "1x00000000000000000000AA").trim();
 
 const Turnstile = forwardRef(({ onVerify, onExpire, isDarkMode }, ref) => {
   const containerRef = useRef(null);
