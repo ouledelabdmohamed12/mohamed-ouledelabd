@@ -75,12 +75,14 @@ const ContactSection = () => {
 
         setIsSubmitting(true);
 
+        const projectTypeLabel = projectTypeOptions.find((opt) => opt.value === formData.projectType)?.label || "";
+
         const templateParams = {
             name: formData.name,
             email: formData.email,
             phone: formData.phone,
             website: formData.website,
-            projectType: formData.projectType,
+            projectType: projectTypeLabel,
             message: formData.message,
             company: formData.company,
             title: "Koda Atlas Inquiry"

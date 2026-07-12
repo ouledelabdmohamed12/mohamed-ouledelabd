@@ -278,6 +278,32 @@ export const PROCESS_STEPS = [
     { id: "launch" },
 ];
 
+// Legal pages. Text lives in i18n under `legal.terms.sections.<id>` / `legal.privacy.sections.<id>`.
+export const TERMS_SECTIONS = [
+    { id: "acceptance" },
+    { id: "services" },
+    { id: "quotes" },
+    { id: "timeline" },
+    { id: "intellectualProperty" },
+    { id: "clientResponsibilities" },
+    { id: "liability" },
+    { id: "termination" },
+    { id: "law" },
+    { id: "contact" },
+];
+
+export const PRIVACY_SECTIONS = [
+    { id: "intro" },
+    { id: "dataCollected" },
+    { id: "dataUse" },
+    { id: "dataSharing" },
+    { id: "cookies" },
+    { id: "retention" },
+    { id: "rights" },
+    { id: "security" },
+    { id: "contact" },
+];
+
 // FAQ. Text lives in i18n under `faq.items.<id>`.
 export const FAQ_ITEMS = [
     { id: "cost" },
