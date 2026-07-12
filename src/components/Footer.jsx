@@ -112,9 +112,23 @@ const Footer = () => {
           <p className="text-[9px] uppercase tracking-[0.5em] font-bold text-gray-700">
             © {currentYear} {t("footer.copyright")}
           </p>
-          <p className="text-[9px] uppercase tracking-[0.3em] font-bold text-gray-500">
-            {t("footer.madeBy")}
-          </p>
+          <div className="flex items-center gap-6">
+            <Link
+              to="/terms"
+              className="text-[9px] uppercase tracking-[0.3em] font-bold text-gray-500 hover:text-[#2B8CA6] transition-colors"
+            >
+              {t("footer.legal.terms")}
+            </Link>
+            <Link
+              to="/privacy"
+              className="text-[9px] uppercase tracking-[0.3em] font-bold text-gray-500 hover:text-[#2B8CA6] transition-colors"
+            >
+              {t("footer.legal.privacy")}
+            </Link>
+            <p className="text-[9px] uppercase tracking-[0.3em] font-bold text-gray-500">
+              {t("footer.madeBy")}
+            </p>
+          </div>
         </div>
       </div>
     </footer>

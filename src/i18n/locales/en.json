@@ -224,7 +224,11 @@
     "navTitle": "Navigation",
     "socialTitle": "Social",
     "copyright": "Mohamed Ouledelabd",
-    "madeBy": "Code & Design by Koda Atlas"
+    "madeBy": "Code & Design by Koda Atlas",
+    "legal": {
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy"
+    }
   },
   "services": {
     "badge": "What I do",
@@ -314,6 +318,96 @@
       "support": {
         "q": "Do you offer support after launch?",
         "a": "Absolutely. I offer maintenance, updates and improvements after launch, with no mandatory monthly fees."
+      }
+    }
+  },
+  "legal": {
+    "terms": {
+      "title": "Terms of Service",
+      "updated": "Last updated: July 2026",
+      "sections": {
+        "acceptance": {
+          "title": "Acceptance of Terms",
+          "body": "By engaging Koda Atlas (\"we\", \"us\") for web, mobile, or software development services, you (\"client\") agree to the following terms. These terms apply to all quotes, proposals, contracts, and work carried out unless a separate signed agreement states otherwise."
+        },
+        "services": {
+          "title": "Services",
+          "body": "Koda Atlas provides custom web and mobile application development, e-commerce solutions (including Shopify), UI/UX design, AI chatbot integration, and related digital consulting services. The exact scope of each project is defined in a written quote or proposal before work begins."
+        },
+        "quotes": {
+          "title": "Quotes & Payment",
+          "body": "All quotes are estimates based on the information provided by the client and are non-binding until confirmed in writing. Projects typically require an upfront deposit before work begins, with the balance due upon delivery or according to a milestone schedule agreed in the proposal. Late payments may result in a pause of ongoing work."
+        },
+        "timeline": {
+          "title": "Timeline & Revisions",
+          "body": "Estimated timelines are shared before a project starts and depend on timely feedback and content from the client. A reasonable number of revision rounds is included in each proposal; additional revisions beyond the agreed scope may be billed separately."
+        },
+        "intellectualProperty": {
+          "title": "Intellectual Property",
+          "body": "Upon full payment, the client owns the final deliverables (code, designs) created specifically for their project, excluding any third-party libraries, frameworks, or licensed assets, which remain governed by their own licenses. Koda Atlas retains the right to showcase completed projects in its portfolio unless the client requests otherwise in writing."
+        },
+        "clientResponsibilities": {
+          "title": "Client Responsibilities",
+          "body": "The client agrees to provide timely feedback, content, and access to any accounts or systems needed to complete the project. Delays caused by the client may extend the project timeline accordingly."
+        },
+        "liability": {
+          "title": "Limitation of Liability",
+          "body": "Koda Atlas is not liable for indirect, incidental, or consequential damages arising from the use of delivered work. Our total liability for any claim is limited to the amount paid for the specific service in question."
+        },
+        "termination": {
+          "title": "Termination",
+          "body": "Either party may terminate a project with written notice. In case of termination, the client pays for work completed up to that point; any deposit already paid is non-refundable unless otherwise agreed."
+        },
+        "law": {
+          "title": "Governing Law",
+          "body": "These terms are governed by the laws of Morocco. Any dispute will first be addressed through good-faith discussion between the parties."
+        },
+        "contact": {
+          "title": "Contact",
+          "body": "Questions about these terms can be sent to ouledelabd.mohamed@gmail.com."
+        }
+      }
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "updated": "Last updated: July 2026",
+      "sections": {
+        "intro": {
+          "title": "Introduction",
+          "body": "This Privacy Policy explains how Koda Atlas (\"we\", \"us\") collects, uses, and protects the personal data you share when using this website or contacting us."
+        },
+        "dataCollected": {
+          "title": "Data We Collect",
+          "body": "When you use our contact form, we collect the information you provide: your name, email address, phone number (optional), website (optional), project type, and message content. We do not collect payment information through this website."
+        },
+        "dataUse": {
+          "title": "How We Use Your Data",
+          "body": "We use the information you submit solely to respond to your inquiry, prepare a quote, and discuss your project. We do not sell or rent your personal data to third parties."
+        },
+        "dataSharing": {
+          "title": "Data Sharing",
+          "body": "Contact form submissions are processed through EmailJS, a third-party email delivery service, solely to deliver your message to us by email. We do not share your data with any other third party for marketing purposes."
+        },
+        "cookies": {
+          "title": "Cookies & Local Storage",
+          "body": "This site uses your browser's local storage to remember your theme preference (light/dark) and language choice (English/French). No advertising or tracking cookies are used."
+        },
+        "retention": {
+          "title": "Data Retention",
+          "body": "We retain contact form submissions only as long as necessary to respond to your inquiry and, if you become a client, for the duration of our working relationship plus any period required by applicable law."
+        },
+        "rights": {
+          "title": "Your Rights",
+          "body": "You may request access to, correction of, or deletion of your personal data at any time by contacting us at ouledelabd.mohamed@gmail.com. Depending on your location, you may have additional rights under applicable data protection law (such as Morocco's Law 09-08 or the EU's GDPR)."
+        },
+        "security": {
+          "title": "Security",
+          "body": "We use Cloudflare Turnstile to protect our contact form from spam and abuse. Reasonable technical measures are in place to protect the data you share with us."
+        },
+        "contact": {
+          "title": "Contact",
+          "body": "For any question about this policy, contact us at ouledelabd.mohamed@gmail.com."
+        }
       }
     }
   }
