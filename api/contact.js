@@ -28,6 +28,10 @@ export default async function handler(req, res) {
     return res.status(200).json({ success: true });
   } catch (error) {
     console.error("EmailJS send failed:", error);
-    return res.status(502).json({ error: "Failed to send email" });
+    // TEMP: surface the underlying error to diagnose the 502 in production.
+    return res.status(502).json({
+      error: "Failed to send email",
+      detail: error?.text || error?.message || String(error),
+    });
   }
 }
