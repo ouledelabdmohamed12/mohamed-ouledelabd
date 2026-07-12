@@ -2,7 +2,7 @@ import {
     motion,
     AnimatePresence,
 } from 'framer-motion';
-import { CheckCircle, X, Sparkles } from 'lucide-react';
+import { Check, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const SuccessModel = ({showSuccess, setShowSuccess, isDarkMode}) => {
@@ -14,44 +14,47 @@ const SuccessModel = ({showSuccess, setShowSuccess, isDarkMode}) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+                className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md"
                 onClick={() => setShowSuccess(false)}
             >
                 <motion.div
-                    initial={{ scale: 0.8, opacity: 0, y: 20 }}
+                    initial={{ scale: 0.92, opacity: 0, y: 16 }}
                     animate={{ scale: 1, opacity: 1, y: 0 }}
-                    exit={{ scale: 0.8, opacity: 0, y: 20 }}
-                    transition={{ type: "spring", duration: 0.5 }}
-                    className={`relative p-8 rounded-2xl max-w-sm w-full text-center ${
+                    exit={{ scale: 0.92, opacity: 0, y: 16 }}
+                    transition={{ type: "spring", duration: 0.5, bounce: 0.25 }}
+                    className={`relative p-10 rounded-3xl max-w-sm w-full text-center border shadow-2xl ${
                         isDarkMode
-                            ? 'bg-gray-800 border-gray-700'
-                            : 'bg-white border-gray-200'
+                            ? 'bg-[#0a0c10] border-white/10'
+                            : 'bg-white border-gray-100'
                     }`}
                     onClick={(e) => e.stopPropagation()}
                 >
                     <button
                         onClick={() => setShowSuccess(false)}
-                        className={`absolute top-4 right-4 p-1 rounded-full transition-colors ${
-                            isDarkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'
+                        className={`absolute top-5 right-5 p-1.5 rounded-full transition-colors cursor-pointer ${
+                            isDarkMode ? 'text-gray-500 hover:text-white hover:bg-white/10' : 'text-gray-400 hover:text-gray-900 hover:bg-gray-100'
                         }`}
                     >
-                        <X size={18} />
+                        <X size={16} />
                     </button>
 
                     <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
-                        transition={{ type: "spring", delay: 0.2 }}
-                        className="mx-auto w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-6"
+                        transition={{ type: "spring", delay: 0.15 }}
+                        className="relative mx-auto w-16 h-16 flex items-center justify-center mb-7"
                     >
-                        <CheckCircle size={32} className="text-white" />
+                        <span className="absolute inset-0 rounded-full bg-[#2B8CA6]/15 animate-ping" />
+                        <span className="relative w-16 h-16 rounded-full bg-[#2B8CA6] flex items-center justify-center">
+                            <Check size={28} strokeWidth={2.75} className="text-white" />
+                        </span>
                     </motion.div>
 
                     <motion.h3
-                        initial={{ y: 10, opacity: 0 }}
+                        initial={{ y: 8, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.3 }}
-                        className="text-2xl font-medium mb-4"
+                        transition={{ delay: 0.25 }}
+                        className="text-2xl font-semibold tracking-tight mb-3"
                     >
                         {t("contact.success.title")}
                     </motion.h3>
@@ -59,22 +62,25 @@ const SuccessModel = ({showSuccess, setShowSuccess, isDarkMode}) => {
                     <motion.p
                         initial={{ y: 10, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.4 }}
-                        className={`${
+                        transition={{ delay: 0.35 }}
+                        className={`leading-relaxed mb-8 ${
                             isDarkMode ? 'text-gray-400' : 'text-gray-600'
-                        } mb-6`}
+                        }`}
                     >
                         {t("contact.success.text")}
                     </motion.p>
 
-                    <motion.div
-                        initial={{ scale: 0, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{ delay: 0.5 }}
-                        className="flex justify-center"
+                    <motion.button
+                        initial={{ y: 10, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.45 }}
+                        whileHover={{ y: -2 }}
+                        whileTap={{ scale: 0.98 }}
+                        onClick={() => setShowSuccess(false)}
+                        className="w-full bg-[#2B8CA6] hover:bg-[#217485] text-white py-3.5 rounded-full text-xs uppercase tracking-[0.2em] font-semibold transition-colors cursor-pointer"
                     >
-                        <Sparkles size={24} className="text-yellow-500" />
-                    </motion.div>
+                        {t("contact.success.close")}
+                    </motion.button>
                 </motion.div>
             </motion.div>
         )}
