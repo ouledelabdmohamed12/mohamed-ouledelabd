@@ -1,130 +1,105 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
 import { PROJECTS } from "../../utils/data";
 import { containeVariants, itemVariants } from "../../utils/helper";
 import ProjectCard from "../ProjectCard";
+import ProjectModal from "../ProjectModal";
 
-const ProjectsSection = () => {
+const ProjectsSection = ({ limit } = {}) => {
   const { isDarkMode } = useTheme();
+  const { t } = useTranslation();
+  const navigate = useNavigate();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const [activeIndex, setActiveIndex] = useState(null);
 
-  const scrollRef = useRef(null); 
-  const carouselRef = useRef(null); 
-  const [width, setWidth] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+  const items = limit
+    ? [...PROJECTS].sort((a, b) => (b.featured === a.featured ? 0 : b.featured ? 1 : -1)).slice(0, limit)
+    : PROJECTS;
 
-  useEffect(() => {
-    const checkMobileAndWidth = () => {
-      const mobile = window.innerWidth < 768;
-      setIsMobile(mobile);
-
-      if (carouselRef.current && scrollRef.current) {
-        // On calcule la différence entre la largeur totale du contenu 
-        // et la largeur visible de la fenêtre
-        const scrollWidth = carouselRef.current.scrollWidth;
-        const offsetWidth = scrollRef.current.offsetWidth;
-        
-        // On ajoute un petit buffer (100px) pour ne pas coller au bord à la fin
-        setWidth(scrollWidth - offsetWidth + 100);
-      }
-    };
-
-    // On attend un court instant (100ms) pour que le rendu initial et les images 
-    // soient pris en compte dans le calcul du scrollWidth
-    const timer = setTimeout(checkMobileAndWidth, 100);
-
-    window.addEventListener("resize", checkMobileAndWidth);
-    return () => {
-      window.removeEventListener("resize", checkMobileAndWidth);
-      clearTimeout(timer);
-    };
-  }, [isMobile, PROJECTS]); // Recalculer si les projets changent
+  const handleNavigate = (dir) =>
+    setActiveIndex((i) => (i + dir + items.length) % items.length);
 
   return (
     <section
       id="work"
-      className={`py-24 relative overflow-hidden transition-colors duration-500 ${
-        isDarkMode ? "bg-[#0a0c10] text-white" : "bg-gray-50 text-gray-900"
+      ref={sectionRef}
+      className={`py-28 px-6 transition-colors duration-500 ${
+        isDarkMode ? "bg-[#0a0c10] text-white" : "bg-white text-gray-900"
       }`}
     >
-      {/* Glow Effect */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className={`absolute top-20 left-1/4 w-96 h-96 rounded-full blur-[120px] opacity-[0.03] ${isDarkMode ? "bg-[#ccff00]" : "bg-yellow-400"}`} />
-      </div>
-
-      <div className="max-w-[100vw] relative z-10">
-        
-        {/* --- HEADER --- */}
+      <div className="max-w-5xl mx-auto">
+        {/* Header */}
         <motion.div
-          ref={sectionRef}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={containeVariants}
-          className="text-center mb-16 px-6"
-        >
-          <motion.div 
-            variants={itemVariants} 
-            className={`text-xs uppercase tracking-[0.4em] font-bold mb-6 ${isDarkMode ? "text-gray-500" : "text-gray-400"}`}
-          >
-            Études de Cas
-          </motion.div>
-          <motion.h2 
-            variants={itemVariants} 
-            className="text-4xl md:text-7xl font-bold mb-8 tracking-tight"
-          >
-            Mes <span className="text-[#ccff00]">Réalisations</span>
-          </motion.h2>
-          <motion.p 
-            variants={itemVariants} 
-            className={`text-base md:text-lg ${isDarkMode ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto font-light leading-relaxed`}
-          >
-            {isMobile 
-              ? "Découvrez mes projets ci-dessous." 
-              : "Cliquez et faites glisser pour explorer les projets."}
-          </motion.p>
-        </motion.div>
-
-        {/* --- ZONE DE DRAG --- */}
-        <div 
-          ref={scrollRef} 
-          className={`relative ${isMobile ? "px-6" : "overflow-hidden px-20 cursor-grab active:cursor-grabbing"}`}
+          className="text-center mb-20"
         >
           <motion.div
-            ref={carouselRef}
-            // Active le drag uniquement sur Desktop
-            drag={isMobile ? false : "x"}
-            dragConstraints={{ right: 0, left: -width }}
-            dragElastic={0.15}
-            // Empêche le drag de bloquer le scroll vertical sur les navigateurs tactiles
-            dragMomentum={true}
-            className={`${
-              isMobile 
-              ? "flex flex-col gap-12" 
-              : "flex gap-10 w-max py-10" // w-max est indispensable pour que le carousel ne se réduise pas
+            variants={itemVariants}
+            className={`text-xs uppercase tracking-[0.4em] font-semibold mb-6 ${
+              isDarkMode ? "text-gray-500" : "text-gray-400"
             }`}
           >
-            {PROJECTS.map((project, index) => (
-              <motion.div 
-                key={project.id} 
-                // Empêche la sélection de texte ou d'images pendant le drag sur desktop
-                className={`${
-                  isMobile 
-                  ? "w-full" 
-                  : "w-[85vw] md:w-[500px] xl:w-[600px] flex-shrink-0 select-none pointer-events-none md:pointer-events-auto"
-                }`}
-              >
-                <ProjectCard 
-                  project={project} 
-                  index={index} 
-                  isDarkMode={isDarkMode} 
-                />
-              </motion.div>
-            ))}
+            {t("projects.badge")}
           </motion.div>
-        </div>
+          <motion.h2
+            variants={itemVariants}
+            className="text-4xl md:text-6xl font-semibold mb-6 tracking-tight"
+          >
+            {t("projects.title")} <span className="text-[#2B8CA6]">{t("projects.titleAccent")}</span>
+          </motion.h2>
+        </motion.div>
+
+        {/* Alternating project blocks */}
+        <motion.div
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={containeVariants}
+          className="space-y-24 md:space-y-32"
+        >
+          {items.map((project, index) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              index={index}
+              isDarkMode={isDarkMode}
+              onOpen={setActiveIndex}
+            />
+          ))}
+        </motion.div>
+
+        {limit && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            className="text-center mt-20"
+          >
+            <button
+              onClick={() => navigate("/work")}
+              className={`inline-flex items-center gap-1.5 text-sm font-semibold border-b pb-0.5 transition-colors ${
+                isDarkMode
+                  ? "border-white/20 hover:border-[#2B8CA6] hover:text-[#2B8CA6]"
+                  : "border-gray-300 hover:border-[#2B8CA6] hover:text-[#2B8CA6]"
+              }`}
+            >
+              {t("projects.seeAll")} <ArrowUpRight size={15} />
+            </button>
+          </motion.div>
+        )}
       </div>
+
+      <ProjectModal
+        projects={items}
+        index={activeIndex}
+        onClose={() => setActiveIndex(null)}
+        onNavigate={handleNavigate}
+      />
     </section>
   );
 };

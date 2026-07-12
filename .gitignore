@@ -11,6 +11,11 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
+.env.local
+
+# Personal Claude Code overrides (not shared)
+.claude/settings.local.json
 
 # Editor directories and files
 .vscode/*

@@ -1,0 +1,15 @@
+<svg width="230" height="175" viewBox="0 0 230 175" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Koda Atlas">
+  <title>Koda Atlas</title>
+  <defs>
+    <mask id="koda-valley">
+      <rect x="0" y="0" width="230" height="175" fill="white"/>
+      <path d="M55 150 L95 95 L118 120 L152 70" fill="none" stroke="black" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+    </mask>
+  </defs>
+  <!-- Grande montagne (contour indigo) -->
+  <path d="M10 150 L150 30 L215 150 Z" fill="none" stroke="#2B8CA6" stroke-width="10" stroke-linejoin="round"/>
+  <!-- Pic avant rempli, avec la vallée "code" découpée -->
+  <path d="M45 150 L100 20 L158 150 Z" fill="#2B8CA6" mask="url(#koda-valley)"/>
+  <!-- Sommet enneigé -->
+  <path d="M100 20 L116 58 L84 58 Z" fill="#C9C3FF"/>
+</svg>

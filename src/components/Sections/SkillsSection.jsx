@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { useTheme } from "../../context/ThemeContext";
 import { SKILLS_CATEGORY, STATS } from "../../utils/data";
 import { containeVariants, itemVariants } from "../../utils/helper";
@@ -37,6 +38,7 @@ const TECH_ICONS = [
 
 const SkillsSection = () => {
   const { isDarkMode } = useTheme();
+  const { t } = useTranslation();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
@@ -63,14 +65,14 @@ const SkillsSection = () => {
                 isDarkMode ? "text-gray-500" : "text-gray-400"
             } mb-6`}
           >
-            Technical Expertise
+            {t("skills.badge")}
           </motion.div>
-          <motion.h2 
-            variants={itemVariants} 
-            className="text-5xl md:text-7xl font-bold mb-8 leading-tight tracking-tight"
+          <motion.h2
+            variants={itemVariants}
+            className="text-5xl md:text-7xl font-semibold mb-8 leading-tight tracking-tight"
           >
-            Skills &
-            <span className="text-[#ccff00]"> Technologies</span>
+            {t("skills.titleA")}
+            <span className="text-[#2B8CA6]"> {t("skills.titleAccent")}</span>
           </motion.h2>
           <motion.p
             variants={itemVariants}
@@ -78,7 +80,7 @@ const SkillsSection = () => {
               isDarkMode ? "text-gray-400" : "text-gray-600"
             } max-w-2xl mx-auto font-light leading-relaxed`}
           >
-            A comprehensive toolkit for building modern, scalable web applications from concept to deployment.
+            {t("skills.subtitle")}
           </motion.p>
         </motion.div>
 
@@ -125,7 +127,7 @@ const SkillsSection = () => {
         >
           {SKILLS_CATEGORY.map((category) => (
             <motion.div
-              key={category.title}
+              key={category.id}
               variants={itemVariants}
               className={`p-10 rounded-3xl border ${
                 isDarkMode ? "bg-[#111418] border-white/5" : "bg-white border-gray-100 shadow-xl"
@@ -133,12 +135,14 @@ const SkillsSection = () => {
             >
               <div className="flex items-start mb-8">
                 <div className={`p-4 rounded-2xl ${isDarkMode ? "bg-white/5" : "bg-gray-100"} mr-6`}>
-                  <category.icon size={28} className="text-[#ccff00]" />
+                  <category.icon size={28} className="text-[#2B8CA6]" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-semibold mb-2 tracking-tight">{category.title}</h3>
+                  <h3 className="text-2xl font-semibold mb-2 tracking-tight">
+                    {t(`skills.categories.${category.id}.title`)}
+                  </h3>
                   <p className={`text-base ${isDarkMode ? "text-gray-400" : "text-gray-600"} font-light`}>
-                    {category.description}
+                    {t(`skills.categories.${category.id}.description`)}
                   </p>
                 </div>
               </div>
@@ -150,7 +154,7 @@ const SkillsSection = () => {
                     key={skill.name}
                     className={`px-4 py-2 text-xs font-bold rounded-lg border transition-all duration-300 ${
                       isDarkMode 
-                        ? "bg-[#ccff00]/5 border-[#ccff00]/10 text-[#ccff00] hover:bg-[#ccff00]/10 hover:border-[#ccff00]/30" 
+                        ? "bg-[#2B8CA6]/5 border-[#2B8CA6]/10 text-[#2B8CA6] hover:bg-[#2B8CA6]/10 hover:border-[#2B8CA6]/30" 
                         : "bg-gray-100 text-gray-800 border-gray-200"
                     }`}
                   >
@@ -170,18 +174,18 @@ const SkillsSection = () => {
           className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-5xl mx-auto"
         >
           {STATS.map((stat) => (
-            <motion.div 
-              key={stat.label} 
-              variants={itemVariants} 
+            <motion.div
+              key={stat.id}
+              variants={itemVariants}
               className="text-center flex flex-col items-center justify-center"
             >
-              <div className="text-4xl md:text-5xl font-bold text-[#ccff00] mb-2 tracking-tighter">
+              <div className="text-4xl md:text-5xl font-bold text-[#2B8CA6] mb-2 tracking-tighter">
                 {stat.number}
               </div>
               <div className={`text-[10px] uppercase tracking-[0.2em] font-bold ${
                 isDarkMode ? "text-gray-500" : "text-gray-400"
               }`}>
-                {stat.label}
+                {t(`skills.stats.${stat.id}`)}
               </div>
             </motion.div>
           ))}

@@ -3,8 +3,10 @@ import {
     AnimatePresence,
 } from 'framer-motion';
 import { CheckCircle, X, Sparkles } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const SuccessModel = ({showSuccess, setShowSuccess, isDarkMode}) => {
+  const { t } = useTranslation();
   return (
     <AnimatePresence>
         {showSuccess && (
@@ -12,7 +14,7 @@ const SuccessModel = ({showSuccess, setShowSuccess, isDarkMode}) => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 z-50 flex items-center justify-center p-4 bg_black/50 backdrop-blur-sm"
+                className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
                 onClick={() => setShowSuccess(false)}
             >
                 <motion.div
@@ -51,7 +53,7 @@ const SuccessModel = ({showSuccess, setShowSuccess, isDarkMode}) => {
                         transition={{ delay: 0.3 }}
                         className="text-2xl font-medium mb-4"
                     >
-                        Message Sent!
+                        {t("contact.success.title")}
                     </motion.h3>
 
                     <motion.p
@@ -62,7 +64,7 @@ const SuccessModel = ({showSuccess, setShowSuccess, isDarkMode}) => {
                             isDarkMode ? 'text-gray-400' : 'text-gray-600'
                         } mb-6`}
                     >
-                        Thank you for reaching out! I'll get back to you within 24 hours.
+                        {t("contact.success.text")}
                     </motion.p>
 
                     <motion.div

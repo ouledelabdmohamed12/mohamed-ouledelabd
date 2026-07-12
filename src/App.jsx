@@ -1,27 +1,48 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import { ThemeProvider } from './context/ThemeContext'
+import { useSmoothScroll } from './hooks/useSmoothScroll'
 import Navbar from './components/Navbar'
-import HeroSection from './components/Sections/HeroSection'
-import SkillsSection from './components/Sections/SkillsSection'
-import ProjectsSection from './components/Sections/ProjectsSection'
-import AboutSection from './components/Sections/AboutSection'
-import ContactSection from './components/Sections/ContactSection'
 import Footer from './components/Footer'
+import CustomCursor from './components/CustomCursor'
+import HomePage from './pages/HomePage'
+import ServicesPage from './pages/ServicesPage'
+import WorkPage from './pages/WorkPage'
+import PricingPage from './pages/PricingPage'
+import AboutPage from './pages/AboutPage'
+import ContactPage from './pages/ContactPage'
+
+// Reset scroll to the top on every route change.
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useLayoutEffect(() => {
+    if (window.__lenis) window.__lenis.scrollTo(0, { immediate: true });
+    else window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
 
 const App = () => {
+  useSmoothScroll();
+
   return (
     <ThemeProvider>
+      <ScrollToTop />
+      <CustomCursor />
       <div className="relative">
         <Navbar />
-        <HeroSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <AboutSection />
-        <ContactSection />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/work" element={<WorkPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<HomePage />} />
+        </Routes>
         <Footer />
       </div>
     </ThemeProvider>
-    
   )
 }
 

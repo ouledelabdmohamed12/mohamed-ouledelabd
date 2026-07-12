@@ -1,0 +1,300 @@
+{
+  "common": {
+    "optional": "facultatif"
+  },
+  "nav": {
+    "home": "Accueil",
+    "skills": "Compétences",
+    "services": "Services",
+    "work": "Réalisations",
+    "pricing": "Tarifs",
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "lang": {
+    "switch": "Changer de langue",
+    "en": "EN",
+    "fr": "FR"
+  },
+  "hero": {
+    "badge": "Création de Sites Web & Applications",
+    "title1": "Je construis des",
+    "titleAccent": "expériences",
+    "title2": "numériques marquantes",
+    "subtitle": "Je conçois et développe des applications web et mobiles sur-mesure. Transformez vos idées en solutions numériques performantes, intuitives et scalables, conçues pour marquer les esprits.",
+    "ctaProjects": "Découvrir mes Projets",
+    "ctaContact": "Me Contacter",
+    "scroll": "Faites défiler pour explorer"
+  },
+  "skills": {
+    "badge": "Expertise Technique",
+    "titleA": "Compétences &",
+    "titleAccent": "Technologies",
+    "subtitle": "Une boîte à outils complète pour créer des applications web modernes et scalables, du concept au déploiement.",
+    "categories": {
+      "frontend": {
+        "title": "Frontend & Mobile",
+        "description": "Création d'interfaces modernes et applications mobiles performantes pour le marché marocain."
+      },
+      "backend": {
+        "title": "Backend & Solutions Métiers",
+        "description": "Architecture robuste pour automatiser la gestion de votre entreprise (ERP, CRM, Tableaux de bord)."
+      },
+      "database": {
+        "title": "Bases de Données & Data",
+        "description": "Conception et optimisation de bases de données sécurisées pour une gestion fiable de vos actifs."
+      },
+      "devops": {
+        "title": "DevOps & Assurance Qualité",
+        "description": "Déploiement continu et tests rigoureux pour garantir la disponibilité de vos services 24/7."
+      }
+    },
+    "stats": {
+      "delivery": "Respect des Délais",
+      "projects": "Projets Déployés",
+      "support": "Support Technique",
+      "quality": "Compromis Qualité"
+    }
+  },
+  "projects": {
+    "badge": "Études de Cas",
+    "title": "Mes",
+    "titleAccent": "Réalisations",
+    "subtitleMobile": "Découvrez mes projets ci-dessous.",
+    "subtitleDesktop": "Cliquez et faites glisser pour explorer les projets.",
+    "featured": "À la une",
+    "seeAll": "Voir tous mes projets",
+    "demo": "Démo",
+    "github": "GitHub",
+    "openProject": "Voir le projet",
+    "projectOf": "Projet {{current}} sur {{total}}",
+    "code": "Code",
+    "items": {
+      "p1": {
+        "title": "Plateforme Gestion d'hôtel",
+        "description": "Une application de gestion d'hôtel développée en C# avec une base de données MySQL. Elle permet la gestion des chambres, des clients, des réservations et des revenus en temps réel."
+      },
+      "p2": {
+        "title": "Dashboard EyeGuard",
+        "description": "Interface de surveillance intelligente construite avec Python. Elle affiche des flux vidéo, détecte les mouvements et génère des alertes de sécurité grâce à un tableau de bord moderne."
+      },
+      "p3": {
+        "title": "Plateforme Gestion de Stock",
+        "description": "Un tableau de bord web en PHP pour la gestion de stock, permettant de suivre les produits, les commandes, les fournisseurs et l'état du stock en temps réel."
+      },
+      "p4": {
+        "title": "Système de Pointage IA (Reconnaissance faciale)",
+        "description": "Un système de pointage intelligent basé sur la reconnaissance faciale utilisant Django, Python et OpenCV. Il enregistre automatiquement la présence via webcam et inclut une interface de gestion des pointages, employés ou étudiants."
+      },
+      "p5": {
+        "title": "Système de Gestion d'Hôpital",
+        "description": "Une application de bureau construite avec Java et JavaFX permettant la gestion des patients, médecins, rendez-vous, dossiers médicaux et historiques de traitement dans un environnement intuitif et sécurisé."
+      },
+      "p6": {
+        "title": "Gestion des Rendez-vous Médicaux",
+        "description": "Une solution Fullstack de prise de rendez-vous médicaux, avec une interface web en React, une API sécurisée en Spring Boot, et une application mobile Android en Java/Kotlin. Les patients réservent, modifient ou annulent leurs rendez-vous, tandis que les médecins gèrent leur planning et l'historique des consultations."
+      }
+    }
+  },
+  "about": {
+    "badge": "Découvrez mon parcours",
+    "title": "À Propos de",
+    "titleAccent": "Moi",
+    "teaser": {
+      "kicker": "Rencontrez la personne",
+      "title": "derrière le code",
+      "text": "Bonjour, je suis Mohamed — Ingénieur Logiciel à Marrakech, je conçois et développe des produits web et mobiles performants pour des marques qui veulent se démarquer en ligne.",
+      "cta": "En savoir plus"
+    },
+    "mission": {
+      "title": "Ma Mission",
+      "p1": "Ingénieur Logiciel diplômé (MIAGE, EMSI Marrakech), je conçois des solutions digitales qui transforment les idées en réalités technologiques concrètes et performantes.",
+      "p2": "Basé à Marrakech et mobile sur tout le Maroc (Axe Casablanca - Rabat), je construis des backends en Java / Spring Boot (API REST, JPA/Hibernate, PostgreSQL), que j'associe à des interfaces React, et je livre sur iOS/Android avec React Native — le tout conteneurisé avec Docker et Kubernetes pour une livraison fiable et scalable."
+    },
+    "build": {
+      "title": "Ce que j'aime bâtir"
+    },
+    "passions": {
+      "ux": { "title": "Expérience Utilisateur", "description": "Créer des interfaces intuitives que les utilisateurs adorent" },
+      "problem": { "title": "Résolution de Problèmes", "description": "Transformer des défis complexes en solutions élégantes" },
+      "learning": { "title": "Apprentissage Continu", "description": "Toujours explorer de nouvelles technologies et bonnes pratiques" }
+    },
+    "signature": "Conçu avec passion par",
+    "journeyTitle": "Mon Parcours",
+    "journey": {
+      "j1": {
+        "title": "Projet de Fin d'Études (PFE) — Développeur Full-Stack",
+        "description": "Refonte et optimisation d'AGRISED, une application dédiée au pilotage des performances techniques et économiques des exploitations agricoles. Conception d'une solution complète Mobile & API pour la collecte de données terrain et le calcul automatisé d'indicateurs (marge brute, productivité, agroécoloscore), avec tableaux de bord de restitution. Stack : Spring Boot, React Native, PostgreSQL, Docker, Agile/Scrum."
+      },
+      "j2": {
+        "title": "Stagiaire en développement fullstack web",
+        "description": "Conception et développement de Norsys Eval, une plateforme SaaS avec site marketing et gestion des abonnements en ligne. Réalisation d'un Front Office moderne en React et d'un Back Office d'administration, authentification sécurisée et gestion des rôles avec Keycloak, intégration du paiement PayPal et automatisation de l'analyse de code avec SonarQube. Méthodologie Agile/Scrum en sprints de deux semaines."
+      },
+      "j3": {
+        "title": "Stagiaire en développement fullstack web",
+        "description": "Conception et développement d'une plateforme de gestion de bibliothèque (emprunts, retours et réservations) pour la Faculté des Lettres et Sciences Humaines. Réalisation d'une solution intuitive et efficace pour faciliter la gestion des ressources, en collaboration étroite avec les équipes pour répondre aux besoins spécifiques de la bibliothèque."
+      },
+      "j4": {
+        "title": "Diplôme d'Ingénieur en Informatique et Réseaux (Option MIAGE)",
+        "description": "Formation d'ingénieur axée sur le développement logiciel, l'administration des réseaux, l'architecture des systèmes, l'intelligence artificielle et la gestion de projets informatiques. Acquisition de compétences avancées pour concevoir, développer et sécuriser des solutions technologiques."
+      },
+      "j5": {
+        "title": "Technicien Spécialisé en Infrastructure Digitale — Développement Informatique",
+        "description": "Formation axée sur l'administration des systèmes, la gestion des réseaux informatiques, la virtualisation, la cybersécurité et le support technique. Acquisition de compétences pratiques pour déployer et maintenir des infrastructures digitales sécurisées."
+      }
+    },
+    "ctaText": "Prêt à concrétiser vos idées technologiques ?",
+    "ctaButton": "Collaborons ensemble"
+  },
+  "contact": {
+    "badge": "Collaborons ensemble",
+    "title": "Parlons de votre",
+    "titleAccent": "Projet",
+    "subtitleBefore": "Basé à ",
+    "location": "Marrakech",
+    "subtitleAfter": ", je vous accompagne dans la digitalisation de votre activité partout au Maroc avec des solutions sur-mesure.",
+    "form": {
+      "title": "Envoyez-moi un message",
+      "name": "Votre Nom",
+      "email": "Adresse Email",
+      "phone": "Téléphone",
+      "website": "Votre site web",
+      "message": "Votre Message",
+      "send": "Envoyer le message",
+      "sending": "Envoi...",
+      "error": "Veuillez remplir tous les champs.",
+      "errorGeneric": "Une erreur s'est produite. Veuillez réessayer plus tard.",
+      "captchaError": "Merci de valider la vérification ci-dessous."
+    },
+    "infoTitle": "Informations de Contact",
+    "followTitle": "Me Suivre",
+    "info": {
+      "location": "Localisation",
+      "email": "Email",
+      "phone": "Téléphone"
+    },
+    "availability": {
+      "badge": "Disponible immédiatement",
+      "text": "Je suis actuellement ouvert aux opportunités en CDI ou pour des missions en Freelance. Donnons vie à vos idées."
+    },
+    "success": {
+      "title": "Message Envoyé !",
+      "text": "Merci de m'avoir contacté ! Je vous répondrai sous 24 heures."
+    }
+  },
+  "footer": {
+    "description": "Ingénieur Logiciel (MIAGE, EMSI). Je conçois des solutions digitales sur-mesure pour accompagner la transformation numérique des entreprises au Maroc.",
+    "available": "Disponible dès maintenant",
+    "locations": "Marrakech — Casablanca — Rabat",
+    "navTitle": "Navigation",
+    "socialTitle": "Réseaux",
+    "copyright": "Mohamed Ouledelabd",
+    "madeBy": "Code & Design par Koda Atlas"
+  },
+  "services": {
+    "badge": "Ce que je fais",
+    "title": "Services &",
+    "titleAccent": "Solutions",
+    "subtitle": "De la première landing page à l'application sur-mesure — tout ce qu'il faut pour mettre votre projet en ligne.",
+    "cta": "Démarrer un projet",
+    "items": {
+      "web": {
+        "title": "Création de Sites Web",
+        "description": "Des sites sur-mesure et performants — de la landing page au site vitrine complet — pensés pour convertir vos visiteurs en clients."
+      },
+      "improve": {
+        "title": "Amélioration de Sites",
+        "description": "Refonte, accélération et optimisation d'un site existant : performance, SEO, design moderne et expérience mobile-first."
+      },
+      "chatbot": {
+        "title": "Intégration de Chatbots IA",
+        "description": "Des assistants IA personnalisés intégrés à votre site ou application pour répondre aux clients et capter des prospects 24/7."
+      },
+      "mobile": {
+        "title": "Applications Mobiles",
+        "description": "Applications Android/iOS natives et multi-plateformes (React Native, Flutter, Kotlin) conçues pour votre activité."
+      },
+      "webapp": {
+        "title": "Applications Web",
+        "description": "Tableaux de bord, ERP, CRM et plateformes SaaS avec API sécurisées et architecture scalable."
+      }
+    }
+  },
+  "pricing": {
+    "badge": "Tarifs transparents",
+    "title": "Le coût de votre",
+    "titleAccent": "projet",
+    "subtitle": "Chaque projet est différent. Ce calculateur donne une première estimation — le prix exact se définit ensemble lors d'un échange.",
+    "process": {
+      "title": "Comment votre projet prend vie",
+      "steps": {
+        "discovery": { "title": "Découverte", "description": "Comprendre votre marque, votre audience et vos objectifs pour que le site parle aux bonnes personnes." },
+        "content": { "title": "Contenu & Structure", "description": "Définir les pages, le contenu et les fonctionnalités dont votre projet a réellement besoin." },
+        "design": { "title": "Design", "description": "Créer une direction visuelle qui correspond à votre marque et marque les esprits." },
+        "development": { "title": "Développement", "description": "Construire un site ou une application rapide, responsive et prête pour la production." },
+        "launch": { "title": "Lancement & Suivi", "description": "Mise en ligne, avec une passation claire et un suivi après le lancement." }
+      }
+    },
+    "regionLabel": "Tarifs pour",
+    "regions": {
+      "MA": "Maroc",
+      "EU": "Europe",
+      "US": "USA"
+    },
+    "baseTitle": "Base",
+    "baseSubtitle": "La fondation de chaque site web",
+    "included": {
+      "design": { "title": "Design sur-mesure", "desc": "Adapté à votre marque et votre audience" },
+      "responsive": { "title": "Tous les écrans", "desc": "Mobile, tablette et ordinateur" },
+      "animations": { "title": "Animations & Interactions", "desc": "Pour donner vie à votre site" },
+      "home": { "title": "Page d'accueil", "desc": "Votre marque au premier regard" },
+      "legal": { "title": "Pages légales", "desc": "Mentions légales et confidentialité" }
+    },
+    "pagesLabel": "Nombre de pages",
+    "pagesHint": "Combien de pages doit contenir votre site ?",
+    "addonsTitle": "Options",
+    "addons": {
+      "form": { "title": "Formulaire de contact", "desc": "Pour que vos clients vous joignent directement" },
+      "cms": { "title": "Gestion de contenu", "desc": "Modifiez le contenu vous-même, sans code" },
+      "multilang": { "title": "Multilingue", "desc": "Pour que chaque visiteur comprenne votre site" },
+      "logo": { "title": "Logo & Identité", "desc": "Pas encore de logo ? J'en crée un qui vous ressemble" },
+      "chatbot": { "title": "Chatbot IA", "desc": "Un assistant intelligent qui répond à vos clients 24/7" },
+      "ecommerce": { "title": "E-commerce", "desc": "Vendez vos produits en ligne en toute sécurité" }
+    },
+    "fromLabel": "à partir de",
+    "totalLabel": "Estimation totale",
+    "cta": "Me contacter",
+    "disclaimer": "Tous les montants sont indicatifs. Je prépare un devis sur-mesure après un premier échange."
+  },
+  "faq": {
+    "badge": "Bon à savoir",
+    "title": "Questions",
+    "titleAccent": "fréquentes",
+    "items": {
+      "cost": {
+        "q": "Combien coûte un site web ?",
+        "a": "Cela dépend de vos besoins. Un site simple démarre au prix de base ci-dessus ; le calculateur donne une première estimation et je vous envoie un devis sur-mesure après un court échange."
+      },
+      "start": {
+        "q": "De quoi ai-je besoin pour commencer ?",
+        "a": "Juste votre idée et vos objectifs. Si vous avez un logo, des textes ou des images, parfait — sinon, je peux vous aider à les créer."
+      },
+      "time": {
+        "q": "Combien de temps prend un projet ?",
+        "a": "Un site vitrine prend généralement 1 à 3 semaines ; les applications plus larges dépendent du périmètre. Je vous donne un planning clair avant de démarrer."
+      },
+      "revisions": {
+        "q": "Et si le design ne me plaît pas ?",
+        "a": "On travaille par étapes. Vous voyez des aperçus tôt et les retouches sont incluses jusqu'à ce que le design vous convienne."
+      },
+      "chatbot": {
+        "q": "Pouvez-vous ajouter un chatbot IA ?",
+        "a": "Oui — j'intègre des assistants IA personnalisés, entraînés sur votre contenu, pour répondre aux clients et capter des prospects en continu."
+      },
+      "support": {
+        "q": "Proposez-vous un suivi après la mise en ligne ?",
+        "a": "Absolument. Je propose la maintenance, les mises à jour et les améliorations après le lancement, sans frais mensuels obligatoires."
+      }
+    }
+  }
+}
