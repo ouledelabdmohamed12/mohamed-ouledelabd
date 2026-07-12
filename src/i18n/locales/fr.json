@@ -179,7 +179,8 @@
     },
     "success": {
       "title": "Message Envoyé !",
-      "text": "Merci de m'avoir contacté ! Je vous répondrai sous 24 heures."
+      "text": "Merci de m'avoir contacté ! Je vous répondrai sous 24 heures.",
+      "close": "Fermer"
     }
   },
   "footer": {

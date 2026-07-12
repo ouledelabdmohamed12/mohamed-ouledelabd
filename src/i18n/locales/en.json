@@ -179,7 +179,8 @@
     },
     "success": {
       "title": "Message Sent!",
-      "text": "Thank you for reaching out! I'll get back to you within 24 hours."
+      "text": "Thank you for reaching out! I'll get back to you within 24 hours.",
+      "close": "Close"
     }
   },
   "footer": {
