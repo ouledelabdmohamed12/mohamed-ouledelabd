@@ -33,6 +33,9 @@ const ProjectModal = ({ projects, index, onClose, onNavigate }) => {
 
   const title = t(`projects.items.${project.key}.title`);
   const description = t(`projects.items.${project.key}.description`);
+  const problem = t(`projects.items.${project.key}.problem`);
+  const solution = t(`projects.items.${project.key}.solution`);
+  const impact = t(`projects.items.${project.key}.impact`);
   const hasDemo = project.liveUrl && project.liveUrl !== "#";
   const hasCode = project.githuburl && project.githuburl !== "#";
 
@@ -111,7 +114,28 @@ const ProjectModal = ({ projects, index, onClose, onNavigate }) => {
               <p className="text-base md:text-lg leading-relaxed font-light text-gray-300 max-w-2xl mb-6">
                 {description}
               </p>
-              <div className="text-xs text-gray-500 font-medium mb-8">{project.tags.join(" · ")}</div>
+              <div className="text-xs text-gray-500 font-medium mb-10">{project.tags.join(" · ")}</div>
+
+              <div className="grid sm:grid-cols-3 gap-6 mb-10 max-w-3xl">
+                <div className="p-5 rounded-xl border border-white/10">
+                  <div className="text-[10px] uppercase tracking-widest font-semibold text-[#2B8CA6] mb-2">
+                    {t("projects.caseStudy.problem")}
+                  </div>
+                  <p className="text-sm leading-relaxed text-gray-300 font-light">{problem}</p>
+                </div>
+                <div className="p-5 rounded-xl border border-white/10">
+                  <div className="text-[10px] uppercase tracking-widest font-semibold text-[#2B8CA6] mb-2">
+                    {t("projects.caseStudy.solution")}
+                  </div>
+                  <p className="text-sm leading-relaxed text-gray-300 font-light">{solution}</p>
+                </div>
+                <div className="p-5 rounded-xl border border-white/10">
+                  <div className="text-[10px] uppercase tracking-widest font-semibold text-[#2B8CA6] mb-2">
+                    {t("projects.caseStudy.impact")}
+                  </div>
+                  <p className="text-sm leading-relaxed text-gray-300 font-light">{impact}</p>
+                </div>
+              </div>
 
               {hasCode && (
                 <a

@@ -12,11 +12,11 @@ import {
     MapPin,
     Phone,
     Briefcase,
-    Globe,
-    Gauge,
-    Bot,
-    Smartphone,
     LayoutDashboard,
+    ShoppingBag,
+    Rocket,
+    TrendingUp,
+    Crown,
 } from "lucide-react";
 
 import { FiGithub, FiLinkedin } from "react-icons/fi";
@@ -253,13 +253,20 @@ export const CONTACT_INFO = [
     },
 ];
 
-// Services offered (freelance). Text lives in i18n under `services.items.<id>`.
-export const SERVICES = [
-    { id: "web", icon: Globe },
-    { id: "improve", icon: Gauge },
-    { id: "chatbot", icon: Bot },
-    { id: "mobile", icon: Smartphone },
-    { id: "webapp", icon: LayoutDashboard },
+// Value-proposition highlights shown in the Services section pitch.
+// Text lives in i18n under `services.pitch.points.<id>`.
+export const SERVICE_PITCH_POINTS = [
+    { id: "shopify", icon: ShoppingBag },
+    { id: "fullstack", icon: Code2 },
+    { id: "dashboard", icon: LayoutDashboard },
+];
+
+// Pricing tiers (static comparison, no calculator). Text lives in i18n under
+// `pricing.tiers.<id>`.
+export const PRICING_TIERS = [
+    { id: "essentiel", icon: Rocket },
+    { id: "pro", icon: TrendingUp, popular: true },
+    { id: "elite", icon: Crown },
 ];
 
 // Project process steps. Text lives in i18n under `pricing.process.steps.<id>`.

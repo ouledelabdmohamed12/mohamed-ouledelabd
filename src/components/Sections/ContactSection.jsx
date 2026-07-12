@@ -9,16 +9,26 @@ import TextInput from '../Input/TextInput';
 import SuccessModel from '../SuccessModel';
 import Turnstile from '../Turnstile';
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 const ContactSection = () => {
     const { isDarkMode } = useTheme();
     const { t } = useTranslation();
+
+    const projectTypeOptions = [
+        { value: "ecommerce", label: t("contact.form.projectType.options.ecommerce") },
+        { value: "webapp", label: t("contact.form.projectType.options.webapp") },
+        { value: "dashboard", label: t("contact.form.projectType.options.dashboard") },
+    ];
 
     const [formData, setFormData] = useState({
         name: "",
         email: "",
         phone: "",
         website: "",
+        projectType: "",
         message: "",
+        company: "", // honeypot — left empty by real users, hidden from view
     });
 
     const [showSuccess, setShowSuccess] = useState(false);
@@ -44,8 +54,22 @@ const ContactSection = () => {
             return;
         }
 
+        if (!EMAIL_REGEX.test(formData.email)) {
+            setErrorMessage(t("contact.form.emailError"));
+            return;
+        }
+
         if (!captchaToken) {
             setErrorMessage(t("contact.form.captchaError"));
+            return;
+        }
+
+        // Honeypot: real visitors never see or fill this field. If it's
+        // filled, silently pretend success instead of tipping off the bot.
+        if (formData.company) {
+            setShowSuccess(true);
+            setFormData({ name: "", email: "", phone: "", website: "", projectType: "", message: "", company: "" });
+            setTimeout(() => setShowSuccess(false), 3000);
             return;
         }
 
@@ -56,7 +80,9 @@ const ContactSection = () => {
             email: formData.email,
             phone: formData.phone,
             website: formData.website,
+            projectType: formData.projectType,
             message: formData.message,
+            company: formData.company,
             title: "Koda Atlas Inquiry"
         };
 
@@ -69,7 +95,7 @@ const ContactSection = () => {
                 if (!res.ok) throw new Error("Request failed");
                 setIsSubmitting(false);
                 setShowSuccess(true);
-                setFormData({ name: "", email: "", phone: "", website: "", message: "" });
+                setFormData({ name: "", email: "", phone: "", website: "", projectType: "", message: "", company: "" });
                 setCaptchaToken(null);
                 turnstileRef.current?.reset();
                 setTimeout(() => setShowSuccess(false), 3000);
@@ -208,11 +234,35 @@ const ContactSection = () => {
                             />
                             <TextInput
                                 isDarkMode={isDarkMode}
+                                label={t("contact.form.projectType.label")}
+                                value={formData.projectType}
+                                select
+                                options={projectTypeOptions}
+                                placeholder={t("contact.form.projectType.placeholder")}
+                                optional
+                                handleInpuChange={(text) => handleInputChange('projectType', text)}
+                            />
+                            <TextInput
+                                isDarkMode={isDarkMode}
                                 label={t("contact.form.message")}
                                 value={formData.message}
                                 textarea
                                 handleInpuChange={(text) => handleInputChange('message', text)}
                             />
+
+                            {/* Honeypot — hidden from real visitors, bots tend to fill every field */}
+                            <div className="absolute -left-[9999px] w-px h-px overflow-hidden" aria-hidden="true">
+                                <label htmlFor="company">Company</label>
+                                <input
+                                    type="text"
+                                    id="company"
+                                    name="company"
+                                    tabIndex={-1}
+                                    autoComplete="off"
+                                    value={formData.company}
+                                    onChange={(e) => handleInputChange('company', e.target.value)}
+                                />
+                            </div>
 
                             <Turnstile
                                 ref={turnstileRef}

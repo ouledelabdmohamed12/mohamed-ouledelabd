@@ -1,10 +1,9 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
-import { SERVICES } from "../../utils/data";
+import { SERVICE_PITCH_POINTS } from "../../utils/data";
 import { containeVariants, itemVariants } from "../../utils/helper";
 
 const ServicesSection = () => {
@@ -54,58 +53,54 @@ const ServicesSection = () => {
           </motion.p>
         </motion.div>
 
-        {/* Numbered list */}
+        {/* Value-proposition pitch */}
         <motion.div
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={containeVariants}
-          className={`divide-y ${isDarkMode ? "divide-white/10" : "divide-gray-200"}`}
+          className={`rounded-3xl border p-8 md:p-12 mb-20 ${
+            isDarkMode ? "border-white/10 bg-white/[0.02]" : "border-gray-200 bg-gray-50"
+          }`}
         >
-          {SERVICES.map((service, index) => (
-            <motion.button
-              key={service.id}
-              variants={itemVariants}
-              onClick={() => navigate("/contact")}
-              className="group w-full flex items-center gap-6 md:gap-10 py-8 text-left"
-            >
-              <span
-                className={`text-sm font-semibold flex-shrink-0 w-8 ${
-                  isDarkMode ? "text-gray-600" : "text-gray-300"
-                }`}
-              >
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <div className="flex-1">
-                <h3 className="text-xl md:text-2xl font-semibold mb-2 tracking-tight group-hover:text-[#2B8CA6] transition-colors">
-                  {t(`services.items.${service.id}.title`)}
-                </h3>
-                <p className={`text-sm md:text-base font-light leading-relaxed max-w-xl ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
-                  {t(`services.items.${service.id}.description`)}
-                </p>
-              </div>
-              <ArrowUpRight
-                size={22}
-                className={`flex-shrink-0 transition-all duration-300 opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 ${
-                  isDarkMode ? "text-[#2B8CA6]" : "text-gray-900"
-                }`}
-              />
-            </motion.button>
-          ))}
-        </motion.div>
-
-        {/* CTA */}
-        <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={itemVariants}
-          className="text-center mt-16"
-        >
-          <button
-            onClick={() => navigate("/contact")}
-            className="bg-[#2B8CA6] hover:bg-[#217485] text-white font-semibold px-9 py-4 rounded-full transition-colors"
+          <motion.h3
+            variants={itemVariants}
+            className="text-2xl md:text-3xl font-semibold tracking-tight mb-4"
           >
-            {t("services.cta")}
-          </button>
+            {t("services.pitch.title")}
+          </motion.h3>
+          <motion.p
+            variants={itemVariants}
+            className={`text-base md:text-lg font-light leading-relaxed max-w-2xl mb-10 ${
+              isDarkMode ? "text-gray-400" : "text-gray-600"
+            }`}
+          >
+            {t("services.pitch.description")}
+          </motion.p>
+
+          <div className="grid sm:grid-cols-3 gap-8 mb-10">
+            {SERVICE_PITCH_POINTS.map((point) => (
+              <motion.div key={point.id} variants={itemVariants} className="flex gap-4">
+                <point.icon size={22} className="text-[#2B8CA6] flex-shrink-0 mt-0.5" />
+                <div>
+                  <div className="font-semibold text-sm mb-1">
+                    {t(`services.pitch.points.${point.id}.title`)}
+                  </div>
+                  <div className={`text-sm font-light leading-relaxed ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
+                    {t(`services.pitch.points.${point.id}.description`)}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div variants={itemVariants}>
+            <button
+              onClick={() => navigate("/contact")}
+              className="bg-[#2B8CA6] hover:bg-[#217485] text-white font-semibold px-9 py-4 rounded-full transition-colors"
+            >
+              {t("common.discussCta")}
+            </button>
+          </motion.div>
         </motion.div>
       </div>
     </section>
