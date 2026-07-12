@@ -22,12 +22,12 @@ import {
 import { FiGithub, FiLinkedin } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 
-import PROJECT_IMG_1 from "../assets/images/gestion_hotel.png";
-import PROJECT_IMG_2 from "../assets/images/eyegard.png";
-import PROJECT_IMG_3 from "../assets/images/gestion_stock.png";
-import PROJECT_IMG_4 from "../assets/images/AI_presence.png";
-import PROJECT_IMG_5 from "../assets/images/gestion_hopital.png";
-import PROJECT_IMG_6 from "../assets/images/gestion_rendezVous.png";
+import PROJECT_IMG_1 from "../assets/images/gestion_hotel.webp";
+import PROJECT_IMG_2 from "../assets/images/eyegard.webp";
+import PROJECT_IMG_3 from "../assets/images/gestion_stock.webp";
+import PROJECT_IMG_4 from "../assets/images/AI_presence.webp";
+import PROJECT_IMG_5 from "../assets/images/gestion_hopital.webp";
+import PROJECT_IMG_6 from "../assets/images/gestion_rendezVous.webp";
 
 // NOTE: textual labels live in src/i18n/locales/*.json.
 // Data below keeps only structure (icons, images, links, ids) and references

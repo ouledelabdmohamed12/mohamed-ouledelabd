@@ -1,4 +1,38 @@
 {
+  "seo": {
+    "home": {
+      "title": "Koda Atlas — Web, Mobile & E-commerce Development in Marrakech",
+      "description": "Freelance studio building custom websites, Shopify stores, dashboards and mobile apps for businesses in Marrakech, Casablanca and Rabat."
+    },
+    "services": {
+      "title": "Expert E-commerce Shopify & Dashboards — Koda Atlas",
+      "description": "Shopify deployment, full-stack web apps and connected business dashboards for companies across Morocco. Get a tailored quote today."
+    },
+    "work": {
+      "title": "Portfolio & Case Studies — Koda Atlas",
+      "description": "Explore real client projects: e-commerce stores, business dashboards, and full-stack web & mobile apps built by Koda Atlas."
+    },
+    "pricing": {
+      "title": "Pricing — Shopify, Web Apps & Dashboards | Koda Atlas",
+      "description": "Compare our Essential, Pro and Elite packages for Shopify stores, web apps and dashboards. Get a tailored quote for your project."
+    },
+    "about": {
+      "title": "About Mohamed Ouledelabd — Software Engineer | Koda Atlas",
+      "description": "Software Engineer (MIAGE) based in Marrakech, building tailor-made digital solutions for businesses across Morocco."
+    },
+    "contact": {
+      "title": "Contact — Start Your Project | Koda Atlas",
+      "description": "Get in touch to discuss your e-commerce, web app or dashboard project. Based in Marrakech, serving Casablanca and Rabat."
+    },
+    "terms": {
+      "title": "Terms of Service | Koda Atlas",
+      "description": "Terms of Service for Koda Atlas — web, mobile and e-commerce development services based in Marrakech, Morocco."
+    },
+    "privacy": {
+      "title": "Privacy Policy | Koda Atlas",
+      "description": "How Koda Atlas collects, uses and protects your personal data when you use this website or contact us."
+    }
+  },
   "common": {
     "optional": "optional",
     "discussCta": "Discuss your project"

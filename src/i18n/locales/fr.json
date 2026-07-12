@@ -1,4 +1,38 @@
 {
+  "seo": {
+    "home": {
+      "title": "Koda Atlas — Sites Web, Mobile & E-commerce à Marrakech",
+      "description": "Studio freelance : sites web, boutiques Shopify, dashboards métier et applications mobiles pour les entreprises à Marrakech, Casablanca et Rabat."
+    },
+    "services": {
+      "title": "Expert Solutions E-commerce Shopify & Dashboards — Koda Atlas",
+      "description": "Déploiement Shopify, applications web full-stack et dashboards métier connectés pour les entreprises au Maroc. Devis personnalisé."
+    },
+    "work": {
+      "title": "Portfolio & Études de Cas — Koda Atlas",
+      "description": "Découvrez mes projets clients : boutiques e-commerce, dashboards métier et applications web & mobile réalisés par Koda Atlas."
+    },
+    "pricing": {
+      "title": "Tarifs — Shopify, Applications Web & Dashboards | Koda Atlas",
+      "description": "Comparez nos formules Essentiel, Pro et Elite pour boutiques Shopify, applications web et dashboards. Devis sur-mesure pour votre projet."
+    },
+    "about": {
+      "title": "À propos de Mohamed Ouledelabd — Ingénieur Logiciel | Koda Atlas",
+      "description": "Ingénieur en Informatique (MIAGE) basé à Marrakech, je conçois des solutions digitales sur-mesure pour les entreprises du Maroc."
+    },
+    "contact": {
+      "title": "Contact — Démarrer votre projet | Koda Atlas",
+      "description": "Contactez-moi pour discuter de votre projet e-commerce, application web ou dashboard. Basé à Marrakech, actif à Casablanca et Rabat."
+    },
+    "terms": {
+      "title": "Conditions Générales | Koda Atlas",
+      "description": "Conditions générales de Koda Atlas — services de développement web, mobile et e-commerce basés à Marrakech, Maroc."
+    },
+    "privacy": {
+      "title": "Politique de Confidentialité | Koda Atlas",
+      "description": "Comment Koda Atlas collecte, utilise et protège vos données personnelles sur ce site et via le formulaire de contact."
+    }
+  },
   "common": {
     "optional": "facultatif",
     "discussCta": "Discuter de votre projet"
