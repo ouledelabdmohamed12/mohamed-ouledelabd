@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { Plus } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
 import { FAQ_ITEMS } from "../../utils/data";
 import { containeVariants, itemVariants } from "../../utils/helper";
@@ -9,6 +10,7 @@ import { containeVariants, itemVariants } from "../../utils/helper";
 const FaqSection = () => {
   const { isDarkMode } = useTheme();
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   const [open, setOpen] = useState(null);
@@ -93,6 +95,20 @@ const FaqSection = () => {
               </motion.div>
             );
           })}
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={itemVariants}
+          className="text-center mt-16"
+        >
+          <button
+            onClick={() => navigate("/contact")}
+            className="bg-[#2B8CA6] hover:bg-[#217485] text-white font-semibold px-9 py-4 rounded-full transition-colors"
+          >
+            {t("common.discussCta")}
+          </button>
         </motion.div>
       </div>
     </section>

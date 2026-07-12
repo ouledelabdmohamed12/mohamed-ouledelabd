@@ -133,6 +133,13 @@ const Navbar = () => {
           >
             {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
           </motion.button>
+
+          <Link
+            to="/contact"
+            className="bg-[#2B8CA6] hover:bg-[#217485] text-white text-[11px] font-bold uppercase tracking-widest px-5 py-2.5 rounded-full transition-colors whitespace-nowrap"
+          >
+            {t("common.discussCta")}
+          </Link>
         </div>
 
         {/* --- MOBILE BUTTONS --- */}
@@ -192,6 +199,14 @@ const Navbar = () => {
               </div>
 
               <div className={`w-full h-px ${isDarkMode ? "bg-white/10" : "bg-gray-100"}`} />
+
+              <Link
+                to="/contact"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex items-center justify-center w-full bg-[#2B8CA6] hover:bg-[#217485] text-white py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest transition-colors"
+              >
+                {t("common.discussCta")}
+              </Link>
 
               <a
                 href={`https://wa.me/${CONTACT_PHONE.replace("+", "")}`}

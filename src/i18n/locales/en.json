@@ -1,6 +1,7 @@
 {
   "common": {
-    "optional": "optional"
+    "optional": "optional",
+    "discussCta": "Discuss your project"
   },
   "nav": {
     "home": "Home",
@@ -69,30 +70,53 @@
     "openProject": "Open Project",
     "projectOf": "Project {{current}} of {{total}}",
     "code": "Code",
+    "caseStudy": {
+      "problem": "The problem",
+      "solution": "The solution",
+      "impact": "The impact"
+    },
     "items": {
       "p1": {
         "title": "Hotel Management Platform",
-        "description": "A hotel management application built in C# with a MySQL database. It handles rooms, guests, bookings and real-time revenue tracking."
+        "description": "A hotel management application built in C# with a MySQL database. It handles rooms, guests, bookings and real-time revenue tracking.",
+        "problem": "The hotel managed rooms, guests and bookings manually with spreadsheets, causing double-bookings and no real-time visibility on occupancy or revenue.",
+        "solution": "A C# desktop application backed by MySQL, centralizing rooms, guests, bookings and billing in one place.",
+        "impact": "Staff track occupancy and revenue in real time, cutting manual booking errors and speeding up check-in."
       },
       "p2": {
         "title": "EyeGuard Dashboard",
-        "description": "A smart monitoring interface built with Python. It streams video, detects motion and generates security alerts through a modern dashboard."
+        "description": "A smart monitoring interface built with Python. It streams video, detects motion and generates security alerts through a modern dashboard.",
+        "problem": "The site had no affordable way to monitor its premises or get notified automatically when something unusual happened.",
+        "solution": "A surveillance dashboard streaming live video and running motion detection with OpenCV, raising alerts through a Django-powered interface.",
+        "impact": "Round-the-clock monitoring without dedicated security staff, with instant alerts on suspicious activity."
       },
       "p3": {
         "title": "Stock Management Platform",
-        "description": "A PHP web dashboard for inventory management, tracking products, orders, suppliers and stock levels in real time."
+        "description": "A PHP web dashboard for inventory management, tracking products, orders, suppliers and stock levels in real time.",
+        "problem": "Inventory, orders and suppliers were tracked manually, leading to frequent stockouts and no visibility into real stock levels.",
+        "solution": "A PHP/MySQL web dashboard centralizing products, orders, suppliers and stock levels with real-time updates.",
+        "impact": "Real-time stock visibility cut stockouts and significantly reduced inventory reconciliation time."
       },
       "p4": {
         "title": "AI Face Attendance System",
-        "description": "A smart attendance system based on facial recognition using Django, Python and OpenCV. It records presence automatically via webcam with a management interface for attendance, employees and students."
+        "description": "A smart attendance system based on facial recognition using Django, Python and OpenCV. It records presence automatically via webcam with a management interface for attendance, employees and students.",
+        "problem": "Manual attendance sign-in sheets were slow to process and easy to falsify.",
+        "solution": "A facial-recognition attendance system (Django + OpenCV) that automatically records presence via webcam, with a management interface for staff and students.",
+        "impact": "Automated, tamper-resistant attendance tracking that saves administrative time every single day."
       },
       "p5": {
         "title": "Hospital Management System",
-        "description": "A desktop application built with Java and JavaFX to manage patients, doctors, appointments, medical records and treatment history in a secure, intuitive environment."
+        "description": "A desktop application built with Java and JavaFX to manage patients, doctors, appointments, medical records and treatment history in a secure, intuitive environment.",
+        "problem": "The clinic needed a secure, unified way to manage patients, doctors, appointments and medical records without paper files.",
+        "solution": "A Java/JavaFX desktop application with a MySQL database covering patients, doctors, scheduling and treatment history.",
+        "impact": "Centralized, secure patient records and scheduling, reducing administrative overhead and errors."
       },
       "p6": {
         "title": "Medical Appointment Management",
-        "description": "A full-stack medical booking solution with a React web interface, a secure Spring Boot API, and an Android mobile app in Java/Kotlin. Patients can book, edit or cancel appointments while doctors manage their schedule and consultation history."
+        "description": "A full-stack medical booking solution with a React web interface, a secure Spring Boot API, and an Android mobile app in Java/Kotlin. Patients can book, edit or cancel appointments while doctors manage their schedule and consultation history.",
+        "problem": "Patients and doctors lacked a modern way to book, manage and track medical appointments across web and mobile.",
+        "solution": "A full-stack solution: a React web app, a secure Spring Boot API, and a native Android app (Java/Kotlin) letting patients book, edit or cancel appointments while doctors manage schedules and consultation history.",
+        "impact": "Streamlined scheduling for patients and doctors across devices, reducing no-shows and administrative back-and-forth."
       }
     }
   },
@@ -108,8 +132,8 @@
     },
     "mission": {
       "title": "My Mission",
-      "p1": "A qualified Software Engineer (MIAGE, EMSI Marrakech), I design digital solutions that turn ideas into concrete, high-performing technology.",
-      "p2": "Based in Marrakech and available across Morocco (Casablanca – Rabat axis), I build backend systems in Java / Spring Boot (REST APIs, JPA/Hibernate, PostgreSQL), pair them with React interfaces, and ship to iOS/Android with React Native — all containerized with Docker and Kubernetes for reliable, scalable delivery."
+      "p1": "A Computer Science & Networks Engineer (MIAGE) based in Marrakech, I combine technical rigor with an entrepreneurial vision to digitize your business.",
+      "p2": "A specialist in robust backend development (Java/Spring Boot), I design scalable full-stack solutions: from building high-performing e-commerce stores (Shopify & Custom) to implementing connected business dashboards. I deliver architectures built to streamline your processes and maximize your conversion."
     },
     "build": {
       "title": "What I love to build"
@@ -159,10 +183,20 @@
       "email": "Email Address",
       "phone": "Phone",
       "website": "Your website",
+      "projectType": {
+        "label": "Project type",
+        "placeholder": "Select a project type",
+        "options": {
+          "ecommerce": "E-commerce Website (Shopify or Custom)",
+          "webapp": "Web Application / SaaS",
+          "dashboard": "Dashboard & Business Back-office"
+        }
+      },
       "message": "Your Message",
       "send": "Send Message",
       "sending": "Sending...",
       "error": "Please fill in all fields.",
+      "emailError": "Please enter a valid email address.",
       "errorGeneric": "Something went wrong. Please try again later.",
       "captchaError": "Please complete the verification below."
     },
@@ -197,35 +231,30 @@
     "title": "Services &",
     "titleAccent": "Solutions",
     "subtitle": "From a first landing page to a full custom application — everything you need to bring your project online.",
-    "cta": "Start a project",
-    "items": {
-      "web": {
-        "title": "Website Development",
-        "description": "Custom, high-performing websites — from landing pages to full corporate sites — designed to convert visitors into clients."
-      },
-      "improve": {
-        "title": "Website Improvement",
-        "description": "Redesign, speed up and optimize an existing site: performance, SEO, modern design and a mobile-first experience."
-      },
-      "chatbot": {
-        "title": "AI Chatbot Integration",
-        "description": "Custom AI assistants integrated into your website or app to answer clients and capture leads 24/7."
-      },
-      "mobile": {
-        "title": "Mobile Applications",
-        "description": "Native and cross-platform Android/iOS apps (React Native, Flutter, Kotlin) built around your business."
-      },
-      "webapp": {
-        "title": "Web Applications",
-        "description": "Dashboards, ERP, CRM and SaaS platforms with secure APIs and a scalable architecture."
+    "pitch": {
+      "title": "Expert E-commerce & Custom Web Solutions",
+      "description": "Have an e-commerce project or need a high-performing business tool? I combine technical expertise and design to power your business:",
+      "points": {
+        "shopify": {
+          "title": "Shopify Deployment",
+          "description": "Turnkey stores — optimized, fast and ready to sell."
+        },
+        "fullstack": {
+          "title": "Full-Stack Development",
+          "description": "Custom solutions (React/Spring Boot) for unique functional needs."
+        },
+        "dashboard": {
+          "title": "Business Dashboards",
+          "description": "Manage your activity with ease using stock and order management tools connected to your database."
+        }
       }
     }
   },
   "pricing": {
-    "badge": "Transparent pricing",
-    "title": "What your",
-    "titleAccent": "project costs",
-    "subtitle": "Every project is different. This calculator gives a first estimate — the exact price is worked out together in a conversation.",
+    "badge": "Our offers",
+    "title": "Choose your",
+    "titleAccent": "formula",
+    "subtitle": "Three levels of support tailored to the size of your project — from a quick launch to full custom management.",
     "process": {
       "title": "How your project comes to life",
       "steps": {
@@ -236,36 +265,26 @@
         "launch": { "title": "Launch & Support", "description": "Going live, with a clear handover and support after launch." }
       }
     },
-    "regionLabel": "Prices for",
-    "regions": {
-      "MA": "Morocco",
-      "EU": "Europe",
-      "US": "USA"
+    "popular": "Most popular",
+    "tiers": {
+      "essentiel": {
+        "name": "Essential",
+        "usage": "Quick launch",
+        "features": ["Fully configured Shopify store", "Basic SEO setup"]
+      },
+      "pro": {
+        "name": "Pro",
+        "usage": "Growth",
+        "features": ["Shopify store", "Custom API integrations", "Third-party apps"]
+      },
+      "elite": {
+        "name": "Elite",
+        "usage": "Complex management",
+        "features": ["100% custom-built", "Connected business dashboard"]
+      }
     },
-    "baseTitle": "Base",
-    "baseSubtitle": "The foundation of every website",
-    "included": {
-      "design": { "title": "Custom Design", "desc": "Tailored to your brand and audience" },
-      "responsive": { "title": "All Devices", "desc": "Mobile, tablet and desktop" },
-      "animations": { "title": "Animations & Interactions", "desc": "Bringing your website to life" },
-      "home": { "title": "Home Page", "desc": "Your brand at first glance" },
-      "legal": { "title": "Legal Pages", "desc": "Legal notice and privacy policy" }
-    },
-    "pagesLabel": "Number of pages",
-    "pagesHint": "How many pages should your website have?",
-    "addonsTitle": "Add-ons",
-    "addons": {
-      "form": { "title": "Contact Form", "desc": "So clients can reach you directly" },
-      "cms": { "title": "Content Management", "desc": "Update content yourself, no code needed" },
-      "multilang": { "title": "Multiple Languages", "desc": "So every visitor understands your website" },
-      "logo": { "title": "Logo & Branding", "desc": "No logo yet? I'll craft one that fits your brand" },
-      "chatbot": { "title": "AI Chatbot", "desc": "A smart assistant that answers your clients 24/7" },
-      "ecommerce": { "title": "E-commerce", "desc": "Sell your products online securely" }
-    },
-    "fromLabel": "from",
-    "totalLabel": "Estimated total",
     "cta": "Get in touch",
-    "disclaimer": "All figures are non-binding. I'll put together a tailored quote after an initial call."
+    "disclaimer": "Every offer is tailored to your needs — we work out the exact scope and price together after an initial conversation."
   },
   "faq": {
     "badge": "Good to know",

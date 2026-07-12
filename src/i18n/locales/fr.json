@@ -1,6 +1,7 @@
 {
   "common": {
-    "optional": "facultatif"
+    "optional": "facultatif",
+    "discussCta": "Discuter de votre projet"
   },
   "nav": {
     "home": "Accueil",
@@ -69,30 +70,53 @@
     "openProject": "Voir le projet",
     "projectOf": "Projet {{current}} sur {{total}}",
     "code": "Code",
+    "caseStudy": {
+      "problem": "Le problème",
+      "solution": "La solution",
+      "impact": "L'impact"
+    },
     "items": {
       "p1": {
         "title": "Plateforme Gestion d'hôtel",
-        "description": "Une application de gestion d'hôtel développée en C# avec une base de données MySQL. Elle permet la gestion des chambres, des clients, des réservations et des revenus en temps réel."
+        "description": "Une application de gestion d'hôtel développée en C# avec une base de données MySQL. Elle permet la gestion des chambres, des clients, des réservations et des revenus en temps réel.",
+        "problem": "L'hôtel gérait chambres, clients et réservations manuellement sur tableur, causant des doubles réservations et aucune visibilité en temps réel sur l'occupation ou les revenus.",
+        "solution": "Une application de bureau en C# avec une base de données MySQL, centralisant chambres, clients, réservations et facturation.",
+        "impact": "Le personnel suit l'occupation et les revenus en temps réel, réduisant les erreurs de réservation et accélérant le check-in."
       },
       "p2": {
         "title": "Dashboard EyeGuard",
-        "description": "Interface de surveillance intelligente construite avec Python. Elle affiche des flux vidéo, détecte les mouvements et génère des alertes de sécurité grâce à un tableau de bord moderne."
+        "description": "Interface de surveillance intelligente construite avec Python. Elle affiche des flux vidéo, détecte les mouvements et génère des alertes de sécurité grâce à un tableau de bord moderne.",
+        "problem": "Le site n'avait aucun moyen abordable de surveiller ses locaux ou d'être alerté automatiquement en cas d'anomalie.",
+        "solution": "Un tableau de bord de surveillance diffusant la vidéo en direct et détectant les mouvements avec OpenCV, générant des alertes via une interface Django.",
+        "impact": "Une surveillance continue sans personnel de sécurité dédié, avec des alertes instantanées en cas d'activité suspecte."
       },
       "p3": {
         "title": "Plateforme Gestion de Stock",
-        "description": "Un tableau de bord web en PHP pour la gestion de stock, permettant de suivre les produits, les commandes, les fournisseurs et l'état du stock en temps réel."
+        "description": "Un tableau de bord web en PHP pour la gestion de stock, permettant de suivre les produits, les commandes, les fournisseurs et l'état du stock en temps réel.",
+        "problem": "Le stock, les commandes et les fournisseurs étaient suivis manuellement, entraînant des ruptures fréquentes et aucune visibilité réelle sur les niveaux de stock.",
+        "solution": "Un tableau de bord web PHP/MySQL centralisant produits, commandes, fournisseurs et niveaux de stock, mis à jour en temps réel.",
+        "impact": "Une visibilité en temps réel qui a réduit les ruptures de stock et fortement diminué le temps de réconciliation d'inventaire."
       },
       "p4": {
         "title": "Système de Pointage IA (Reconnaissance faciale)",
-        "description": "Un système de pointage intelligent basé sur la reconnaissance faciale utilisant Django, Python et OpenCV. Il enregistre automatiquement la présence via webcam et inclut une interface de gestion des pointages, employés ou étudiants."
+        "description": "Un système de pointage intelligent basé sur la reconnaissance faciale utilisant Django, Python et OpenCV. Il enregistre automatiquement la présence via webcam et inclut une interface de gestion des pointages, employés ou étudiants.",
+        "problem": "Les feuilles de présence manuelles étaient lentes à traiter et faciles à falsifier.",
+        "solution": "Un système de pointage par reconnaissance faciale (Django + OpenCV) qui enregistre automatiquement la présence via webcam, avec une interface de gestion du personnel et des étudiants.",
+        "impact": "Un pointage automatisé et infalsifiable qui fait gagner du temps administratif chaque jour."
       },
       "p5": {
         "title": "Système de Gestion d'Hôpital",
-        "description": "Une application de bureau construite avec Java et JavaFX permettant la gestion des patients, médecins, rendez-vous, dossiers médicaux et historiques de traitement dans un environnement intuitif et sécurisé."
+        "description": "Une application de bureau construite avec Java et JavaFX permettant la gestion des patients, médecins, rendez-vous, dossiers médicaux et historiques de traitement dans un environnement intuitif et sécurisé.",
+        "problem": "La clinique avait besoin d'un moyen sécurisé et unifié de gérer patients, médecins, rendez-vous et dossiers médicaux sans dossiers papier.",
+        "solution": "Une application de bureau Java/JavaFX avec une base de données MySQL couvrant patients, médecins, planning et historique de traitement.",
+        "impact": "Des dossiers patients et un planning centralisés et sécurisés, réduisant la charge administrative et les erreurs."
       },
       "p6": {
         "title": "Gestion des Rendez-vous Médicaux",
-        "description": "Une solution Fullstack de prise de rendez-vous médicaux, avec une interface web en React, une API sécurisée en Spring Boot, et une application mobile Android en Java/Kotlin. Les patients réservent, modifient ou annulent leurs rendez-vous, tandis que les médecins gèrent leur planning et l'historique des consultations."
+        "description": "Une solution Fullstack de prise de rendez-vous médicaux, avec une interface web en React, une API sécurisée en Spring Boot, et une application mobile Android en Java/Kotlin. Les patients réservent, modifient ou annulent leurs rendez-vous, tandis que les médecins gèrent leur planning et l'historique des consultations.",
+        "problem": "Patients et médecins manquaient d'un moyen moderne de réserver, gérer et suivre les rendez-vous médicaux sur web et mobile.",
+        "solution": "Une solution Fullstack : une interface web React, une API Spring Boot sécurisée, et une application Android native (Java/Kotlin) permettant aux patients de réserver, modifier ou annuler leurs rendez-vous pendant que les médecins gèrent planning et historique.",
+        "impact": "Une prise de rendez-vous simplifiée pour patients et médecins sur tous les appareils, réduisant les absences et les allers-retours administratifs."
       }
     }
   },
@@ -108,8 +132,8 @@
     },
     "mission": {
       "title": "Ma Mission",
-      "p1": "Ingénieur Logiciel diplômé (MIAGE, EMSI Marrakech), je conçois des solutions digitales qui transforment les idées en réalités technologiques concrètes et performantes.",
-      "p2": "Basé à Marrakech et mobile sur tout le Maroc (Axe Casablanca - Rabat), je construis des backends en Java / Spring Boot (API REST, JPA/Hibernate, PostgreSQL), que j'associe à des interfaces React, et je livre sur iOS/Android avec React Native — le tout conteneurisé avec Docker et Kubernetes pour une livraison fiable et scalable."
+      "p1": "Ingénieur en Informatique & Réseaux (MIAGE) basé à Marrakech, j'allie rigueur technique et vision entrepreneuriale pour digitaliser votre activité.",
+      "p2": "Spécialiste du développement backend robuste (Java/Spring Boot), je conçois des solutions full-stack évolutives : de la création de boutiques e-commerce performantes (Shopify & Custom) à l'implémentation de tableaux de bord métier connectés. Je livre des architectures pensées pour optimiser vos processus et maximiser votre conversion."
     },
     "build": {
       "title": "Ce que j'aime bâtir"
@@ -159,10 +183,20 @@
       "email": "Adresse Email",
       "phone": "Téléphone",
       "website": "Votre site web",
+      "projectType": {
+        "label": "Type de projet",
+        "placeholder": "Choisissez un type de projet",
+        "options": {
+          "ecommerce": "Site E-commerce (Shopify ou Custom)",
+          "webapp": "Application Web / SaaS",
+          "dashboard": "Dashboard & Back-office Métier"
+        }
+      },
       "message": "Votre Message",
       "send": "Envoyer le message",
       "sending": "Envoi...",
       "error": "Veuillez remplir tous les champs.",
+      "emailError": "Merci de saisir une adresse email valide.",
       "errorGeneric": "Une erreur s'est produite. Veuillez réessayer plus tard.",
       "captchaError": "Merci de valider la vérification ci-dessous."
     },
@@ -197,35 +231,30 @@
     "title": "Services &",
     "titleAccent": "Solutions",
     "subtitle": "De la première landing page à l'application sur-mesure — tout ce qu'il faut pour mettre votre projet en ligne.",
-    "cta": "Démarrer un projet",
-    "items": {
-      "web": {
-        "title": "Création de Sites Web",
-        "description": "Des sites sur-mesure et performants — de la landing page au site vitrine complet — pensés pour convertir vos visiteurs en clients."
-      },
-      "improve": {
-        "title": "Amélioration de Sites",
-        "description": "Refonte, accélération et optimisation d'un site existant : performance, SEO, design moderne et expérience mobile-first."
-      },
-      "chatbot": {
-        "title": "Intégration de Chatbots IA",
-        "description": "Des assistants IA personnalisés intégrés à votre site ou application pour répondre aux clients et capter des prospects 24/7."
-      },
-      "mobile": {
-        "title": "Applications Mobiles",
-        "description": "Applications Android/iOS natives et multi-plateformes (React Native, Flutter, Kotlin) conçues pour votre activité."
-      },
-      "webapp": {
-        "title": "Applications Web",
-        "description": "Tableaux de bord, ERP, CRM et plateformes SaaS avec API sécurisées et architecture scalable."
+    "pitch": {
+      "title": "Expert Solutions E-commerce & Web sur-mesure",
+      "description": "Vous avez un projet e-commerce ou besoin d'un outil métier performant ? Je combine expertise technique et design pour propulser votre business :",
+      "points": {
+        "shopify": {
+          "title": "Déploiement Shopify",
+          "description": "Boutiques clés en main, optimisées, rapides et prêtes à vendre."
+        },
+        "fullstack": {
+          "title": "Développement Full-stack",
+          "description": "Solutions personnalisées (React/Spring Boot) pour des besoins fonctionnels uniques."
+        },
+        "dashboard": {
+          "title": "Dashboards Métier",
+          "description": "Pilotez votre activité en toute simplicité avec des outils de gestion de stocks et de commandes connectés à votre base de données."
+        }
       }
     }
   },
   "pricing": {
-    "badge": "Tarifs transparents",
-    "title": "Le coût de votre",
-    "titleAccent": "projet",
-    "subtitle": "Chaque projet est différent. Ce calculateur donne une première estimation — le prix exact se définit ensemble lors d'un échange.",
+    "badge": "Nos formules",
+    "title": "Choisissez votre",
+    "titleAccent": "formule",
+    "subtitle": "Trois niveaux d'accompagnement adaptés à la taille de votre projet — du lancement rapide à la gestion complexe sur-mesure.",
     "process": {
       "title": "Comment votre projet prend vie",
       "steps": {
@@ -236,36 +265,26 @@
         "launch": { "title": "Lancement & Suivi", "description": "Mise en ligne, avec une passation claire et un suivi après le lancement." }
       }
     },
-    "regionLabel": "Tarifs pour",
-    "regions": {
-      "MA": "Maroc",
-      "EU": "Europe",
-      "US": "USA"
+    "popular": "Le plus demandé",
+    "tiers": {
+      "essentiel": {
+        "name": "Essentiel",
+        "usage": "Lancement rapide",
+        "features": ["Shopify configuré", "SEO de base"]
+      },
+      "pro": {
+        "name": "Pro",
+        "usage": "Croissance",
+        "features": ["Shopify", "API custom", "Apps"]
+      },
+      "elite": {
+        "name": "Elite",
+        "usage": "Gestion complexe",
+        "features": ["100% sur-mesure", "Dashboard connecté"]
+      }
     },
-    "baseTitle": "Base",
-    "baseSubtitle": "La fondation de chaque site web",
-    "included": {
-      "design": { "title": "Design sur-mesure", "desc": "Adapté à votre marque et votre audience" },
-      "responsive": { "title": "Tous les écrans", "desc": "Mobile, tablette et ordinateur" },
-      "animations": { "title": "Animations & Interactions", "desc": "Pour donner vie à votre site" },
-      "home": { "title": "Page d'accueil", "desc": "Votre marque au premier regard" },
-      "legal": { "title": "Pages légales", "desc": "Mentions légales et confidentialité" }
-    },
-    "pagesLabel": "Nombre de pages",
-    "pagesHint": "Combien de pages doit contenir votre site ?",
-    "addonsTitle": "Options",
-    "addons": {
-      "form": { "title": "Formulaire de contact", "desc": "Pour que vos clients vous joignent directement" },
-      "cms": { "title": "Gestion de contenu", "desc": "Modifiez le contenu vous-même, sans code" },
-      "multilang": { "title": "Multilingue", "desc": "Pour que chaque visiteur comprenne votre site" },
-      "logo": { "title": "Logo & Identité", "desc": "Pas encore de logo ? J'en crée un qui vous ressemble" },
-      "chatbot": { "title": "Chatbot IA", "desc": "Un assistant intelligent qui répond à vos clients 24/7" },
-      "ecommerce": { "title": "E-commerce", "desc": "Vendez vos produits en ligne en toute sécurité" }
-    },
-    "fromLabel": "à partir de",
-    "totalLabel": "Estimation totale",
     "cta": "Me contacter",
-    "disclaimer": "Tous les montants sont indicatifs. Je prépare un devis sur-mesure après un premier échange."
+    "disclaimer": "Chaque offre est adaptée à vos besoins — la portée exacte et le prix se définissent ensemble après un premier échange."
   },
   "faq": {
     "badge": "Bon à savoir",
