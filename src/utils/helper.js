@@ -20,3 +20,18 @@ export const itemVariants = {
         },
     },
 };
+
+// Smoothly scroll to a section. Uses the Lenis instance when available
+// (set by useSmoothScroll), otherwise falls back to native scrollIntoView.
+export const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (!element) return;
+    if (typeof window !== "undefined" && window.__lenis) {
+        window.__lenis.scrollTo(element, { offset: -80 });
+    } else {
+        element.scrollIntoView({ behavior: "smooth" });
+    }
+};
+
+// Route path for a nav section id (used by the router-based navigation).
+export const pathForSection = (id) => (id === "home" ? "/" : `/${id}`);

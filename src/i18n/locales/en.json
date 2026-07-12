@@ -1,0 +1,300 @@
+{
+  "common": {
+    "optional": "optional"
+  },
+  "nav": {
+    "home": "Home",
+    "skills": "Skills",
+    "services": "Services",
+    "work": "Work",
+    "pricing": "Pricing",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "lang": {
+    "switch": "Switch language",
+    "en": "EN",
+    "fr": "FR"
+  },
+  "hero": {
+    "badge": "Web & Mobile App Development",
+    "title1": "Building digital",
+    "titleAccent": "experiences",
+    "title2": "that matter",
+    "subtitle": "I design and build custom web and mobile applications. Turn your ideas into high-performing, intuitive and scalable digital solutions built to leave a mark.",
+    "ctaProjects": "See my Work",
+    "ctaContact": "Get in Touch",
+    "scroll": "Scroll to explore"
+  },
+  "skills": {
+    "badge": "Technical Expertise",
+    "titleA": "Skills &",
+    "titleAccent": "Technologies",
+    "subtitle": "A comprehensive toolkit for building modern, scalable web applications from concept to deployment.",
+    "categories": {
+      "frontend": {
+        "title": "Frontend & Mobile",
+        "description": "Building modern interfaces and high-performance mobile applications."
+      },
+      "backend": {
+        "title": "Backend & Business Solutions",
+        "description": "Robust architecture to automate your business management (ERP, CRM, dashboards)."
+      },
+      "database": {
+        "title": "Databases & Data",
+        "description": "Design and optimization of secure databases for reliable management of your assets."
+      },
+      "devops": {
+        "title": "DevOps & Quality Assurance",
+        "description": "Continuous deployment and rigorous testing to keep your services available 24/7."
+      }
+    },
+    "stats": {
+      "delivery": "On-Time Delivery",
+      "projects": "Projects Shipped",
+      "support": "Technical Support",
+      "quality": "Quality Compromise"
+    }
+  },
+  "projects": {
+    "badge": "Case Studies",
+    "title": "My",
+    "titleAccent": "Work",
+    "subtitleMobile": "Explore my projects below.",
+    "subtitleDesktop": "Click and drag to explore the projects.",
+    "featured": "Featured",
+    "seeAll": "See all my work",
+    "demo": "Demo",
+    "github": "GitHub",
+    "openProject": "Open Project",
+    "projectOf": "Project {{current}} of {{total}}",
+    "code": "Code",
+    "items": {
+      "p1": {
+        "title": "Hotel Management Platform",
+        "description": "A hotel management application built in C# with a MySQL database. It handles rooms, guests, bookings and real-time revenue tracking."
+      },
+      "p2": {
+        "title": "EyeGuard Dashboard",
+        "description": "A smart monitoring interface built with Python. It streams video, detects motion and generates security alerts through a modern dashboard."
+      },
+      "p3": {
+        "title": "Stock Management Platform",
+        "description": "A PHP web dashboard for inventory management, tracking products, orders, suppliers and stock levels in real time."
+      },
+      "p4": {
+        "title": "AI Face Attendance System",
+        "description": "A smart attendance system based on facial recognition using Django, Python and OpenCV. It records presence automatically via webcam with a management interface for attendance, employees and students."
+      },
+      "p5": {
+        "title": "Hospital Management System",
+        "description": "A desktop application built with Java and JavaFX to manage patients, doctors, appointments, medical records and treatment history in a secure, intuitive environment."
+      },
+      "p6": {
+        "title": "Medical Appointment Management",
+        "description": "A full-stack medical booking solution with a React web interface, a secure Spring Boot API, and an Android mobile app in Java/Kotlin. Patients can book, edit or cancel appointments while doctors manage their schedule and consultation history."
+      }
+    }
+  },
+  "about": {
+    "badge": "Discover my journey",
+    "title": "About",
+    "titleAccent": "Me",
+    "teaser": {
+      "kicker": "Meet the person",
+      "title": "behind the code",
+      "text": "Hey, I'm Mohamed — a Software Engineer from Marrakech who designs and builds high-performing web and mobile products for brands that want to stand out online.",
+      "cta": "Learn more"
+    },
+    "mission": {
+      "title": "My Mission",
+      "p1": "A qualified Software Engineer (MIAGE, EMSI Marrakech), I design digital solutions that turn ideas into concrete, high-performing technology.",
+      "p2": "Based in Marrakech and available across Morocco (Casablanca – Rabat axis), I build backend systems in Java / Spring Boot (REST APIs, JPA/Hibernate, PostgreSQL), pair them with React interfaces, and ship to iOS/Android with React Native — all containerized with Docker and Kubernetes for reliable, scalable delivery."
+    },
+    "build": {
+      "title": "What I love to build"
+    },
+    "passions": {
+      "ux": { "title": "User Experience", "description": "Crafting intuitive interfaces that users love" },
+      "problem": { "title": "Problem Solving", "description": "Turning complex challenges into elegant solutions" },
+      "learning": { "title": "Continuous Learning", "description": "Always exploring new technologies and best practices" }
+    },
+    "signature": "Crafted with passion by",
+    "journeyTitle": "My Journey",
+    "journey": {
+      "j1": {
+        "title": "Final-Year Project (PFE) — Full-Stack Developer",
+        "description": "Redesign and optimization of AGRISED, an application for managing the technical and economic performance of farms. Built a full mobile + API solution for field data collection and automated KPI calculation (gross margin, productivity, agroecoscore), with analytics dashboards and reporting. Stack: Spring Boot, React Native, PostgreSQL, Docker, Agile/Scrum."
+      },
+      "j2": {
+        "title": "Full-Stack Web Development Intern",
+        "description": "Design and development of Norsys Eval, a SaaS platform with a marketing site and online subscription management. Built a modern React front office and an admin back office, secure authentication and role management with Keycloak, PayPal payment integration and automated code quality checks with SonarQube. Agile/Scrum with two-week sprints."
+      },
+      "j3": {
+        "title": "Full-Stack Web Development Intern",
+        "description": "Design and development of a library management platform (borrowing, returns and reservations) for the Faculty of Arts and Humanities. Built an intuitive, efficient solution to manage resources and improve the user experience, working closely with library staff to meet their specific needs."
+      },
+      "j4": {
+        "title": "Engineering Degree — Computer Science & Networks (MIAGE)",
+        "description": "Engineering degree focused on software development, network administration, systems architecture, artificial intelligence and IT project management. Advanced skills to design, build and secure technological solutions."
+      },
+      "j5": {
+        "title": "Specialized Technician in Digital Infrastructure — Software Development",
+        "description": "Training focused on systems administration, network management, virtualization, cybersecurity and technical support. Practical skills to deploy and maintain secure digital infrastructures."
+      }
+    },
+    "ctaText": "Ready to bring your tech ideas to life?",
+    "ctaButton": "Let's work together"
+  },
+  "contact": {
+    "badge": "Let's collaborate",
+    "title": "Let's talk about your",
+    "titleAccent": "Project",
+    "subtitleBefore": "Based in ",
+    "location": "Marrakech",
+    "subtitleAfter": ", I help you digitize your business anywhere in Morocco with tailor-made solutions.",
+    "form": {
+      "title": "Send me a message",
+      "name": "Your Name",
+      "email": "Email Address",
+      "phone": "Phone",
+      "website": "Your website",
+      "message": "Your Message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "error": "Please fill in all fields.",
+      "errorGeneric": "Something went wrong. Please try again later.",
+      "captchaError": "Please complete the verification below."
+    },
+    "infoTitle": "Contact Information",
+    "followTitle": "Follow Me",
+    "info": {
+      "location": "Location",
+      "email": "Email",
+      "phone": "Phone"
+    },
+    "availability": {
+      "badge": "Available immediately",
+      "text": "I'm currently open to full-time (CDI) opportunities and freelance missions. Let's bring your ideas to life."
+    },
+    "success": {
+      "title": "Message Sent!",
+      "text": "Thank you for reaching out! I'll get back to you within 24 hours."
+    }
+  },
+  "footer": {
+    "description": "Software Engineer (MIAGE, EMSI). I build tailor-made digital solutions to support the digital transformation of businesses in Morocco.",
+    "available": "Available now",
+    "locations": "Marrakech — Casablanca — Rabat",
+    "navTitle": "Navigation",
+    "socialTitle": "Social",
+    "copyright": "Mohamed Ouledelabd",
+    "madeBy": "Code & Design by Koda Atlas"
+  },
+  "services": {
+    "badge": "What I do",
+    "title": "Services &",
+    "titleAccent": "Solutions",
+    "subtitle": "From a first landing page to a full custom application — everything you need to bring your project online.",
+    "cta": "Start a project",
+    "items": {
+      "web": {
+        "title": "Website Development",
+        "description": "Custom, high-performing websites — from landing pages to full corporate sites — designed to convert visitors into clients."
+      },
+      "improve": {
+        "title": "Website Improvement",
+        "description": "Redesign, speed up and optimize an existing site: performance, SEO, modern design and a mobile-first experience."
+      },
+      "chatbot": {
+        "title": "AI Chatbot Integration",
+        "description": "Custom AI assistants integrated into your website or app to answer clients and capture leads 24/7."
+      },
+      "mobile": {
+        "title": "Mobile Applications",
+        "description": "Native and cross-platform Android/iOS apps (React Native, Flutter, Kotlin) built around your business."
+      },
+      "webapp": {
+        "title": "Web Applications",
+        "description": "Dashboards, ERP, CRM and SaaS platforms with secure APIs and a scalable architecture."
+      }
+    }
+  },
+  "pricing": {
+    "badge": "Transparent pricing",
+    "title": "What your",
+    "titleAccent": "project costs",
+    "subtitle": "Every project is different. This calculator gives a first estimate — the exact price is worked out together in a conversation.",
+    "process": {
+      "title": "How your project comes to life",
+      "steps": {
+        "discovery": { "title": "Discovery", "description": "Understanding your brand, audience and goals so the site speaks to the right people." },
+        "content": { "title": "Content & Structure", "description": "Defining the pages, content and features your project actually needs." },
+        "design": { "title": "Design", "description": "Crafting a visual direction that fits your brand and makes it memorable." },
+        "development": { "title": "Development", "description": "Building a fast, responsive, production-ready website or application." },
+        "launch": { "title": "Launch & Support", "description": "Going live, with a clear handover and support after launch." }
+      }
+    },
+    "regionLabel": "Prices for",
+    "regions": {
+      "MA": "Morocco",
+      "EU": "Europe",
+      "US": "USA"
+    },
+    "baseTitle": "Base",
+    "baseSubtitle": "The foundation of every website",
+    "included": {
+      "design": { "title": "Custom Design", "desc": "Tailored to your brand and audience" },
+      "responsive": { "title": "All Devices", "desc": "Mobile, tablet and desktop" },
+      "animations": { "title": "Animations & Interactions", "desc": "Bringing your website to life" },
+      "home": { "title": "Home Page", "desc": "Your brand at first glance" },
+      "legal": { "title": "Legal Pages", "desc": "Legal notice and privacy policy" }
+    },
+    "pagesLabel": "Number of pages",
+    "pagesHint": "How many pages should your website have?",
+    "addonsTitle": "Add-ons",
+    "addons": {
+      "form": { "title": "Contact Form", "desc": "So clients can reach you directly" },
+      "cms": { "title": "Content Management", "desc": "Update content yourself, no code needed" },
+      "multilang": { "title": "Multiple Languages", "desc": "So every visitor understands your website" },
+      "logo": { "title": "Logo & Branding", "desc": "No logo yet? I'll craft one that fits your brand" },
+      "chatbot": { "title": "AI Chatbot", "desc": "A smart assistant that answers your clients 24/7" },
+      "ecommerce": { "title": "E-commerce", "desc": "Sell your products online securely" }
+    },
+    "fromLabel": "from",
+    "totalLabel": "Estimated total",
+    "cta": "Get in touch",
+    "disclaimer": "All figures are non-binding. I'll put together a tailored quote after an initial call."
+  },
+  "faq": {
+    "badge": "Good to know",
+    "title": "Frequently asked",
+    "titleAccent": "questions",
+    "items": {
+      "cost": {
+        "q": "How much does a website cost?",
+        "a": "It depends on your needs. A simple site starts at the base price above; the calculator gives a first estimate and I send a tailored quote after a quick call."
+      },
+      "start": {
+        "q": "What do I need to get started?",
+        "a": "Just your idea and goals. If you have a logo, texts or images, great — if not, I can help create them."
+      },
+      "time": {
+        "q": "How long does a project take?",
+        "a": "A showcase website usually takes 1 to 3 weeks; larger apps depend on scope. I share a clear timeline before we start."
+      },
+      "revisions": {
+        "q": "What if I don't like the design?",
+        "a": "We work in rounds. You see previews early and revisions are included until the design feels right."
+      },
+      "chatbot": {
+        "q": "Can you add an AI chatbot?",
+        "a": "Yes — I integrate custom AI assistants trained on your content to answer clients and capture leads around the clock."
+      },
+      "support": {
+        "q": "Do you offer support after launch?",
+        "a": "Absolutely. I offer maintenance, updates and improvements after launch, with no mandatory monthly fees."
+      }
+    }
+  }
+}
