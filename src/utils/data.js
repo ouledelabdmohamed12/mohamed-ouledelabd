@@ -1,7 +1,5 @@
 import {
     Code2,
-    GraduationCap,
-    Award,
     Heart,
     Coffee,
     BookOpen,
@@ -11,12 +9,10 @@ import {
     Mail,
     MapPin,
     Phone,
-    Briefcase,
-    LayoutDashboard,
     ShoppingBag,
     Rocket,
-    TrendingUp,
-    Crown,
+    Globe,
+    Smartphone,
 } from "lucide-react";
 
 import { FiGithub, FiLinkedin } from "react-icons/fi";
@@ -28,6 +24,8 @@ import PROJECT_IMG_3 from "../assets/images/gestion_stock.webp";
 import PROJECT_IMG_4 from "../assets/images/AI_presence.webp";
 import PROJECT_IMG_5 from "../assets/images/gestion_hopital.webp";
 import PROJECT_IMG_6 from "../assets/images/gestion_rendezVous.webp";
+import PROJECT_IMG_7 from "../assets/images/artisana.png";
+import PROJECT_IMG_8 from "../assets/images/riad.png";
 
 // NOTE: textual labels live in src/i18n/locales/*.json.
 // Data below keeps only structure (icons, images, links, ids) and references
@@ -74,20 +72,6 @@ export const SKILLS_CATEGORY = [
             { name: "Cloud (AWS / Azure)" },
         ],
     },
-];
-
-export const TECH_STACK = [
-    "JavaScript",
-    "HTML5",
-    "CSS3",
-    "Java",
-    "Vite",
-    "Swift",
-    "Flutter",
-    "Kotlin",
-    "Figma",
-    "Notion",
-    "Laravel",
 ];
 
 export const STATS = [
@@ -158,43 +142,26 @@ export const PROJECTS = [
         featured: true,
         category: "Full Stack",
     },
-];
-
-export const JOURNEY_STEPS = [
     {
-        key: "j1",
-        year: "2026",
-        company: "Norsys Afrique, Marrakech",
-        icon: Briefcase,
-        color: "bg-orange-600",
+        id: 7,
+        key: "p7",
+        image: PROJECT_IMG_7,
+        tags: ["Next.js", "Vercel", "PayPal"],
+        // Root URL handles its own /fr /en language routing.
+        liveUrl: "https://artisanateljamai.com",
+        githuburl: "#",
+        featured: true,
+        category: "E-commerce",
     },
     {
-        key: "j2",
-        year: "2025",
-        company: "Norsys Afrique, Marrakech",
-        icon: Award,
-        color: "bg-cyan-600",
-    },
-    {
-        key: "j3",
-        year: "2024",
-        company: "Faculté des Lettres et Sciences Humaines — Marrakech",
-        icon: Briefcase,
-        color: "bg-purple-500",
-    },
-    {
-        key: "j4",
-        year: "2023 – 2026",
-        company: "EMSI – École Marocaine des Sciences de l'Ingénieur, Marrakech",
-        icon: GraduationCap,
-        color: "bg-green-600",
-    },
-    {
-        key: "j5",
-        year: "2021 – 2023",
-        company: "OFPPT (ISTA), Marrakech",
-        icon: GraduationCap,
-        color: "bg-blue-500",
+        id: 8,
+        key: "p8",
+        image: PROJECT_IMG_8,
+        tags: ["React", "Tailwind CSS", "Vercel"],
+        liveUrl: "https://riad-nour-website.vercel.app/",
+        githuburl: "#",
+        featured: true,
+        category: "Hospitality / Showcase",
     },
 ];
 
@@ -253,29 +220,13 @@ export const CONTACT_INFO = [
     },
 ];
 
-// Value-proposition highlights shown in the Services section pitch.
-// Text lives in i18n under `services.pitch.points.<id>`.
-export const SERVICE_PITCH_POINTS = [
-    { id: "shopify", icon: ShoppingBag },
-    { id: "fullstack", icon: Code2 },
-    { id: "dashboard", icon: LayoutDashboard },
-];
-
-// Pricing tiers (static comparison, no calculator). Text lives in i18n under
-// `pricing.tiers.<id>`.
-export const PRICING_TIERS = [
-    { id: "essentiel", icon: Rocket },
-    { id: "pro", icon: TrendingUp, popular: true },
-    { id: "elite", icon: Crown },
-];
-
-// Project process steps. Text lives in i18n under `pricing.process.steps.<id>`.
-export const PROCESS_STEPS = [
-    { id: "discovery" },
-    { id: "content" },
-    { id: "design" },
-    { id: "development" },
-    { id: "launch" },
+// The 5 services Koda Atlas sells. Text lives in i18n under `services.items.<id>`.
+export const SERVICES = [
+    { id: "showcase", icon: Globe },
+    { id: "ecommerce", icon: ShoppingBag },
+    { id: "webapp", icon: Code2 },
+    { id: "saas", icon: Rocket },
+    { id: "mobile", icon: Smartphone },
 ];
 
 // Legal pages. Text lives in i18n under `legal.terms.sections.<id>` / `legal.privacy.sections.<id>`.
@@ -318,7 +269,6 @@ export const NAV_LINKS = [
     { id: "home" },
     { id: "services" },
     { id: "work" },
-    { id: "pricing" },
     { id: "about" },
     { id: "contact" },
 ];

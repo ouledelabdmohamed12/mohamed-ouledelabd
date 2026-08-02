@@ -23,7 +23,18 @@ export default defineConfig([
       },
     },
     rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      // JSX member-expression usage (e.g. <motion.div>) is not detected as a
+      // reference without eslint-plugin-react's jsx-uses-vars rule, so the
+      // lowercase `motion` import is allowlisted alongside the existing
+      // PascalCase component / CONSTANT convention.
+      'no-unused-vars': ['error', { varsIgnorePattern: '^([A-Z_]|motion$)' }],
+    },
+  },
+  {
+    // Serverless functions run on Node (Vercel), not in the browser.
+    files: ['api/**/*.js'],
+    languageOptions: {
+      globals: globals.node,
     },
   },
 ])

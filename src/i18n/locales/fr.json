@@ -5,20 +5,16 @@
       "description": "Studio freelance : sites web, boutiques Shopify, dashboards métier et applications mobiles pour les entreprises à Marrakech, Casablanca et Rabat."
     },
     "services": {
-      "title": "Expert Solutions E-commerce Shopify & Dashboards — Koda Atlas",
-      "description": "Déploiement Shopify, applications web full-stack et dashboards métier connectés pour les entreprises au Maroc. Devis personnalisé."
+      "title": "Sites Vitrines, E-commerce, Applications Web, SaaS & Mobile — Koda Atlas",
+      "description": "Sites vitrines, boutiques e-commerce, applications web, produits SaaS et applications mobiles pour les entreprises du Maroc. Devis personnalisé."
     },
     "work": {
       "title": "Portfolio & Études de Cas — Koda Atlas",
       "description": "Découvrez mes projets clients : boutiques e-commerce, dashboards métier et applications web & mobile réalisés par Koda Atlas."
     },
-    "pricing": {
-      "title": "Tarifs — Shopify, Applications Web & Dashboards | Koda Atlas",
-      "description": "Comparez nos formules Essentiel, Pro et Elite pour boutiques Shopify, applications web et dashboards. Devis sur-mesure pour votre projet."
-    },
     "about": {
-      "title": "À propos de Mohamed Ouledelabd — Ingénieur Logiciel | Koda Atlas",
-      "description": "Ingénieur en Informatique (MIAGE) basé à Marrakech, je conçois des solutions digitales sur-mesure pour les entreprises du Maroc."
+      "title": "À propos de Koda Atlas — Studio de Développement Web, Mobile & SaaS",
+      "description": "Studio basé à Marrakech qui conçoit sites vitrines, boutiques e-commerce, applications web, produits SaaS et applications mobiles pour les entreprises du Maroc."
     },
     "contact": {
       "title": "Contact — Démarrer votre projet | Koda Atlas",
@@ -42,7 +38,6 @@
     "skills": "Compétences",
     "services": "Services",
     "work": "Réalisations",
-    "pricing": "Tarifs",
     "about": "À propos",
     "contact": "Contact"
   },
@@ -151,55 +146,45 @@
         "problem": "Patients et médecins manquaient d'un moyen moderne de réserver, gérer et suivre les rendez-vous médicaux sur web et mobile.",
         "solution": "Une solution Fullstack : une interface web React, une API Spring Boot sécurisée, et une application Android native (Java/Kotlin) permettant aux patients de réserver, modifier ou annuler leurs rendez-vous pendant que les médecins gèrent planning et historique.",
         "impact": "Une prise de rendez-vous simplifiée pour patients et médecins sur tous les appareils, réduisant les absences et les allers-retours administratifs."
+      },
+      "p7": {
+        "title": "Artisanat El Jamai",
+        "description": "Plateforme e-commerce Full-stack performante avec intégration fluide des paiements internationaux (PayPal) et optimisation SEO dynamique.",
+        "problem": "Un atelier marrakchi de zellige et fer forgé fait main n'avait aucun moyen d'atteindre une clientèle étrangère : pas de boutique en ligne, pas de paiement transfrontalier, et aucune visibilité sur les moteurs de recherche.",
+        "solution": "Une boutique Full-stack en Next.js déployée sur Vercel, avec PayPal pour le paiement international, un catalogue bilingue FR/EN et une optimisation SEO dynamique intégrée au niveau des pages.",
+        "impact": "L'atelier vend désormais partout en Europe et au-delà, avec un paiement international fiable et une bien meilleure visibilité de son catalogue dans les recherches."
+      },
+      "p8": {
+        "title": "Riad Nour",
+        "description": "Site web élégant et immersif pour un Riad, intégrant une interface utilisateur premium et un module de réservation pour booster les conversions directes.",
+        "problem": "Le Riad ne disposait d'aucun site web propre pour présenter l'établissement et dépendait de plateformes de réservation tierces, qui prélevaient une commission sur chaque séjour sans laisser de contrôle sur l'expérience de marque.",
+        "solution": "Un site en React et Tailwind CSS déployé sur Vercel : photographie immersive, présentation premium des chambres et un parcours de réservation intégré permettant aux voyageurs de vérifier les disponibilités et de réserver en direct.",
+        "impact": "Le Riad dispose désormais d'une vitrine à son image qui transforme les visiteurs en réservations directes, réduisant sa dépendance aux plateformes à commission."
       }
     }
   },
   "about": {
-    "badge": "Découvrez mon parcours",
-    "title": "À Propos de",
-    "titleAccent": "Moi",
+    "badge": "Pourquoi Koda Atlas",
+    "title": "Conçu pour résoudre vos",
+    "titleAccent": "problèmes technologiques",
     "teaser": {
-      "kicker": "Rencontrez la personne",
-      "title": "derrière le code",
-      "text": "Bonjour, je suis Mohamed — Ingénieur Logiciel à Marrakech, je conçois et développe des produits web et mobiles performants pour des marques qui veulent se démarquer en ligne.",
+      "kicker": "Pourquoi Koda Atlas",
+      "title": "Un studio pensé pour livrer, pas juste concevoir",
+      "text": "Koda Atlas combine ingénierie full-stack et vision produit pour transformer votre projet en une plateforme fiable et en ligne — site vitrine, e-commerce, application web, SaaS ou mobile.",
       "cta": "En savoir plus"
     },
     "mission": {
-      "title": "Ma Mission",
-      "p1": "Ingénieur en Informatique & Réseaux (MIAGE) basé à Marrakech, j'allie rigueur technique et vision entrepreneuriale pour digitaliser votre activité.",
-      "p2": "Spécialiste du développement backend robuste (Java/Spring Boot), je conçois des solutions full-stack évolutives : de la création de boutiques e-commerce performantes (Shopify & Custom) à l'implémentation de tableaux de bord métier connectés. Je livre des architectures pensées pour optimiser vos processus et maximiser votre conversion."
+      "title": "Notre Mission",
+      "p1": "Koda Atlas existe pour transformer vos objectifs business en logiciels opérationnels, rapidement et sans jargon technique.",
+      "p2": "Nous concevons des solutions full-stack évolutives : de la création de boutiques e-commerce performantes (Shopify & sur-mesure) à l'implémentation de tableaux de bord métier connectés, de produits SaaS et d'applications mobiles — pensés pour optimiser vos processus et maximiser votre conversion."
     },
     "build": {
-      "title": "Ce que j'aime bâtir"
+      "title": "Ce qui nous anime"
     },
     "passions": {
       "ux": { "title": "Expérience Utilisateur", "description": "Créer des interfaces intuitives que les utilisateurs adorent" },
       "problem": { "title": "Résolution de Problèmes", "description": "Transformer des défis complexes en solutions élégantes" },
       "learning": { "title": "Apprentissage Continu", "description": "Toujours explorer de nouvelles technologies et bonnes pratiques" }
-    },
-    "signature": "Conçu avec passion par",
-    "journeyTitle": "Mon Parcours",
-    "journey": {
-      "j1": {
-        "title": "Projet de Fin d'Études (PFE) — Développeur Full-Stack",
-        "description": "Refonte et optimisation d'AGRISED, une application dédiée au pilotage des performances techniques et économiques des exploitations agricoles. Conception d'une solution complète Mobile & API pour la collecte de données terrain et le calcul automatisé d'indicateurs (marge brute, productivité, agroécoloscore), avec tableaux de bord de restitution. Stack : Spring Boot, React Native, PostgreSQL, Docker, Agile/Scrum."
-      },
-      "j2": {
-        "title": "Stagiaire en développement fullstack web",
-        "description": "Conception et développement de Norsys Eval, une plateforme SaaS avec site marketing et gestion des abonnements en ligne. Réalisation d'un Front Office moderne en React et d'un Back Office d'administration, authentification sécurisée et gestion des rôles avec Keycloak, intégration du paiement PayPal et automatisation de l'analyse de code avec SonarQube. Méthodologie Agile/Scrum en sprints de deux semaines."
-      },
-      "j3": {
-        "title": "Stagiaire en développement fullstack web",
-        "description": "Conception et développement d'une plateforme de gestion de bibliothèque (emprunts, retours et réservations) pour la Faculté des Lettres et Sciences Humaines. Réalisation d'une solution intuitive et efficace pour faciliter la gestion des ressources, en collaboration étroite avec les équipes pour répondre aux besoins spécifiques de la bibliothèque."
-      },
-      "j4": {
-        "title": "Diplôme d'Ingénieur en Informatique et Réseaux (Option MIAGE)",
-        "description": "Formation d'ingénieur axée sur le développement logiciel, l'administration des réseaux, l'architecture des systèmes, l'intelligence artificielle et la gestion de projets informatiques. Acquisition de compétences avancées pour concevoir, développer et sécuriser des solutions technologiques."
-      },
-      "j5": {
-        "title": "Technicien Spécialisé en Infrastructure Digitale — Développement Informatique",
-        "description": "Formation axée sur l'administration des systèmes, la gestion des réseaux informatiques, la virtualisation, la cybersécurité et le support technique. Acquisition de compétences pratiques pour déployer et maintenir des infrastructures digitales sécurisées."
-      }
     },
     "ctaText": "Prêt à concrétiser vos idées technologiques ?",
     "ctaButton": "Collaborons ensemble"
@@ -221,9 +206,21 @@
         "label": "Type de projet",
         "placeholder": "Choisissez un type de projet",
         "options": {
-          "ecommerce": "Site E-commerce (Shopify ou Custom)",
-          "webapp": "Application Web / SaaS",
-          "dashboard": "Dashboard & Back-office Métier"
+          "showcase": "Site Vitrine",
+          "ecommerce": "Boutique E-commerce (Shopify ou Custom)",
+          "webapp": "Application Web",
+          "saas": "Produit SaaS",
+          "mobile": "Application Mobile"
+        }
+      },
+      "budget": {
+        "label": "Budget estimé",
+        "placeholder": "Choisissez une fourchette de budget",
+        "options": {
+          "under20k": "Moins de 20 000 MAD",
+          "20to50k": "20 000 – 50 000 MAD",
+          "50kplus": "50 000 MAD et plus",
+          "unsure": "Pas encore sûr"
         }
       },
       "message": "Votre Message",
@@ -243,7 +240,11 @@
     },
     "availability": {
       "badge": "Disponible immédiatement",
-      "text": "Je suis actuellement ouvert aux opportunités en CDI ou pour des missions en Freelance. Donnons vie à vos idées."
+      "text": "Koda Atlas accepte actuellement de nouveaux projets. Donnons vie à vos idées."
+    },
+    "calendly": {
+      "text": "Vous préférez en discuter directement ?",
+      "cta": "Réserver un appel"
     },
     "success": {
       "title": "Message Envoyé !",
@@ -252,9 +253,9 @@
     }
   },
   "footer": {
-    "description": "Ingénieur Logiciel (MIAGE, EMSI). Je conçois des solutions digitales sur-mesure pour accompagner la transformation numérique des entreprises au Maroc.",
+    "description": "Un studio de développement qui conçoit des solutions digitales sur-mesure pour accompagner la transformation numérique des entreprises au Maroc.",
     "available": "Disponible dès maintenant",
-    "locations": "Marrakech — Casablanca — Rabat",
+    "locations": "Marrakech — À distance — International",
     "navTitle": "Navigation",
     "socialTitle": "Réseaux",
     "copyright": "Mohamed Ouledelabd",
@@ -265,64 +266,32 @@
     }
   },
   "services": {
-    "badge": "Ce que je fais",
+    "badge": "Ce que nous faisons",
     "title": "Services &",
     "titleAccent": "Solutions",
-    "subtitle": "De la première landing page à l'application sur-mesure — tout ce qu'il faut pour mettre votre projet en ligne.",
-    "pitch": {
-      "title": "Expert Solutions E-commerce & Web sur-mesure",
-      "description": "Vous avez un projet e-commerce ou besoin d'un outil métier performant ? Je combine expertise technique et design pour propulser votre business :",
-      "points": {
-        "shopify": {
-          "title": "Déploiement Shopify",
-          "description": "Boutiques clés en main, optimisées, rapides et prêtes à vendre."
-        },
-        "fullstack": {
-          "title": "Développement Full-stack",
-          "description": "Solutions personnalisées (React/Spring Boot) pour des besoins fonctionnels uniques."
-        },
-        "dashboard": {
-          "title": "Dashboards Métier",
-          "description": "Pilotez votre activité en toute simplicité avec des outils de gestion de stocks et de commandes connectés à votre base de données."
-        }
+    "subtitle": "D'un premier site vitrine à une plateforme sur-mesure complète — tout ce qu'il faut pour mettre votre projet en ligne.",
+    "items": {
+      "showcase": {
+        "title": "Sites Vitrines",
+        "description": "Un site rapide et soigné qui présente clairement votre activité et convertit vos visiteurs en prospects."
+      },
+      "ecommerce": {
+        "title": "Boutiques E-commerce",
+        "description": "Boutiques en ligne complètes (Shopify ou sur-mesure) — optimisées, rapides et prêtes à vendre dès le lancement."
+      },
+      "webapp": {
+        "title": "Applications Web",
+        "description": "Applications web et dashboards métier sur-mesure qui automatisent vos opérations et se connectent à vos données."
+      },
+      "saas": {
+        "title": "Produits SaaS",
+        "description": "Plateformes SaaS full-stack conçues pour évoluer — abonnements, gestion des utilisateurs et architecture sécurisée incluses."
+      },
+      "mobile": {
+        "title": "Applications Mobiles",
+        "description": "Applications mobiles natives et multiplateformes qui mettent votre produit dans la poche de vos clients."
       }
     }
-  },
-  "pricing": {
-    "badge": "Nos formules",
-    "title": "Choisissez votre",
-    "titleAccent": "formule",
-    "subtitle": "Trois niveaux d'accompagnement adaptés à la taille de votre projet — du lancement rapide à la gestion complexe sur-mesure.",
-    "process": {
-      "title": "Comment votre projet prend vie",
-      "steps": {
-        "discovery": { "title": "Découverte", "description": "Comprendre votre marque, votre audience et vos objectifs pour que le site parle aux bonnes personnes." },
-        "content": { "title": "Contenu & Structure", "description": "Définir les pages, le contenu et les fonctionnalités dont votre projet a réellement besoin." },
-        "design": { "title": "Design", "description": "Créer une direction visuelle qui correspond à votre marque et marque les esprits." },
-        "development": { "title": "Développement", "description": "Construire un site ou une application rapide, responsive et prête pour la production." },
-        "launch": { "title": "Lancement & Suivi", "description": "Mise en ligne, avec une passation claire et un suivi après le lancement." }
-      }
-    },
-    "popular": "Le plus demandé",
-    "tiers": {
-      "essentiel": {
-        "name": "Essentiel",
-        "usage": "Lancement rapide",
-        "features": ["Shopify configuré", "SEO de base"]
-      },
-      "pro": {
-        "name": "Pro",
-        "usage": "Croissance",
-        "features": ["Shopify", "API custom", "Apps"]
-      },
-      "elite": {
-        "name": "Elite",
-        "usage": "Gestion complexe",
-        "features": ["100% sur-mesure", "Dashboard connecté"]
-      }
-    },
-    "cta": "Me contacter",
-    "disclaimer": "Chaque offre est adaptée à vos besoins — la portée exacte et le prix se définissent ensemble après un premier échange."
   },
   "faq": {
     "badge": "Bon à savoir",
@@ -331,7 +300,7 @@
     "items": {
       "cost": {
         "q": "Combien coûte un site web ?",
-        "a": "Cela dépend de vos besoins. Un site simple démarre au prix de base ci-dessus ; le calculateur donne une première estimation et je vous envoie un devis sur-mesure après un court échange."
+        "a": "Le coût d'un projet dépend entièrement de vos idées, de vos objectifs et de la complexité technique requise. Chaque client étant unique, je vous fournis une estimation précise et un devis sur-mesure après un premier échange de découverte."
       },
       "start": {
         "q": "De quoi ai-je besoin pour commencer ?",
@@ -351,7 +320,7 @@
       },
       "support": {
         "q": "Proposez-vous un suivi après la mise en ligne ?",
-        "a": "Absolument. Je propose la maintenance, les mises à jour et les améliorations après le lancement, sans frais mensuels obligatoires."
+        "a": "Absolument. Une fois le projet en ligne, je propose un accompagnement adapté à votre croissance : soit via un forfait de maintenance mensuel pour une tranquillité d'esprit totale, soit par des interventions ponctuelles facturées à la carte pour chaque nouvelle fonctionnalité ajoutée."
       }
     }
   },
@@ -424,7 +393,7 @@
         },
         "cookies": {
           "title": "Cookies & stockage local",
-          "body": "Ce site utilise le stockage local de votre navigateur pour mémoriser votre préférence de thème (clair/sombre) et de langue (français/anglais). Aucun cookie publicitaire ou de suivi n'est utilisé."
+          "body": "Ce site utilise le stockage local de votre navigateur pour mémoriser votre préférence de langue (français/anglais). Aucun cookie publicitaire ou de suivi n'est utilisé."
         },
         "retention": {
           "title": "Conservation des données",

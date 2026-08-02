@@ -3,7 +3,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Check, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-const CustomSelect = ({ isDarkMode, value, handleInpuChange, options, placeholder }) => {
+const FIELD_CLASS =
+  "w-full rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-[15px] text-gray-900 placeholder:text-gray-400 outline-none resize-none transition-colors focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-500/20";
+
+const CustomSelect = ({ value, handleInpuChange, options, placeholder }) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef(null);
 
@@ -29,17 +32,17 @@ const CustomSelect = ({ isDarkMode, value, handleInpuChange, options, placeholde
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className={`w-full flex items-center justify-between gap-3 bg-transparent border-b pb-3 outline-none transition-colors text-base text-left ${
-          isDarkMode ? "border-white/15 text-white" : "border-gray-300 text-gray-900"
-        } ${isOpen ? "border-[#2B8CA6]" : ""}`}
+        className={`${FIELD_CLASS} flex items-center justify-between gap-3 text-left ${
+          isOpen ? "border-indigo-500 bg-white ring-2 ring-indigo-500/20" : ""
+        }`}
       >
-        <span className={selected ? "" : isDarkMode ? "text-gray-500" : "text-gray-400"}>
+        <span className={selected ? "text-gray-900" : "text-gray-400"}>
           {selected ? selected.label : placeholder}
         </span>
         <ChevronDown
           size={16}
-          className={`flex-shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180" : ""} ${
-            isDarkMode ? "text-gray-500" : "text-gray-400"
+          className={`flex-shrink-0 text-gray-400 transition-transform duration-200 ${
+            isOpen ? "rotate-180" : ""
           }`}
         />
       </button>
@@ -51,9 +54,7 @@ const CustomSelect = ({ isDarkMode, value, handleInpuChange, options, placeholde
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.15 }}
-            className={`absolute z-20 mt-2 w-full max-h-64 overflow-y-auto rounded-xl border shadow-xl ${
-              isDarkMode ? "bg-[#111418] border-white/10" : "bg-white border-gray-200"
-            }`}
+            className="absolute z-20 mt-2 w-full max-h-64 overflow-y-auto rounded-xl border border-gray-100 bg-white shadow-lg p-1.5"
           >
             {options.map((opt) => {
               const isSelected = opt.value === value;
@@ -65,12 +66,10 @@ const CustomSelect = ({ isDarkMode, value, handleInpuChange, options, placeholde
                     handleInpuChange(opt.value);
                     setIsOpen(false);
                   }}
-                  className={`w-full flex items-center justify-between gap-3 px-4 py-3 text-sm text-left transition-colors ${
+                  className={`w-full flex items-center justify-between gap-3 rounded-lg px-3 py-2.5 text-sm text-left transition-colors ${
                     isSelected
-                      ? "text-[#2B8CA6] font-semibold"
-                      : isDarkMode
-                      ? "text-gray-300 hover:bg-white/5"
-                      : "text-gray-700 hover:bg-gray-50"
+                      ? "bg-indigo-50 text-indigo-700 font-semibold"
+                      : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                   }`}
                 >
                   {opt.label}
@@ -85,28 +84,20 @@ const CustomSelect = ({ isDarkMode, value, handleInpuChange, options, placeholde
   );
 };
 
-const TextInput = ({ isDarkMode, value, handleInpuChange, textarea, select, options, placeholder, label, optional }) => {
+const TextInput = ({ value, handleInpuChange, textarea, select, options, placeholder, label, optional }) => {
   const { t } = useTranslation();
   const InputComponent = textarea ? "textarea" : "input";
-  const fieldClass = `w-full bg-transparent border-b pb-3 outline-none resize-none transition-colors text-base ${
-    isDarkMode
-      ? "border-white/15 text-white focus:border-[#2B8CA6]"
-      : "border-gray-300 text-gray-900 focus:border-[#2B8CA6]"
-  }`;
 
   return (
     <div className="relative">
-      <label
-        className={`block text-xs uppercase tracking-widest font-semibold mb-2 ${
-          isDarkMode ? "text-gray-500" : "text-gray-400"
-        }`}
-      >
+      <label className="block text-sm font-medium text-gray-700 mb-2">
         {label}
-        {optional && <span className="normal-case font-normal"> ({t("common.optional")})</span>}
+        {optional && (
+          <span className="font-normal text-gray-400"> ({t("common.optional")})</span>
+        )}
       </label>
       {select ? (
         <CustomSelect
-          isDarkMode={isDarkMode}
           value={value}
           handleInpuChange={handleInpuChange}
           options={options}
@@ -116,7 +107,7 @@ const TextInput = ({ isDarkMode, value, handleInpuChange, textarea, select, opti
         <InputComponent
           type="text"
           rows={textarea ? 4 : undefined}
-          className={fieldClass}
+          className={FIELD_CLASS}
           value={value}
           onChange={({ target }) => handleInpuChange(target.value)}
         />

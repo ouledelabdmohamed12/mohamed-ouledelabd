@@ -5,7 +5,7 @@ import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 // see https://dash.cloudflare.com/?to=/:account/turnstile
 const SITE_KEY = (import.meta.env.VITE_TURNSTILE_SITE_KEY || "1x00000000000000000000AA").trim();
 
-const Turnstile = forwardRef(({ onVerify, onExpire, isDarkMode }, ref) => {
+const Turnstile = forwardRef(({ onVerify, onExpire }, ref) => {
   const containerRef = useRef(null);
   const widgetId = useRef(null);
 
@@ -23,7 +23,7 @@ const Turnstile = forwardRef(({ onVerify, onExpire, isDarkMode }, ref) => {
       if (cancelled || !containerRef.current || !window.turnstile) return;
       widgetId.current = window.turnstile.render(containerRef.current, {
         sitekey: SITE_KEY,
-        theme: isDarkMode ? "dark" : "light",
+        theme: "light",
         callback: (token) => onVerify(token),
         "expired-callback": () => onExpire && onExpire(),
       });
@@ -49,7 +49,7 @@ const Turnstile = forwardRef(({ onVerify, onExpire, isDarkMode }, ref) => {
       }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isDarkMode]);
+  }, []);
 
   return <div ref={containerRef} />;
 });
