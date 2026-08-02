@@ -1,8 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Send, AlertCircle } from 'lucide-react';
+import { Send, AlertCircle, Calendar } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '../../context/ThemeContext';
 import { CONTACT_INFO, SOCIAL_LINKS } from '../../utils/data';
 import { containeVariants, itemVariants } from '../../utils/helper';
 import TextInput from '../Input/TextInput';
@@ -11,14 +10,25 @@ import Turnstile from '../Turnstile';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// Live Calendly booking link (1h intro call).
+const CALENDLY_URL = "https://calendly.com/esimo7500/1h";
+
 const ContactSection = () => {
-    const { isDarkMode } = useTheme();
     const { t } = useTranslation();
 
     const projectTypeOptions = [
+        { value: "showcase", label: t("contact.form.projectType.options.showcase") },
         { value: "ecommerce", label: t("contact.form.projectType.options.ecommerce") },
         { value: "webapp", label: t("contact.form.projectType.options.webapp") },
-        { value: "dashboard", label: t("contact.form.projectType.options.dashboard") },
+        { value: "saas", label: t("contact.form.projectType.options.saas") },
+        { value: "mobile", label: t("contact.form.projectType.options.mobile") },
+    ];
+
+    const budgetOptions = [
+        { value: "under20k", label: t("contact.form.budget.options.under20k") },
+        { value: "20to50k", label: t("contact.form.budget.options.20to50k") },
+        { value: "50kplus", label: t("contact.form.budget.options.50kplus") },
+        { value: "unsure", label: t("contact.form.budget.options.unsure") },
     ];
 
     const [formData, setFormData] = useState({
@@ -27,6 +37,7 @@ const ContactSection = () => {
         phone: "",
         website: "",
         projectType: "",
+        budget: "",
         message: "",
         company: "", // honeypot — left empty by real users, hidden from view
     });
@@ -68,7 +79,7 @@ const ContactSection = () => {
         // filled, silently pretend success instead of tipping off the bot.
         if (formData.company) {
             setShowSuccess(true);
-            setFormData({ name: "", email: "", phone: "", website: "", projectType: "", message: "", company: "" });
+            setFormData({ name: "", email: "", phone: "", website: "", projectType: "", budget: "", message: "", company: "" });
             setTimeout(() => setShowSuccess(false), 3000);
             return;
         }
@@ -76,6 +87,7 @@ const ContactSection = () => {
         setIsSubmitting(true);
 
         const projectTypeLabel = projectTypeOptions.find((opt) => opt.value === formData.projectType)?.label || "";
+        const budgetLabel = budgetOptions.find((opt) => opt.value === formData.budget)?.label || "";
 
         const templateParams = {
             name: formData.name,
@@ -83,6 +95,7 @@ const ContactSection = () => {
             phone: formData.phone,
             website: formData.website,
             projectType: projectTypeLabel,
+            budget: budgetLabel,
             message: formData.message,
             company: formData.company,
             title: "Koda Atlas Inquiry"
@@ -97,7 +110,7 @@ const ContactSection = () => {
                 if (!res.ok) throw new Error("Request failed");
                 setIsSubmitting(false);
                 setShowSuccess(true);
-                setFormData({ name: "", email: "", phone: "", website: "", projectType: "", message: "", company: "" });
+                setFormData({ name: "", email: "", phone: "", website: "", projectType: "", budget: "", message: "", company: "" });
                 setCaptchaToken(null);
                 turnstileRef.current?.reset();
                 setTimeout(() => setShowSuccess(false), 3000);
@@ -109,86 +122,107 @@ const ContactSection = () => {
     };
 
     return (
-        <section
-            id="contact"
-            ref={sectionRef}
-            className={`py-28 px-6 transition-colors duration-500 ${
-                isDarkMode ? "bg-[#0a0c10] text-white" : "bg-white text-gray-900"
-            }`}
-        >
-            <div className="max-w-6xl mx-auto">
-                <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-                    {/* Left: intro + contact info */}
+        <section id="contact" ref={sectionRef} className="bg-white py-24 px-6">
+            <div className="max-w-7xl mx-auto">
+                {/* Header */}
+                <motion.div
+                    initial="hidden"
+                    animate={isInView ? 'visible' : 'hidden'}
+                    variants={containeVariants}
+                    className="text-center max-w-2xl mx-auto mb-16"
+                >
+                    <motion.span
+                        variants={itemVariants}
+                        className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-1.5 text-sm font-medium text-gray-600 shadow-sm mb-6"
+                    >
+                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-600" />
+                        {t("contact.badge")}
+                    </motion.span>
+
+                    <motion.h2
+                        variants={itemVariants}
+                        className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4"
+                    >
+                        {t("contact.title")}{" "}
+                        <span className="text-indigo-600">{t("contact.titleAccent")}</span>
+                    </motion.h2>
+
+                    <motion.p variants={itemVariants} className="text-lg text-gray-500 leading-relaxed">
+                        {t("contact.subtitleBefore")}
+                        <span className="font-medium text-gray-700">{t("contact.location")}</span>
+                        {t("contact.subtitleAfter")}
+                    </motion.p>
+                </motion.div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+                    {/* LEFT — details card */}
                     <motion.div
                         initial="hidden"
                         animate={isInView ? 'visible' : 'hidden'}
                         variants={containeVariants}
+                        className="lg:col-span-2 rounded-2xl border border-gray-100 bg-slate-50 p-8 shadow-sm"
                     >
-                        <motion.div
-                            variants={itemVariants}
-                            className={`text-xs uppercase tracking-[0.4em] font-semibold mb-6 ${
-                                isDarkMode ? 'text-gray-500' : 'text-gray-400'
-                            }`}
-                        >
-                            {t("contact.badge")}
-                        </motion.div>
-
-                        <motion.h2
-                            variants={itemVariants}
-                            className="text-4xl md:text-6xl font-semibold mb-8 tracking-tight leading-[1.1]"
-                        >
-                            {t("contact.title")} <span className="text-[#2B8CA6]">{t("contact.titleAccent")}</span>
-                        </motion.h2>
-
-                        <motion.p
-                            variants={itemVariants}
-                            className={`text-lg leading-relaxed font-light mb-10 max-w-md ${
-                                isDarkMode ? 'text-gray-400' : 'text-gray-600'
-                            }`}
-                        >
-                            {t("contact.subtitleBefore")}
-                            <span className={isDarkMode ? 'text-white' : 'text-black'}>{t("contact.location")}</span>
-                            {t("contact.subtitleAfter")}
-                        </motion.p>
-
-                        <motion.div variants={itemVariants} className="space-y-4 mb-10">
+                        <motion.div variants={itemVariants} className="space-y-1 mb-8">
                             {CONTACT_INFO.map((info) => (
-                                <div key={info.id} className="flex items-center gap-4">
-                                    <info.icon size={18} className="text-[#2B8CA6] flex-shrink-0" />
-                                    <span className="font-medium">{info.value}</span>
+                                <div key={info.id} className="flex items-center gap-4 py-3">
+                                    <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white text-indigo-600 shadow-sm shrink-0">
+                                        <info.icon size={17} />
+                                    </span>
+                                    <span className="text-[15px] text-gray-700">{info.value}</span>
                                 </div>
                             ))}
+                        </motion.div>
+
+                        <motion.div variants={itemVariants} className="flex flex-wrap gap-3 pb-8 border-b border-gray-200">
                             {SOCIAL_LINKS.filter((s) => s.name === "LinkedIn" || s.name === "GitHub").map((social) => (
                                 <a
                                     key={social.name}
                                     href={social.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className={`flex items-center gap-4 transition-colors ${
-                                        isDarkMode ? "text-gray-300 hover:text-[#2B8CA6]" : "text-gray-700 hover:text-[#2B8CA6]"
-                                    }`}
+                                    className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-600 shadow-sm hover:text-indigo-600 hover:border-indigo-200 transition-colors"
                                 >
-                                    <social.icon size={18} className="text-[#2B8CA6] flex-shrink-0" />
-                                    <span className="font-medium">{social.name}</span>
+                                    <social.icon size={15} />
+                                    {social.name}
                                 </a>
                             ))}
                         </motion.div>
 
-                        <motion.div variants={itemVariants} className="flex items-center gap-3">
-                            <div className="w-2 h-2 bg-[#2B8CA6] rounded-full animate-pulse" />
-                            <span className={`text-xs uppercase tracking-widest font-semibold ${isDarkMode ? "text-gray-400" : "text-gray-600"}`}>
+                        <motion.div variants={itemVariants} className="flex items-center gap-2.5 mt-8 mb-6">
+                            <span className="relative flex h-2 w-2">
+                                <span className="absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75 animate-ping" />
+                                <span className="relative inline-flex h-2 w-2 rounded-full bg-indigo-600" />
+                            </span>
+                            <span className="text-sm font-medium text-gray-600">
                                 {t("contact.availability.badge")}
                             </span>
                         </motion.div>
+
+                        <motion.div variants={itemVariants}>
+                            <p className="text-[15px] text-gray-500 mb-4">{t("contact.calendly.text")}</p>
+                            <a
+                                href={CALENDLY_URL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 rounded-full bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 px-6 py-3 text-sm font-semibold shadow-sm transition-colors"
+                            >
+                                <Calendar size={15} />
+                                {t("contact.calendly.cta")}
+                            </a>
+                        </motion.div>
                     </motion.div>
 
-                    {/* Right: form */}
+                    {/* RIGHT — form card */}
                     <motion.div
                         initial="hidden"
                         animate={isInView ? 'visible' : 'hidden'}
                         variants={containeVariants}
+                        className="lg:col-span-3 rounded-2xl border border-gray-100 bg-white p-8 shadow-sm"
                     >
-                        <motion.h3 variants={itemVariants} className="text-2xl font-semibold mb-8 tracking-tight">
+                        <motion.h3
+                            variants={itemVariants}
+                            className="text-xl font-semibold tracking-tight text-gray-900 mb-8"
+                        >
                             {t("contact.form.title")}
                         </motion.h3>
 
@@ -196,56 +230,58 @@ const ContactSection = () => {
                             <motion.div
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className={`mb-8 p-4 rounded-xl flex items-center gap-3 ${
-                                    isDarkMode
-                                        ? 'bg-red-500/10 border border-red-500/20 text-red-400'
-                                        : 'bg-red-50 border border-red-100 text-red-600'
-                                }`}
+                                className="mb-6 flex items-center gap-3 rounded-xl border border-red-100 bg-red-50 p-4"
                             >
-                                <AlertCircle size={20} />
-                                <span className="text-sm font-medium">{errorMessage}</span>
+                                <AlertCircle size={18} className="text-red-500 shrink-0" />
+                                <span className="text-sm font-medium text-red-600">{errorMessage}</span>
                             </motion.div>
                         )}
 
-                        <motion.div variants={itemVariants} className="space-y-8">
+                        <motion.div variants={itemVariants} className="space-y-5">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <TextInput
+                                    value={formData.name}
+                                    handleInpuChange={(text) => handleInputChange('name', text)}
+                                    label={t("contact.form.name")}
+                                />
+                                <TextInput
+                                    label={t("contact.form.email")}
+                                    value={formData.email}
+                                    handleInpuChange={(text) => handleInputChange('email', text)}
+                                />
+                                <TextInput
+                                    label={t("contact.form.phone")}
+                                    value={formData.phone}
+                                    optional
+                                    handleInpuChange={(text) => handleInputChange('phone', text)}
+                                />
+                                <TextInput
+                                    label={t("contact.form.website")}
+                                    value={formData.website}
+                                    optional
+                                    handleInpuChange={(text) => handleInputChange('website', text)}
+                                />
+                                <TextInput
+                                    label={t("contact.form.projectType.label")}
+                                    value={formData.projectType}
+                                    select
+                                    options={projectTypeOptions}
+                                    placeholder={t("contact.form.projectType.placeholder")}
+                                    optional
+                                    handleInpuChange={(text) => handleInputChange('projectType', text)}
+                                />
+                                <TextInput
+                                    label={t("contact.form.budget.label")}
+                                    value={formData.budget}
+                                    select
+                                    options={budgetOptions}
+                                    placeholder={t("contact.form.budget.placeholder")}
+                                    optional
+                                    handleInpuChange={(text) => handleInputChange('budget', text)}
+                                />
+                            </div>
+
                             <TextInput
-                                isDarkMode={isDarkMode}
-                                value={formData.name}
-                                handleInpuChange={(text) => handleInputChange('name', text)}
-                                label={t("contact.form.name")}
-                            />
-                            <TextInput
-                                isDarkMode={isDarkMode}
-                                label={t("contact.form.email")}
-                                value={formData.email}
-                                handleInpuChange={(text) => handleInputChange('email', text)}
-                            />
-                            <TextInput
-                                isDarkMode={isDarkMode}
-                                label={t("contact.form.phone")}
-                                value={formData.phone}
-                                optional
-                                handleInpuChange={(text) => handleInputChange('phone', text)}
-                            />
-                            <TextInput
-                                isDarkMode={isDarkMode}
-                                label={t("contact.form.website")}
-                                value={formData.website}
-                                optional
-                                handleInpuChange={(text) => handleInputChange('website', text)}
-                            />
-                            <TextInput
-                                isDarkMode={isDarkMode}
-                                label={t("contact.form.projectType.label")}
-                                value={formData.projectType}
-                                select
-                                options={projectTypeOptions}
-                                placeholder={t("contact.form.projectType.placeholder")}
-                                optional
-                                handleInpuChange={(text) => handleInputChange('projectType', text)}
-                            />
-                            <TextInput
-                                isDarkMode={isDarkMode}
                                 label={t("contact.form.message")}
                                 value={formData.message}
                                 textarea
@@ -268,7 +304,6 @@ const ContactSection = () => {
 
                             <Turnstile
                                 ref={turnstileRef}
-                                isDarkMode={isDarkMode}
                                 onVerify={(token) => {
                                     setCaptchaToken(token);
                                     if (errorMessage) setErrorMessage("");
@@ -276,39 +311,33 @@ const ContactSection = () => {
                                 onExpire={() => setCaptchaToken(null)}
                             />
 
-                            <motion.button
+                            <button
                                 disabled={isSubmitting}
-                                whileHover={{ y: -2 }}
-                                whileTap={{ scale: 0.98 }}
                                 onClick={handleSubmit}
-                                className="w-full bg-[#2B8CA6] hover:bg-[#217485] disabled:bg-[#2B8CA6]/50 text-white py-4 rounded-full text-sm uppercase tracking-[0.2em] font-semibold transition-colors flex items-center justify-center space-x-3"
+                                className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 text-white py-4 text-sm font-semibold shadow-lg shadow-indigo-600/25 transition-colors"
                             >
                                 {isSubmitting ? (
                                     <>
-                                        <motion.div
+                                        <motion.span
                                             animate={{ rotate: 360 }}
                                             transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                                             className="w-4 h-4 border-2 border-white border-t-transparent rounded-full"
                                         />
-                                        <span>{t("contact.form.sending")}</span>
+                                        {t("contact.form.sending")}
                                     </>
                                 ) : (
                                     <>
-                                        <Send size={16} strokeWidth={2.5} />
-                                        <span>{t("contact.form.send")}</span>
+                                        <Send size={15} />
+                                        {t("contact.form.send")}
                                     </>
                                 )}
-                            </motion.button>
+                            </button>
                         </motion.div>
                     </motion.div>
                 </div>
             </div>
 
-            <SuccessModel
-                showSuccess={showSuccess}
-                setShowSuccess={setShowSuccess}
-                isDarkMode={isDarkMode}
-            />
+            <SuccessModel showSuccess={showSuccess} setShowSuccess={setShowSuccess} />
         </section>
     );
 };

@@ -5,20 +5,16 @@
       "description": "Freelance studio building custom websites, Shopify stores, dashboards and mobile apps for businesses in Marrakech, Casablanca and Rabat."
     },
     "services": {
-      "title": "Expert E-commerce Shopify & Dashboards — Koda Atlas",
-      "description": "Shopify deployment, full-stack web apps and connected business dashboards for companies across Morocco. Get a tailored quote today."
+      "title": "Showcase Sites, E-commerce, Web Apps, SaaS & Mobile — Koda Atlas",
+      "description": "Showcase websites, e-commerce stores, web applications, SaaS products and mobile apps for companies across Morocco. Get a tailored quote today."
     },
     "work": {
       "title": "Portfolio & Case Studies — Koda Atlas",
       "description": "Explore real client projects: e-commerce stores, business dashboards, and full-stack web & mobile apps built by Koda Atlas."
     },
-    "pricing": {
-      "title": "Pricing — Shopify, Web Apps & Dashboards | Koda Atlas",
-      "description": "Compare our Essential, Pro and Elite packages for Shopify stores, web apps and dashboards. Get a tailored quote for your project."
-    },
     "about": {
-      "title": "About Mohamed Ouledelabd — Software Engineer | Koda Atlas",
-      "description": "Software Engineer (MIAGE) based in Marrakech, building tailor-made digital solutions for businesses across Morocco."
+      "title": "About Koda Atlas — Web, Mobile & SaaS Development Studio",
+      "description": "A Marrakech-based development studio building showcase websites, e-commerce stores, web apps, SaaS products and mobile apps for businesses across Morocco."
     },
     "contact": {
       "title": "Contact — Start Your Project | Koda Atlas",
@@ -42,7 +38,6 @@
     "skills": "Skills",
     "services": "Services",
     "work": "Work",
-    "pricing": "Pricing",
     "about": "About",
     "contact": "Contact"
   },
@@ -151,55 +146,45 @@
         "problem": "Patients and doctors lacked a modern way to book, manage and track medical appointments across web and mobile.",
         "solution": "A full-stack solution: a React web app, a secure Spring Boot API, and a native Android app (Java/Kotlin) letting patients book, edit or cancel appointments while doctors manage schedules and consultation history.",
         "impact": "Streamlined scheduling for patients and doctors across devices, reducing no-shows and administrative back-and-forth."
+      },
+      "p7": {
+        "title": "Artisanat El Jamai",
+        "description": "A high-performance full-stack e-commerce platform with seamless international payment integration (PayPal) and dynamic SEO optimization.",
+        "problem": "A Marrakech workshop crafting handmade zellige and wrought-iron pieces had no way to reach buyers abroad — no online storefront, no cross-border payment method, and no search visibility.",
+        "solution": "A full-stack Next.js storefront deployed on Vercel, with PayPal handling international checkout, a bilingual FR/EN catalogue, and dynamic SEO built in at the page level.",
+        "impact": "The workshop now sells across Europe and beyond, with reliable international checkout and far stronger search visibility for its catalogue."
+      },
+      "p8": {
+        "title": "Riad Nour",
+        "description": "An elegant, immersive website for a boutique riad, pairing a premium user interface with a booking module built to drive direct reservations.",
+        "problem": "The riad had no website of its own to present the property, relying on third-party booking platforms that took a commission on every stay and offered no control over the brand experience.",
+        "solution": "A React and Tailwind CSS site deployed on Vercel: immersive photography, a premium room presentation, and an integrated booking flow letting guests check availability and reserve directly.",
+        "impact": "The riad now owns a branded storefront that turns visitors into direct bookings, reducing its dependence on commission-based platforms."
       }
     }
   },
   "about": {
-    "badge": "Discover my journey",
-    "title": "About",
-    "titleAccent": "Me",
+    "badge": "Why Koda Atlas",
+    "title": "Built to solve your",
+    "titleAccent": "tech problems",
     "teaser": {
-      "kicker": "Meet the person",
-      "title": "behind the code",
-      "text": "Hey, I'm Mohamed — a Software Engineer from Marrakech who designs and builds high-performing web and mobile products for brands that want to stand out online.",
+      "kicker": "Why Koda Atlas",
+      "title": "A studio built to ship, not just design",
+      "text": "Koda Atlas combines full-stack engineering with product thinking to take your project from idea to a live, reliable platform — websites, e-commerce, web apps, SaaS or mobile.",
       "cta": "Learn more"
     },
     "mission": {
-      "title": "My Mission",
-      "p1": "A Computer Science & Networks Engineer (MIAGE) based in Marrakech, I combine technical rigor with an entrepreneurial vision to digitize your business.",
-      "p2": "A specialist in robust backend development (Java/Spring Boot), I design scalable full-stack solutions: from building high-performing e-commerce stores (Shopify & Custom) to implementing connected business dashboards. I deliver architectures built to streamline your processes and maximize your conversion."
+      "title": "Our Mission",
+      "p1": "Koda Atlas exists to turn your business goals into working software, fast and without technical guesswork.",
+      "p2": "We design scalable full-stack solutions: from high-performing e-commerce stores (Shopify & custom) to connected business dashboards, SaaS products and mobile apps — architected to streamline your processes and maximize conversion."
     },
     "build": {
-      "title": "What I love to build"
+      "title": "What drives us"
     },
     "passions": {
       "ux": { "title": "User Experience", "description": "Crafting intuitive interfaces that users love" },
       "problem": { "title": "Problem Solving", "description": "Turning complex challenges into elegant solutions" },
       "learning": { "title": "Continuous Learning", "description": "Always exploring new technologies and best practices" }
-    },
-    "signature": "Crafted with passion by",
-    "journeyTitle": "My Journey",
-    "journey": {
-      "j1": {
-        "title": "Final-Year Project (PFE) — Full-Stack Developer",
-        "description": "Redesign and optimization of AGRISED, an application for managing the technical and economic performance of farms. Built a full mobile + API solution for field data collection and automated KPI calculation (gross margin, productivity, agroecoscore), with analytics dashboards and reporting. Stack: Spring Boot, React Native, PostgreSQL, Docker, Agile/Scrum."
-      },
-      "j2": {
-        "title": "Full-Stack Web Development Intern",
-        "description": "Design and development of Norsys Eval, a SaaS platform with a marketing site and online subscription management. Built a modern React front office and an admin back office, secure authentication and role management with Keycloak, PayPal payment integration and automated code quality checks with SonarQube. Agile/Scrum with two-week sprints."
-      },
-      "j3": {
-        "title": "Full-Stack Web Development Intern",
-        "description": "Design and development of a library management platform (borrowing, returns and reservations) for the Faculty of Arts and Humanities. Built an intuitive, efficient solution to manage resources and improve the user experience, working closely with library staff to meet their specific needs."
-      },
-      "j4": {
-        "title": "Engineering Degree — Computer Science & Networks (MIAGE)",
-        "description": "Engineering degree focused on software development, network administration, systems architecture, artificial intelligence and IT project management. Advanced skills to design, build and secure technological solutions."
-      },
-      "j5": {
-        "title": "Specialized Technician in Digital Infrastructure — Software Development",
-        "description": "Training focused on systems administration, network management, virtualization, cybersecurity and technical support. Practical skills to deploy and maintain secure digital infrastructures."
-      }
     },
     "ctaText": "Ready to bring your tech ideas to life?",
     "ctaButton": "Let's work together"
@@ -221,9 +206,21 @@
         "label": "Project type",
         "placeholder": "Select a project type",
         "options": {
-          "ecommerce": "E-commerce Website (Shopify or Custom)",
-          "webapp": "Web Application / SaaS",
-          "dashboard": "Dashboard & Business Back-office"
+          "showcase": "Showcase Website",
+          "ecommerce": "E-commerce Store (Shopify or Custom)",
+          "webapp": "Web Application",
+          "saas": "SaaS Product",
+          "mobile": "Mobile App"
+        }
+      },
+      "budget": {
+        "label": "Estimated budget",
+        "placeholder": "Select a budget range",
+        "options": {
+          "under20k": "Under 20,000 MAD",
+          "20to50k": "20,000 – 50,000 MAD",
+          "50kplus": "50,000+ MAD",
+          "unsure": "Not sure yet"
         }
       },
       "message": "Your Message",
@@ -243,7 +240,11 @@
     },
     "availability": {
       "badge": "Available immediately",
-      "text": "I'm currently open to full-time (CDI) opportunities and freelance missions. Let's bring your ideas to life."
+      "text": "Koda Atlas is currently taking on new projects. Let's bring your ideas to life."
+    },
+    "calendly": {
+      "text": "Prefer to talk it through first?",
+      "cta": "Book a call"
     },
     "success": {
       "title": "Message Sent!",
@@ -252,9 +253,9 @@
     }
   },
   "footer": {
-    "description": "Software Engineer (MIAGE, EMSI). I build tailor-made digital solutions to support the digital transformation of businesses in Morocco.",
+    "description": "A development studio building tailor-made digital solutions to support the digital transformation of businesses in Morocco.",
     "available": "Available now",
-    "locations": "Marrakech — Casablanca — Rabat",
+    "locations": "Marrakech — Remote — International",
     "navTitle": "Navigation",
     "socialTitle": "Social",
     "copyright": "Mohamed Ouledelabd",
@@ -265,64 +266,32 @@
     }
   },
   "services": {
-    "badge": "What I do",
+    "badge": "What we do",
     "title": "Services &",
     "titleAccent": "Solutions",
-    "subtitle": "From a first landing page to a full custom application — everything you need to bring your project online.",
-    "pitch": {
-      "title": "Expert E-commerce & Custom Web Solutions",
-      "description": "Have an e-commerce project or need a high-performing business tool? I combine technical expertise and design to power your business:",
-      "points": {
-        "shopify": {
-          "title": "Shopify Deployment",
-          "description": "Turnkey stores — optimized, fast and ready to sell."
-        },
-        "fullstack": {
-          "title": "Full-Stack Development",
-          "description": "Custom solutions (React/Spring Boot) for unique functional needs."
-        },
-        "dashboard": {
-          "title": "Business Dashboards",
-          "description": "Manage your activity with ease using stock and order management tools connected to your database."
-        }
+    "subtitle": "From a first showcase site to a full custom platform — everything you need to bring your project online.",
+    "items": {
+      "showcase": {
+        "title": "Showcase Websites",
+        "description": "A fast, polished website that presents your business clearly and converts visitors into leads."
+      },
+      "ecommerce": {
+        "title": "E-commerce Stores",
+        "description": "Complete online stores (Shopify or custom-built) — optimized, fast and ready to sell from day one."
+      },
+      "webapp": {
+        "title": "Web Applications",
+        "description": "Custom web apps and business dashboards that automate your operations and connect to your data."
+      },
+      "saas": {
+        "title": "SaaS Products",
+        "description": "Full-stack SaaS platforms built to scale — subscriptions, user management and secure architecture included."
+      },
+      "mobile": {
+        "title": "Mobile Applications",
+        "description": "Native and cross-platform mobile apps that put your product in your customers' pockets."
       }
     }
-  },
-  "pricing": {
-    "badge": "Our offers",
-    "title": "Choose your",
-    "titleAccent": "formula",
-    "subtitle": "Three levels of support tailored to the size of your project — from a quick launch to full custom management.",
-    "process": {
-      "title": "How your project comes to life",
-      "steps": {
-        "discovery": { "title": "Discovery", "description": "Understanding your brand, audience and goals so the site speaks to the right people." },
-        "content": { "title": "Content & Structure", "description": "Defining the pages, content and features your project actually needs." },
-        "design": { "title": "Design", "description": "Crafting a visual direction that fits your brand and makes it memorable." },
-        "development": { "title": "Development", "description": "Building a fast, responsive, production-ready website or application." },
-        "launch": { "title": "Launch & Support", "description": "Going live, with a clear handover and support after launch." }
-      }
-    },
-    "popular": "Most popular",
-    "tiers": {
-      "essentiel": {
-        "name": "Essential",
-        "usage": "Quick launch",
-        "features": ["Fully configured Shopify store", "Basic SEO setup"]
-      },
-      "pro": {
-        "name": "Pro",
-        "usage": "Growth",
-        "features": ["Shopify store", "Custom API integrations", "Third-party apps"]
-      },
-      "elite": {
-        "name": "Elite",
-        "usage": "Complex management",
-        "features": ["100% custom-built", "Connected business dashboard"]
-      }
-    },
-    "cta": "Get in touch",
-    "disclaimer": "Every offer is tailored to your needs — we work out the exact scope and price together after an initial conversation."
   },
   "faq": {
     "badge": "Good to know",
@@ -331,7 +300,7 @@
     "items": {
       "cost": {
         "q": "How much does a website cost?",
-        "a": "It depends on your needs. A simple site starts at the base price above; the calculator gives a first estimate and I send a tailored quote after a quick call."
+        "a": "The cost of a project depends entirely on your ideas, your goals and the technical complexity involved. Every client is different, so I provide a precise estimate and a tailor-made quote after an initial discovery call."
       },
       "start": {
         "q": "What do I need to get started?",
@@ -351,7 +320,7 @@
       },
       "support": {
         "q": "Do you offer support after launch?",
-        "a": "Absolutely. I offer maintenance, updates and improvements after launch, with no mandatory monthly fees."
+        "a": "Absolutely. Once your project is live, I offer support that scales with your growth: either a monthly maintenance plan for complete peace of mind, or one-off work billed per feature for each new addition."
       }
     }
   },
@@ -424,7 +393,7 @@
         },
         "cookies": {
           "title": "Cookies & Local Storage",
-          "body": "This site uses your browser's local storage to remember your theme preference (light/dark) and language choice (English/French). No advertising or tracking cookies are used."
+          "body": "This site uses your browser's local storage to remember your language choice (English/French). No advertising or tracking cookies are used."
         },
         "retention": {
           "title": "Data Retention",

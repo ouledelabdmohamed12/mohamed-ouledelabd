@@ -1,6 +1,5 @@
 import React, { useLayoutEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
-import { ThemeProvider } from './context/ThemeContext'
 import { useSmoothScroll } from './hooks/useSmoothScroll'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -8,7 +7,6 @@ import CustomCursor from './components/CustomCursor'
 import HomePage from './pages/HomePage'
 import ServicesPage from './pages/ServicesPage'
 import WorkPage from './pages/WorkPage'
-import PricingPage from './pages/PricingPage'
 import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
 import TermsPage from './pages/TermsPage'
@@ -28,7 +26,7 @@ const App = () => {
   useSmoothScroll();
 
   return (
-    <ThemeProvider>
+    <>
       <ScrollToTop />
       <CustomCursor />
       <div className="relative">
@@ -37,7 +35,6 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/work" element={<WorkPage />} />
-          <Route path="/pricing" element={<PricingPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/terms" element={<TermsPage />} />
@@ -46,7 +43,7 @@ const App = () => {
         </Routes>
         <Footer />
       </div>
-    </ThemeProvider>
+    </>
   )
 }
 

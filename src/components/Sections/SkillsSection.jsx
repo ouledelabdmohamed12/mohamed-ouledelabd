@@ -1,162 +1,125 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { useTheme } from "../../context/ThemeContext";
 import { SKILLS_CATEGORY, STATS } from "../../utils/data";
 import { containeVariants, itemVariants } from "../../utils/helper";
 
-// Import des icônes technologiques
-import { 
-  SiPython, SiDjango, SiDocker, SiMysql, SiMongodb, 
+import {
+  SiPython, SiDjango, SiDocker, SiMysql, SiMongodb,
   SiDart, SiFlutter, SiRedis, SiJavascript, SiAmazonwebservices,
-  SiDigitalocean, SiNodedotjs, SiFirebase, SiPostgresql, 
-  SiReact, SiNextdotjs, SiTailwindcss 
+  SiDigitalocean, SiNodedotjs, SiFirebase, SiPostgresql,
+  SiReact, SiNextdotjs, SiTailwindcss
 } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
 
-// Configuration de la grille d'icônes
 const TECH_ICONS = [
-  { name: "Python", icon: SiPython, color: "#3776AB" },
-  { name: "Django", icon: SiDjango, color: "#092E20" },
-  { name: "Rest Api", icon: TbApi, color: "#0052CC" },
-  { name: "Docker", icon: SiDocker, color: "#2496ED" },
-  { name: "MySQL", icon: SiMysql, color: "#4479A1" },
-  { name: "Mongo DB", icon: SiMongodb, color: "#47A248" },
-  { name: "Dart", icon: SiDart, color: "#0175C2" },
-  { name: "Flutter", icon: SiFlutter, color: "#02569B" },
-  { name: "Redis", icon: SiRedis, color: "#DC382D" },
-  { name: "Javascript", icon: SiJavascript, color: "#F7DF1E" },
-  { name: "AWS", icon: SiAmazonwebservices, color: "#FF9900" },
-  { name: "Digital Ocean", icon: SiDigitalocean, color: "#0080FF" },
-  { name: "Node JS", icon: SiNodedotjs, color: "#339933" },
-  { name: "Firebase", icon: SiFirebase, color: "#FFCA28" },
-  { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
-  { name: "React", icon: SiReact, color: "#61DAFB" },
-  { name: "Next JS", icon: SiNextdotjs, color: "#ffffff" },
-  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+  { name: "Python", icon: SiPython },
+  { name: "Django", icon: SiDjango },
+  { name: "Rest Api", icon: TbApi },
+  { name: "Docker", icon: SiDocker },
+  { name: "MySQL", icon: SiMysql },
+  { name: "Mongo DB", icon: SiMongodb },
+  { name: "Dart", icon: SiDart },
+  { name: "Flutter", icon: SiFlutter },
+  { name: "Redis", icon: SiRedis },
+  { name: "Javascript", icon: SiJavascript },
+  { name: "AWS", icon: SiAmazonwebservices },
+  { name: "Digital Ocean", icon: SiDigitalocean },
+  { name: "Node JS", icon: SiNodedotjs },
+  { name: "Firebase", icon: SiFirebase },
+  { name: "PostgreSQL", icon: SiPostgresql },
+  { name: "React", icon: SiReact },
+  { name: "Next JS", icon: SiNextdotjs },
+  { name: "Tailwind CSS", icon: SiTailwindcss },
 ];
 
 const SkillsSection = () => {
-  const { isDarkMode } = useTheme();
   const { t } = useTranslation();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section
-      ref={sectionRef}
-      id="skills"
-      className={`py-24 px-6 ${
-        isDarkMode ? "bg-[#0a0c10] text-white" : "bg-gray-50 text-gray-900"
-      } relative overflow-hidden`}
-    >
-      <div className="max-w-6xl mx-auto relative z-10">
-        
-        {/* Section Header */}
+    <section ref={sectionRef} id="skills" className="bg-slate-50 py-24 px-6">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
         <motion.div
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={containeVariants}
-          className="text-center mb-24"
+          className="text-center max-w-2xl mx-auto mb-16"
         >
-          <motion.div 
-            variants={itemVariants} 
-            className={`text-xs uppercase tracking-[0.4em] font-bold ${
-                isDarkMode ? "text-gray-500" : "text-gray-400"
-            } mb-6`}
+          <motion.span
+            variants={itemVariants}
+            className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-1.5 text-sm font-medium text-gray-600 shadow-sm mb-6"
           >
+            <span className="w-1.5 h-1.5 rounded-full bg-indigo-600" />
             {t("skills.badge")}
-          </motion.div>
+          </motion.span>
+
           <motion.h2
             variants={itemVariants}
-            className="text-5xl md:text-7xl font-semibold mb-8 leading-tight tracking-tight"
+            className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4"
           >
-            {t("skills.titleA")}
-            <span className="text-[#2B8CA6]"> {t("skills.titleAccent")}</span>
+            {t("skills.titleA")}{" "}
+            <span className="text-indigo-600">{t("skills.titleAccent")}</span>
           </motion.h2>
-          <motion.p
-            variants={itemVariants}
-            className={`text-lg md:text-xl ${
-              isDarkMode ? "text-gray-400" : "text-gray-600"
-            } max-w-2xl mx-auto font-light leading-relaxed`}
-          >
+
+          <motion.p variants={itemVariants} className="text-lg text-gray-500 leading-relaxed">
             {t("skills.subtitle")}
           </motion.p>
         </motion.div>
 
-        {/* Grille d'icônes interactive */}
+        {/* Tech grid */}
         <motion.div
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={containeVariants}
-          className="grid grid-cols-3 md:grid-cols-6 gap-y-16 gap-x-8 mb-32"
+          className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 mb-16"
         >
-          {TECH_ICONS.map((tech, index) => (
+          {TECH_ICONS.map((tech) => (
             <motion.div
-              key={index}
+              key={tech.name}
               variants={itemVariants}
-              whileHover={{ y: -10 }}
-              className="flex flex-col items-center group cursor-pointer"
+              className="flex flex-col items-center gap-3 rounded-2xl border border-gray-100 bg-white px-4 py-6 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
             >
-              <div className="mb-4 relative">
-                <div 
-                  className="absolute inset-0 blur-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"
-                  style={{ backgroundColor: tech.color }}
-                />
-                <tech.icon 
-                  size={42} 
-                  className="relative z-10 transition-all duration-500 filter grayscale group-hover:grayscale-0"
-                  style={{ color: isDarkMode ? (tech.name === "Next JS" ? "white" : tech.color) : tech.color }}
-                />
-              </div>
-              <span className={`text-[10px] uppercase tracking-[0.2em] font-bold ${
-                isDarkMode ? "text-gray-500 group-hover:text-white" : "text-gray-400"
-              } transition-colors`}>
-                {tech.name}
-              </span>
+              <tech.icon size={26} className="text-gray-400" />
+              <span className="text-xs font-medium text-gray-500 text-center">{tech.name}</span>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Skills Grid - Cartes avec Badges optimisés */}
+        {/* Category cards */}
         <motion.div
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={containeVariants}
-          className="grid md:grid-cols-2 gap-8 lg:gap-12"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16"
         >
           {SKILLS_CATEGORY.map((category) => (
             <motion.div
               key={category.id}
               variants={itemVariants}
-              className={`p-10 rounded-3xl border ${
-                isDarkMode ? "bg-[#111418] border-white/5" : "bg-white border-gray-100 shadow-xl"
-              }`}
+              className="rounded-2xl border border-gray-100 bg-white p-8 shadow-sm hover:shadow-md transition-shadow duration-300"
             >
-              <div className="flex items-start mb-8">
-                <div className={`p-4 rounded-2xl ${isDarkMode ? "bg-white/5" : "bg-gray-100"} mr-6`}>
-                  <category.icon size={28} className="text-[#2B8CA6]" />
-                </div>
+              <div className="flex items-start gap-4 mb-6">
+                <span className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 shrink-0">
+                  <category.icon size={22} />
+                </span>
                 <div>
-                  <h3 className="text-2xl font-semibold mb-2 tracking-tight">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-1">
                     {t(`skills.categories.${category.id}.title`)}
                   </h3>
-                  <p className={`text-base ${isDarkMode ? "text-gray-400" : "text-gray-600"} font-light`}>
+                  <p className="text-[15px] text-gray-500 leading-relaxed">
                     {t(`skills.categories.${category.id}.description`)}
                   </p>
                 </div>
               </div>
 
-              {/* Badges avec opacité 5% pour un look Premium */}
-              <div className="flex flex-wrap gap-3 mt-8">
+              <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
                   <span
                     key={skill.name}
-                    className={`px-4 py-2 text-xs font-bold rounded-lg border transition-all duration-300 ${
-                      isDarkMode 
-                        ? "bg-[#2B8CA6]/5 border-[#2B8CA6]/10 text-[#2B8CA6] hover:bg-[#2B8CA6]/10 hover:border-[#2B8CA6]/30" 
-                        : "bg-gray-100 text-gray-800 border-gray-200"
-                    }`}
+                    className="rounded-full bg-gray-50 border border-gray-100 px-3 py-1.5 text-xs font-medium text-gray-600"
                   >
                     {skill.name}
                   </span>
@@ -166,27 +129,23 @@ const SkillsSection = () => {
           ))}
         </motion.div>
 
-        {/* Stats Section épurée */}
+        {/* Stats */}
         <motion.div
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={containeVariants}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-5xl mx-auto"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6"
         >
           {STATS.map((stat) => (
             <motion.div
               key={stat.id}
               variants={itemVariants}
-              className="text-center flex flex-col items-center justify-center"
+              className="rounded-2xl border border-gray-100 bg-white px-6 py-8 text-center shadow-sm"
             >
-              <div className="text-4xl md:text-5xl font-bold text-[#2B8CA6] mb-2 tracking-tighter">
+              <div className="text-3xl md:text-4xl font-bold tracking-tight text-indigo-600 mb-2">
                 {stat.number}
               </div>
-              <div className={`text-[10px] uppercase tracking-[0.2em] font-bold ${
-                isDarkMode ? "text-gray-500" : "text-gray-400"
-              }`}>
-                {t(`skills.stats.${stat.id}`)}
-              </div>
+              <div className="text-sm text-gray-500">{t(`skills.stats.${stat.id}`)}</div>
             </motion.div>
           ))}
         </motion.div>
