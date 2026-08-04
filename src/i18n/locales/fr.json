@@ -189,17 +189,17 @@
       "title": "Ce qui nous anime"
     },
     "passions": {
-      "ux": {
-        "title": "Expérience Utilisateur",
-        "description": "Créer des interfaces intuitives que les utilisateurs adorent"
+      "reliability": {
+        "title": "Fiabilité de l'infrastructure",
+        "description": "Concevoir des architectures réseau et des systèmes robustes et hautement disponibles, sur lesquels les entreprises peuvent compter."
       },
-      "problem": {
-        "title": "Résolution de Problèmes",
-        "description": "Transformer des défis complexes en solutions élégantes"
+      "security": {
+        "title": "Sécurité avancée",
+        "description": "Durcissement des systèmes, gestion des accès sécurisés (IAM) et protection des flux de données critiques."
       },
-      "learning": {
-        "title": "Apprentissage Continu",
-        "description": "Toujours explorer de nouvelles technologies et bonnes pratiques"
+      "automation": {
+        "title": "Automatisation des systèmes",
+        "description": "Fluidifier les déploiements et mettre en place une supervision proactive pour prévenir les incidents avant qu'ils ne surviennent."
       }
     },
     "ctaText": "Prêt à concrétiser vos idées technologiques ?",
