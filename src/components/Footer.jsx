@@ -53,18 +53,27 @@ const Footer = () => {
           <div className="md:col-span-4">
             <h3 className="text-sm font-semibold text-gray-900 mb-5">{t("footer.socialTitle")}</h3>
             <div className="flex flex-wrap gap-3">
-              {SOCIAL_LINKS.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.name}
-                  className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 bg-white text-gray-500 shadow-sm hover:text-indigo-600 hover:border-indigo-200 transition-colors"
-                >
-                  <social.icon size={16} />
-                </a>
-              ))}
+              {SOCIAL_LINKS.map((social) => {
+                // Only http(s) links open in a new tab. mailto:/tel: are handed
+                // off to an external app, so target="_blank" would leave an
+                // empty "ghost" tab behind in the browser.
+                const opensInNewTab = /^https?:/i.test(social.url);
+
+                return (
+                  <a
+                    key={social.name}
+                    href={social.url}
+                    {...(opensInNewTab && {
+                      target: "_blank",
+                      rel: "noopener noreferrer",
+                    })}
+                    aria-label={social.name}
+                    className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 bg-white text-gray-500 shadow-sm hover:text-indigo-600 hover:border-indigo-200 transition-colors"
+                  >
+                    <social.icon size={16} />
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>

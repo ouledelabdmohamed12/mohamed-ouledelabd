@@ -204,8 +204,11 @@ export const SOCIAL_LINKS = [
     },
     {
         name: "Email",
+        // Gmail's web compose window rather than a mailto: — a mailto only works
+        // when the visitor has a desktop mail client registered for it.
+        // The footer applies target="_blank" automatically to http(s) URLs.
         icon: Mail,
-        url: "mailto:ouledelabd.mohamed@gmail.com",
+        url: "https://mail.google.com/mail/u/0/?fs=1&to=ouledelabd.mohamed@gmail.com&tf=cm",
         color: "hover:text-green-400",
         bgColor: "hover:bg-green-500/10",
     },
