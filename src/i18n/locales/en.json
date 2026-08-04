@@ -189,17 +189,17 @@
       "title": "What drives us"
     },
     "passions": {
-      "ux": {
-        "title": "User Experience",
-        "description": "Crafting intuitive interfaces that users love"
+      "reliability": {
+        "title": "Infrastructure Reliability",
+        "description": "Building robust, highly available network architectures and systems that businesses can depend on."
       },
-      "problem": {
-        "title": "Problem Solving",
-        "description": "Turning complex challenges into elegant solutions"
+      "security": {
+        "title": "Advanced Security",
+        "description": "Hardening systems, managing secure access (IAM), and protecting critical data flows."
       },
-      "learning": {
-        "title": "Continuous Learning",
-        "description": "Always exploring new technologies and best practices"
+      "automation": {
+        "title": "System Automation",
+        "description": "Streamlining deployments and implementing proactive monitoring to prevent issues before they occur."
       }
     },
     "ctaText": "Ready to bring your tech ideas to life?",

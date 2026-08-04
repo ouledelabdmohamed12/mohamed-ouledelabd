@@ -1,11 +1,10 @@
 import {
     Code2,
-    Heart,
-    Coffee,
-    BookOpen,
     Database,
     Server,
     Cloud,
+    Lock,
+    Cog,
     Mail,
     MapPin,
     Phone,
@@ -181,10 +180,11 @@ export const PROJECTS = [
     },
 ];
 
+// About-page cards. Text lives in i18n under `about.passions.<id>`.
 export const PASSIONS = [
-    { id: "ux", icon: Heart },
-    { id: "problem", icon: Coffee },
-    { id: "learning", icon: BookOpen },
+    { id: "reliability", icon: Server },
+    { id: "security", icon: Lock },
+    { id: "automation", icon: Cog },
 ];
 
 export const SOCIAL_LINKS = [
