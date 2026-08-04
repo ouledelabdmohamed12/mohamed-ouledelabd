@@ -12,6 +12,12 @@ const ProjectCard = ({ project, index, onOpen }) => {
   const hasDemo = project.liveUrl && project.liveUrl !== "#";
   const hasCode = project.githuburl && project.githuburl !== "#";
 
+  // Several titles already carry their category ("BurnCare — Health & AI"),
+  // so only append it when it isn't already there.
+  const imageAlt = title.toLowerCase().includes(project.category.toLowerCase())
+    ? `${title} — project screenshot`
+    : `${title} — ${project.category} project screenshot`;
+
   return (
     <motion.div
       variants={itemVariants}
@@ -27,7 +33,9 @@ const ProjectCard = ({ project, index, onOpen }) => {
         {project.image ? (
           <img
             src={project.image}
-            alt={title}
+            alt={imageAlt}
+            loading="lazy"
+            decoding="async"
             className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
