@@ -1,12 +1,12 @@
 import Seo from "../components/Seo";
 import ProjectsSection from "../components/Sections/ProjectsSection";
-import SkillsSection from "../components/Sections/SkillsSection";
 
+// SkillsSection deliberately lives only on /about — it used to render here too,
+// which repeated the exact same block on two pages.
 const WorkPage = () => (
   <>
     <Seo page="work" path="/work" />
     <ProjectsSection />
-    <SkillsSection />
   </>
 );
 

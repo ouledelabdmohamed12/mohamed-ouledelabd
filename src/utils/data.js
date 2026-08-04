@@ -18,14 +18,18 @@ import {
 import { FiGithub, FiLinkedin } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 
-import PROJECT_IMG_1 from "../assets/images/gestion_hotel.webp";
-import PROJECT_IMG_2 from "../assets/images/eyegard.webp";
-import PROJECT_IMG_3 from "../assets/images/gestion_stock.webp";
-import PROJECT_IMG_4 from "../assets/images/AI_presence.webp";
-import PROJECT_IMG_5 from "../assets/images/gestion_hopital.webp";
-import PROJECT_IMG_6 from "../assets/images/gestion_rendezVous.webp";
-import PROJECT_IMG_7 from "../assets/images/artisana.png";
-import PROJECT_IMG_8 from "../assets/images/riad.png";
+// NOTE: burncar.jpeg is square (2048x2048) while the card renders a ~1.76:1 box
+// with object-cover, so roughly the top and bottom thirds are cropped off.
+import BURNCARE_IMG from "../assets/images/burncar.jpeg";
+
+import ARTISANAT_IMG from "../assets/images/artisana.png";
+import PROJECT_IMG_HOTEL from "../assets/images/gestion_hotel.webp";
+import PROJECT_IMG_EYEGUARD from "../assets/images/eyegard.webp";
+import PROJECT_IMG_STOCK from "../assets/images/gestion_stock.webp";
+import PROJECT_IMG_ATTENDANCE from "../assets/images/AI_presence.webp";
+import PROJECT_IMG_HOSPITAL from "../assets/images/gestion_hopital.webp";
+import PROJECT_IMG_APPOINTMENT from "../assets/images/gestion_rendezVous.webp";
+import PROJECT_IMG_RIAD from "../assets/images/riad.png";
 
 // NOTE: textual labels live in src/i18n/locales/*.json.
 // Data below keeps only structure (icons, images, links, ids) and references
@@ -36,40 +40,40 @@ export const SKILLS_CATEGORY = [
         id: "frontend",
         icon: Code2,
         skills: [
-            { name: "React / React Native" },
-            { name: "TypeScript" },
-            { name: "Tailwind CSS" },
-            { name: "UX / UI" },
+            { name: "React.js" },
+            { name: "React Native" },
+            { name: "Flutter" },
+            { name: "TypeScript / Tailwind CSS" },
         ],
     },
     {
         id: "backend",
         icon: Server,
         skills: [
-            { name: "Spring Boot (Java)" },
+            { name: "Java / Spring Boot" },
             { name: "PHP / Laravel" },
-            { name: "Python / IA" },
-            { name: "Microservices" },
+            { name: "Python / FastAPI" },
+            { name: "REST APIs & Microservices" },
         ],
     },
     {
         id: "database",
         icon: Database,
         skills: [
-            { name: "MySQL / PostgreSQL" },
+            { name: "PostgreSQL" },
+            { name: "MySQL" },
+            { name: "SQLite" },
             { name: "MongoDB" },
-            { name: "Query Optimization" },
-            { name: "Data Security" },
         ],
     },
     {
         id: "devops",
         icon: Cloud,
         skills: [
-            { name: "Docker / Kubernetes" },
-            { name: "CI/CD (GitLab, Jenkins)" },
-            { name: "Automated Testing (QA)" },
-            { name: "Cloud (AWS / Azure)" },
+            { name: "Selenium" },
+            { name: "Robot Framework" },
+            { name: "JUnit / SonarQube" },
+            { name: "Docker / CI-CD" },
         ],
     },
 ];
@@ -85,7 +89,30 @@ export const PROJECTS = [
     {
         id: 1,
         key: "p1",
-        image: PROJECT_IMG_1,
+        image: BURNCARE_IMG,
+        tags: ["Flutter", "Spring Boot", "Python FastAPI", "Docker Compose", "Keycloak"],
+        liveUrl: "#",
+        githuburl: "#",
+        featured: true,
+        category: "Health & AI",
+    },
+    {
+        id: 2,
+        key: "p2",
+        image: ARTISANAT_IMG,
+        tags: ["Next.js", "Vercel", "Lemon Squeezy", "SEO"],
+        // Root URL handles its own /fr /en language routing.
+        liveUrl: "https://artisanateljamai.com",
+        githuburl: "#",
+        featured: true,
+        category: "E-commerce",
+    },
+
+    // --- Earlier work, kept after the three headline projects ---
+    {
+        id: 3,
+        key: "p3",
+        image: PROJECT_IMG_HOTEL,
         tags: ["C#", "MySQL", "WinForms"],
         liveUrl: "#",
         githuburl: "https://github.com/simoelabd/Gestion-hotel",
@@ -93,9 +120,9 @@ export const PROJECTS = [
         category: "Desktop App",
     },
     {
-        id: 2,
-        key: "p2",
-        image: PROJECT_IMG_2,
+        id: 4,
+        key: "p4",
+        image: PROJECT_IMG_EYEGUARD,
         tags: ["Python", "OpenCV", "Django"],
         liveUrl: "#",
         githuburl: "https://github.com/simoelabd/EyeGuard",
@@ -103,19 +130,19 @@ export const PROJECTS = [
         category: "AI & Surveillance",
     },
     {
-        id: 3,
-        key: "p3",
-        image: PROJECT_IMG_3,
+        id: 5,
+        key: "p5",
+        image: PROJECT_IMG_STOCK,
         tags: ["PHP", "MySQL", "Bootstrap"],
         liveUrl: "#",
         githuburl: "https://github.com/simoelabd/Gestion-stocke",
-        featured: true,
+        featured: false,
         category: "Web App",
     },
     {
-        id: 4,
-        key: "p4",
-        image: PROJECT_IMG_4,
+        id: 6,
+        key: "p6",
+        image: PROJECT_IMG_ATTENDANCE,
         tags: ["Python", "Django", "OpenCV", "AI"],
         liveUrl: "#",
         githuburl: "https://github.com/simoelabd/Face-attandence-system-AI",
@@ -123,9 +150,9 @@ export const PROJECTS = [
         category: "AI & Surveillance",
     },
     {
-        id: 5,
-        key: "p5",
-        image: PROJECT_IMG_5,
+        id: 7,
+        key: "p7",
+        image: PROJECT_IMG_HOSPITAL,
         tags: ["Java", "JavaFX", "MySQL"],
         liveUrl: "#",
         githuburl: "https://github.com/simoelabd/gestion_hopital",
@@ -133,34 +160,23 @@ export const PROJECTS = [
         category: "Desktop App",
     },
     {
-        id: 6,
-        key: "p6",
-        image: PROJECT_IMG_6,
+        id: 8,
+        key: "p8",
+        image: PROJECT_IMG_APPOINTMENT,
         tags: ["React", "Spring Boot", "Java", "Kotlin", "MySQL"],
         liveUrl: "#",
         githuburl: "#",
-        featured: true,
+        featured: false,
         category: "Full Stack",
     },
     {
-        id: 7,
-        key: "p7",
-        image: PROJECT_IMG_7,
-        tags: ["Next.js", "Vercel", "PayPal"],
-        // Root URL handles its own /fr /en language routing.
-        liveUrl: "https://artisanateljamai.com",
-        githuburl: "#",
-        featured: true,
-        category: "E-commerce",
-    },
-    {
-        id: 8,
-        key: "p8",
-        image: PROJECT_IMG_8,
+        id: 9,
+        key: "p9",
+        image: PROJECT_IMG_RIAD,
         tags: ["React", "Tailwind CSS", "Vercel"],
         liveUrl: "https://riad-nour-website.vercel.app/",
         githuburl: "#",
-        featured: true,
+        featured: false,
         category: "Hospitality / Showcase",
     },
 ];
