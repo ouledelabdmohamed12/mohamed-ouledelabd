@@ -6,9 +6,15 @@ import { FaWhatsapp } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import { NAV_LINKS } from "../utils/data";
 import { pathForSection } from "../utils/helper";
+import { LogoLink } from "./Logo";
 
 const CONTACT_EMAIL = "ouledelabd.mohamed@gmail.com";
 const CONTACT_PHONE = "+212682484400";
+
+// A plain mailto: depends on the visitor having a desktop mail client
+// registered for the protocol; when they don't, the click silently does
+// nothing. The Gmail compose URL works in any browser instead.
+const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT_EMAIL}`;
 
 // Clean inline language links — active language in solid gray-900.
 const LanguageSwitch = ({ className = "" }) => {
@@ -52,12 +58,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* --- LOGO --- */}
-        <Link to="/" className="group flex items-baseline gap-0.5">
-          <span className="text-xl font-bold tracking-tight text-gray-900">
-            Koda Atlas
-          </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 translate-y-[-2px]" />
-        </Link>
+        <LogoLink size={32} className="shrink-0" />
 
         {/* --- DESKTOP NAVIGATION --- */}
         <div className="hidden md:flex items-center gap-8">
@@ -72,17 +73,22 @@ const Navbar = () => {
           <div className="w-px h-5 bg-gray-200" />
 
           <div className="flex items-center gap-4">
+            {/* The icons are only 17px, which is under the 24px minimum tap
+                target. `before:-inset-2` grows the clickable area to 33px
+                without affecting layout, so spacing stays identical. */}
             <a
-              href={`mailto:${CONTACT_EMAIL}`}
+              href={GMAIL_COMPOSE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Email"
-              className="text-gray-400 hover:text-gray-900 transition-colors"
+              className="relative z-10 before:absolute before:-inset-2 before:content-[''] text-gray-400 hover:text-gray-900 transition-colors"
             >
               <Mail size={17} />
             </a>
             <a
               href={`tel:${CONTACT_PHONE}`}
               aria-label="Phone"
-              className="text-gray-400 hover:text-gray-900 transition-colors"
+              className="relative before:absolute before:-inset-2 before:content-[''] text-gray-400 hover:text-gray-900 transition-colors"
             >
               <Phone size={17} />
             </a>

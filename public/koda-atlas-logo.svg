@@ -1,0 +1,9 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Koda Atlas">
+  <title>Koda Atlas</title>
+  <rect x="0.75" y="0.75" width="118.5" height="118.5" rx="26" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5"/>
+  <g transform="translate(13.9,25.3) scale(0.41)">
+    <path d="M10 150 L150 30 L215 150 Z" fill="none" stroke="#2563EB" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M45 150 L100 20 L158 150 Z" fill="#2563EB"/>
+    <path d="M55 150 L95 95 L118 120 L152 70" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+  </g>
+</svg>

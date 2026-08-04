@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { SOCIAL_LINKS, NAV_LINKS } from "../utils/data";
 import { pathForSection } from "../utils/helper";
+import { LogoLink } from "./Logo";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -13,10 +14,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           {/* Brand */}
           <div className="md:col-span-5 space-y-6">
-            <Link to="/" className="inline-flex items-baseline gap-0.5">
-              <span className="text-xl font-bold tracking-tight text-gray-900">Koda Atlas</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 translate-y-[-2px]" />
-            </Link>
+            <LogoLink size={32} />
 
             <p className="text-[15px] leading-relaxed text-gray-500 max-w-sm">
               {t("footer.description")}
@@ -36,7 +34,7 @@ const Footer = () => {
 
           {/* Navigation */}
           <div className="md:col-span-3">
-            <h4 className="text-sm font-semibold text-gray-900 mb-5">{t("footer.navTitle")}</h4>
+            <h3 className="text-sm font-semibold text-gray-900 mb-5">{t("footer.navTitle")}</h3>
             <ul className="space-y-3">
               {NAV_LINKS.map((link) => (
                 <li key={link.id}>
@@ -53,7 +51,7 @@ const Footer = () => {
 
           {/* Social */}
           <div className="md:col-span-4">
-            <h4 className="text-sm font-semibold text-gray-900 mb-5">{t("footer.socialTitle")}</h4>
+            <h3 className="text-sm font-semibold text-gray-900 mb-5">{t("footer.socialTitle")}</h3>
             <div className="flex flex-wrap gap-3">
               {SOCIAL_LINKS.map((social) => (
                 <a

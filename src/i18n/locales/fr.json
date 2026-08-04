@@ -1,28 +1,28 @@
 {
   "seo": {
     "home": {
-      "title": "Koda Atlas — Sites Web, Mobile & E-commerce à Marrakech",
-      "description": "Studio freelance : sites web, boutiques Shopify, dashboards métier et applications mobiles pour les entreprises à Marrakech, Casablanca et Rabat."
+      "title": "Développeur Full-Stack Web & Mobile — Koda Atlas, Marrakech",
+      "description": "Ingénieur full-stack : applications web et mobiles avec React, React Native, Flutter, Java Spring Boot et PostgreSQL. Basé à Marrakech, actif partout au Maroc."
     },
     "services": {
-      "title": "Sites Vitrines, E-commerce, Applications Web, SaaS & Mobile — Koda Atlas",
-      "description": "Sites vitrines, boutiques e-commerce, applications web, produits SaaS et applications mobiles pour les entreprises du Maroc. Devis personnalisé."
+      "title": "Applications Web, Mobile, E-commerce & SaaS — Koda Atlas",
+      "description": "Sites vitrines, e-commerce, applications web, SaaS et applications mobiles développés en full-stack avec React, Flutter et Spring Boot. Devis sur mesure."
     },
     "work": {
-      "title": "Portfolio & Études de Cas — Koda Atlas",
-      "description": "Découvrez mes projets clients : boutiques e-commerce, dashboards métier et applications web & mobile réalisés par Koda Atlas."
+      "title": "Projets Full-Stack & Études de Cas — Koda Atlas",
+      "description": "Réalisations concrètes : BurnCare (santé & IA), une boutique e-commerce Next.js avec paiement international, et des applications web, mobiles et desktop."
     },
     "about": {
-      "title": "À propos de Koda Atlas — Studio de Développement Web, Mobile & SaaS",
-      "description": "Studio basé à Marrakech qui conçoit sites vitrines, boutiques e-commerce, applications web, produits SaaS et applications mobiles pour les entreprises du Maroc."
+      "title": "À propos de Koda Atlas — Ingénierie Full-Stack Web & Mobile",
+      "description": "Studio basé à Marrakech qui développe des applications web et mobiles full-stack : React, React Native, Flutter, Java Spring Boot, Laravel et PostgreSQL."
     },
     "contact": {
       "title": "Contact — Démarrer votre projet | Koda Atlas",
-      "description": "Contactez-moi pour discuter de votre projet e-commerce, application web ou dashboard. Basé à Marrakech, actif à Casablanca et Rabat."
+      "description": "Contactez-moi pour votre projet d'application web, mobile ou e-commerce. Basé à Marrakech, actif à Casablanca, Rabat et partout au Maroc."
     },
     "terms": {
       "title": "Conditions Générales | Koda Atlas",
-      "description": "Conditions générales de Koda Atlas — services de développement web, mobile et e-commerce basés à Marrakech, Maroc."
+      "description": "Conditions générales de Koda Atlas — services de développement web et mobile full-stack basés à Marrakech, Maroc."
     },
     "privacy": {
       "title": "Politique de Confidentialité | Koda Atlas",
@@ -106,55 +106,62 @@
     },
     "items": {
       "p1": {
+        "title": "BurnCare — Santé & IA",
+        "description": "Une plateforme santé complète : frontend mobile Flutter, backend Spring Boot et service de machine learning Python dédié, le tout orchestré avec Docker Compose.",
+        "problem": "Évaluer la gravité d'une brûlure de façon fiable demande un avis spécialisé pas toujours disponible, et tout système manipulant des données patients doit imposer un contrôle d'accès strict et traçable.",
+        "solution": "Une architecture trois tiers : une application Flutter pour la saisie et le suivi, une API Spring Boot pour la logique métier, et un service de machine learning FastAPI pour l'analyse d'images. Les accès sont gérés par Keycloak, et l'environnement complet est reproductible via Docker Compose.",
+        "impact": "Accès sécurisés par rôles via Keycloak, verrous d'administration résolus, et un environnement entièrement conteneurisé qui démarre à l'identique sur n'importe quelle machine."
+      },
+      "p2": {
+        "title": "Artisanat El Jamai — E-commerce",
+        "description": "Une plateforme e-commerce full-stack performante, avec paiement international et SEO dynamique.",
+        "problem": "Un atelier marrakchi de zellige et de ferronnerie faits main n'avait ni boutique en ligne, ni moyen d'encaisser à l'international, ni visibilité dans les moteurs de recherche.",
+        "solution": "Une boutique Next.js full-stack déployée sur Vercel, avec Lemon Squeezy pour le paiement international, et un SEO dynamique intégré au niveau des pages — sitemap et routing compris.",
+        "impact": "L'atelier vend désormais au-delà du Maroc avec un paiement international fiable, et son catalogue est correctement indexé par les moteurs de recherche."
+      },
+      "p3": {
         "title": "Plateforme Gestion d'hôtel",
         "description": "Une application de gestion d'hôtel développée en C# avec une base de données MySQL. Elle permet la gestion des chambres, des clients, des réservations et des revenus en temps réel.",
         "problem": "L'hôtel gérait chambres, clients et réservations manuellement sur tableur, causant des doubles réservations et aucune visibilité en temps réel sur l'occupation ou les revenus.",
         "solution": "Une application de bureau en C# avec une base de données MySQL, centralisant chambres, clients, réservations et facturation.",
         "impact": "Le personnel suit l'occupation et les revenus en temps réel, réduisant les erreurs de réservation et accélérant le check-in."
       },
-      "p2": {
+      "p4": {
         "title": "Dashboard EyeGuard",
         "description": "Interface de surveillance intelligente construite avec Python. Elle affiche des flux vidéo, détecte les mouvements et génère des alertes de sécurité grâce à un tableau de bord moderne.",
         "problem": "Le site n'avait aucun moyen abordable de surveiller ses locaux ou d'être alerté automatiquement en cas d'anomalie.",
         "solution": "Un tableau de bord de surveillance diffusant la vidéo en direct et détectant les mouvements avec OpenCV, générant des alertes via une interface Django.",
         "impact": "Une surveillance continue sans personnel de sécurité dédié, avec des alertes instantanées en cas d'activité suspecte."
       },
-      "p3": {
+      "p5": {
         "title": "Plateforme Gestion de Stock",
         "description": "Un tableau de bord web en PHP pour la gestion de stock, permettant de suivre les produits, les commandes, les fournisseurs et l'état du stock en temps réel.",
         "problem": "Le stock, les commandes et les fournisseurs étaient suivis manuellement, entraînant des ruptures fréquentes et aucune visibilité réelle sur les niveaux de stock.",
         "solution": "Un tableau de bord web PHP/MySQL centralisant produits, commandes, fournisseurs et niveaux de stock, mis à jour en temps réel.",
         "impact": "Une visibilité en temps réel qui a réduit les ruptures de stock et fortement diminué le temps de réconciliation d'inventaire."
       },
-      "p4": {
+      "p6": {
         "title": "Système de Pointage IA (Reconnaissance faciale)",
         "description": "Un système de pointage intelligent basé sur la reconnaissance faciale utilisant Django, Python et OpenCV. Il enregistre automatiquement la présence via webcam et inclut une interface de gestion des pointages, employés ou étudiants.",
         "problem": "Les feuilles de présence manuelles étaient lentes à traiter et faciles à falsifier.",
         "solution": "Un système de pointage par reconnaissance faciale (Django + OpenCV) qui enregistre automatiquement la présence via webcam, avec une interface de gestion du personnel et des étudiants.",
         "impact": "Un pointage automatisé et infalsifiable qui fait gagner du temps administratif chaque jour."
       },
-      "p5": {
+      "p7": {
         "title": "Système de Gestion d'Hôpital",
         "description": "Une application de bureau construite avec Java et JavaFX permettant la gestion des patients, médecins, rendez-vous, dossiers médicaux et historiques de traitement dans un environnement intuitif et sécurisé.",
         "problem": "La clinique avait besoin d'un moyen sécurisé et unifié de gérer patients, médecins, rendez-vous et dossiers médicaux sans dossiers papier.",
         "solution": "Une application de bureau Java/JavaFX avec une base de données MySQL couvrant patients, médecins, planning et historique de traitement.",
         "impact": "Des dossiers patients et un planning centralisés et sécurisés, réduisant la charge administrative et les erreurs."
       },
-      "p6": {
+      "p8": {
         "title": "Gestion des Rendez-vous Médicaux",
         "description": "Une solution Fullstack de prise de rendez-vous médicaux, avec une interface web en React, une API sécurisée en Spring Boot, et une application mobile Android en Java/Kotlin. Les patients réservent, modifient ou annulent leurs rendez-vous, tandis que les médecins gèrent leur planning et l'historique des consultations.",
         "problem": "Patients et médecins manquaient d'un moyen moderne de réserver, gérer et suivre les rendez-vous médicaux sur web et mobile.",
         "solution": "Une solution Fullstack : une interface web React, une API Spring Boot sécurisée, et une application Android native (Java/Kotlin) permettant aux patients de réserver, modifier ou annuler leurs rendez-vous pendant que les médecins gèrent planning et historique.",
         "impact": "Une prise de rendez-vous simplifiée pour patients et médecins sur tous les appareils, réduisant les absences et les allers-retours administratifs."
       },
-      "p7": {
-        "title": "Artisanat El Jamai",
-        "description": "Plateforme e-commerce Full-stack performante avec intégration fluide des paiements internationaux (PayPal) et optimisation SEO dynamique.",
-        "problem": "Un atelier marrakchi de zellige et fer forgé fait main n'avait aucun moyen d'atteindre une clientèle étrangère : pas de boutique en ligne, pas de paiement transfrontalier, et aucune visibilité sur les moteurs de recherche.",
-        "solution": "Une boutique Full-stack en Next.js déployée sur Vercel, avec PayPal pour le paiement international, un catalogue bilingue FR/EN et une optimisation SEO dynamique intégrée au niveau des pages.",
-        "impact": "L'atelier vend désormais partout en Europe et au-delà, avec un paiement international fiable et une bien meilleure visibilité de son catalogue dans les recherches."
-      },
-      "p8": {
+      "p9": {
         "title": "Riad Nour",
         "description": "Site web élégant et immersif pour un Riad, intégrant une interface utilisateur premium et un module de réservation pour booster les conversions directes.",
         "problem": "Le Riad ne disposait d'aucun site web propre pour présenter l'établissement et dépendait de plateformes de réservation tierces, qui prélevaient une commission sur chaque séjour sans laisser de contrôle sur l'expérience de marque.",
@@ -182,9 +189,18 @@
       "title": "Ce qui nous anime"
     },
     "passions": {
-      "ux": { "title": "Expérience Utilisateur", "description": "Créer des interfaces intuitives que les utilisateurs adorent" },
-      "problem": { "title": "Résolution de Problèmes", "description": "Transformer des défis complexes en solutions élégantes" },
-      "learning": { "title": "Apprentissage Continu", "description": "Toujours explorer de nouvelles technologies et bonnes pratiques" }
+      "ux": {
+        "title": "Expérience Utilisateur",
+        "description": "Créer des interfaces intuitives que les utilisateurs adorent"
+      },
+      "problem": {
+        "title": "Résolution de Problèmes",
+        "description": "Transformer des défis complexes en solutions élégantes"
+      },
+      "learning": {
+        "title": "Apprentissage Continu",
+        "description": "Toujours explorer de nouvelles technologies et bonnes pratiques"
+      }
     },
     "ctaText": "Prêt à concrétiser vos idées technologiques ?",
     "ctaButton": "Collaborons ensemble"
@@ -258,7 +274,7 @@
     "locations": "Marrakech — À distance — International",
     "navTitle": "Navigation",
     "socialTitle": "Réseaux",
-    "copyright": "Mohamed Ouledelabd",
+    "copyright": "koda Atlas",
     "madeBy": "Code & Design par Koda Atlas",
     "legal": {
       "terms": "Conditions Générales",

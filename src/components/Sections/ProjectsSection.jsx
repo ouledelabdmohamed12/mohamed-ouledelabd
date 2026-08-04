@@ -15,9 +15,17 @@ const ProjectsSection = ({ limit } = {}) => {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   const [activeIndex, setActiveIndex] = useState(null);
 
+  // A project counts as live once it has a real production/demo URL ("#" is the
+  // placeholder used for work that isn't publicly reachable).
+  const isLive = (p) => Boolean(p.liveUrl) && p.liveUrl !== "#";
+
+  // Home (limit set) previews featured work; /work lists everything with the
+  // live projects first. Array.sort is stable, so within each group the order
+  // declared in data.js is preserved — and a project rises automatically as
+  // soon as it gets a real liveUrl.
   const items = limit
-    ? [...PROJECTS].sort((a, b) => (b.featured === a.featured ? 0 : b.featured ? 1 : -1)).slice(0, limit)
-    : PROJECTS;
+    ? [...PROJECTS].sort((a, b) => Number(b.featured) - Number(a.featured)).slice(0, limit)
+    : [...PROJECTS].sort((a, b) => Number(isLive(b)) - Number(isLive(a)));
 
   const handleNavigate = (dir) =>
     setActiveIndex((i) => (i + dir + items.length) % items.length);

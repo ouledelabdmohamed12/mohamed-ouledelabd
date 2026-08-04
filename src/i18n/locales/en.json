@@ -1,28 +1,28 @@
 {
   "seo": {
     "home": {
-      "title": "Koda Atlas — Web, Mobile & E-commerce Development in Marrakech",
-      "description": "Freelance studio building custom websites, Shopify stores, dashboards and mobile apps for businesses in Marrakech, Casablanca and Rabat."
+      "title": "Full-Stack Web & Mobile Development — Koda Atlas, Marrakech",
+      "description": "Full-stack engineer building web and mobile apps with React, React Native, Flutter, Java Spring Boot and PostgreSQL. Based in Marrakech, serving all of Morocco."
     },
     "services": {
-      "title": "Showcase Sites, E-commerce, Web Apps, SaaS & Mobile — Koda Atlas",
-      "description": "Showcase websites, e-commerce stores, web applications, SaaS products and mobile apps for companies across Morocco. Get a tailored quote today."
+      "title": "Web Apps, Mobile Apps, E-commerce & SaaS — Koda Atlas",
+      "description": "Showcase sites, e-commerce stores, web applications, SaaS and mobile apps built full-stack with React, Flutter and Spring Boot. Tailored quote on request."
     },
     "work": {
-      "title": "Portfolio & Case Studies — Koda Atlas",
-      "description": "Explore real client projects: e-commerce stores, business dashboards, and full-stack web & mobile apps built by Koda Atlas."
+      "title": "Full-Stack Projects & Case Studies — Koda Atlas",
+      "description": "Real projects: BurnCare, a health app with an AI service; a Next.js e-commerce store with international payments; plus full-stack web, mobile and desktop apps."
     },
     "about": {
-      "title": "About Koda Atlas — Web, Mobile & SaaS Development Studio",
-      "description": "A Marrakech-based development studio building showcase websites, e-commerce stores, web apps, SaaS products and mobile apps for businesses across Morocco."
+      "title": "About Koda Atlas — Full-Stack Web & Mobile Engineering",
+      "description": "A Marrakech-based studio building full-stack web and mobile applications with React, React Native, Flutter, Java Spring Boot, Laravel and PostgreSQL."
     },
     "contact": {
       "title": "Contact — Start Your Project | Koda Atlas",
-      "description": "Get in touch to discuss your e-commerce, web app or dashboard project. Based in Marrakech, serving Casablanca and Rabat."
+      "description": "Get in touch to discuss your web app, mobile app or e-commerce project. Based in Marrakech, serving Casablanca, Rabat and all of Morocco."
     },
     "terms": {
       "title": "Terms of Service | Koda Atlas",
-      "description": "Terms of Service for Koda Atlas — web, mobile and e-commerce development services based in Marrakech, Morocco."
+      "description": "Terms of Service for Koda Atlas — full-stack web and mobile development services based in Marrakech, Morocco."
     },
     "privacy": {
       "title": "Privacy Policy | Koda Atlas",
@@ -106,55 +106,62 @@
     },
     "items": {
       "p1": {
+        "title": "BurnCare — Health & AI",
+        "description": "A complete health platform: a Flutter mobile frontend, a Spring Boot backend and a dedicated Python machine-learning service, all orchestrated with Docker Compose.",
+        "problem": "Assessing burn severity reliably needs specialist input that isn't always on hand, and any system holding patient data has to enforce strict, auditable access control.",
+        "solution": "A three-tier architecture: a Flutter app for capture and follow-up, a Spring Boot API for business logic, and a FastAPI machine-learning service for image analysis. Access is handled by Keycloak, with the whole environment reproducible through Docker Compose.",
+        "impact": "Secure role-based access via Keycloak, administration lockouts resolved, and a fully containerised environment that starts identically on any machine."
+      },
+      "p2": {
+        "title": "Artisanat El Jamai — E-commerce",
+        "description": "A high-performance full-stack e-commerce platform with international payment processing and dynamic SEO.",
+        "problem": "A Marrakech workshop crafting handmade zellige and wrought-iron pieces had no online storefront, no way to take cross-border payments, and no search visibility.",
+        "solution": "A full-stack Next.js storefront deployed on Vercel, with Lemon Squeezy handling international checkout, and dynamic SEO built in at the page level — sitemap and routing included.",
+        "impact": "The workshop now sells beyond Morocco with reliable international checkout, and its catalogue is properly indexed by search engines."
+      },
+      "p3": {
         "title": "Hotel Management Platform",
         "description": "A hotel management application built in C# with a MySQL database. It handles rooms, guests, bookings and real-time revenue tracking.",
         "problem": "The hotel managed rooms, guests and bookings manually with spreadsheets, causing double-bookings and no real-time visibility on occupancy or revenue.",
         "solution": "A C# desktop application backed by MySQL, centralizing rooms, guests, bookings and billing in one place.",
         "impact": "Staff track occupancy and revenue in real time, cutting manual booking errors and speeding up check-in."
       },
-      "p2": {
+      "p4": {
         "title": "EyeGuard Dashboard",
         "description": "A smart monitoring interface built with Python. It streams video, detects motion and generates security alerts through a modern dashboard.",
         "problem": "The site had no affordable way to monitor its premises or get notified automatically when something unusual happened.",
         "solution": "A surveillance dashboard streaming live video and running motion detection with OpenCV, raising alerts through a Django-powered interface.",
         "impact": "Round-the-clock monitoring without dedicated security staff, with instant alerts on suspicious activity."
       },
-      "p3": {
+      "p5": {
         "title": "Stock Management Platform",
         "description": "A PHP web dashboard for inventory management, tracking products, orders, suppliers and stock levels in real time.",
         "problem": "Inventory, orders and suppliers were tracked manually, leading to frequent stockouts and no visibility into real stock levels.",
         "solution": "A PHP/MySQL web dashboard centralizing products, orders, suppliers and stock levels with real-time updates.",
         "impact": "Real-time stock visibility cut stockouts and significantly reduced inventory reconciliation time."
       },
-      "p4": {
+      "p6": {
         "title": "AI Face Attendance System",
         "description": "A smart attendance system based on facial recognition using Django, Python and OpenCV. It records presence automatically via webcam with a management interface for attendance, employees and students.",
         "problem": "Manual attendance sign-in sheets were slow to process and easy to falsify.",
         "solution": "A facial-recognition attendance system (Django + OpenCV) that automatically records presence via webcam, with a management interface for staff and students.",
         "impact": "Automated, tamper-resistant attendance tracking that saves administrative time every single day."
       },
-      "p5": {
+      "p7": {
         "title": "Hospital Management System",
         "description": "A desktop application built with Java and JavaFX to manage patients, doctors, appointments, medical records and treatment history in a secure, intuitive environment.",
         "problem": "The clinic needed a secure, unified way to manage patients, doctors, appointments and medical records without paper files.",
         "solution": "A Java/JavaFX desktop application with a MySQL database covering patients, doctors, scheduling and treatment history.",
         "impact": "Centralized, secure patient records and scheduling, reducing administrative overhead and errors."
       },
-      "p6": {
+      "p8": {
         "title": "Medical Appointment Management",
         "description": "A full-stack medical booking solution with a React web interface, a secure Spring Boot API, and an Android mobile app in Java/Kotlin. Patients can book, edit or cancel appointments while doctors manage their schedule and consultation history.",
         "problem": "Patients and doctors lacked a modern way to book, manage and track medical appointments across web and mobile.",
         "solution": "A full-stack solution: a React web app, a secure Spring Boot API, and a native Android app (Java/Kotlin) letting patients book, edit or cancel appointments while doctors manage schedules and consultation history.",
         "impact": "Streamlined scheduling for patients and doctors across devices, reducing no-shows and administrative back-and-forth."
       },
-      "p7": {
-        "title": "Artisanat El Jamai",
-        "description": "A high-performance full-stack e-commerce platform with seamless international payment integration (PayPal) and dynamic SEO optimization.",
-        "problem": "A Marrakech workshop crafting handmade zellige and wrought-iron pieces had no way to reach buyers abroad — no online storefront, no cross-border payment method, and no search visibility.",
-        "solution": "A full-stack Next.js storefront deployed on Vercel, with PayPal handling international checkout, a bilingual FR/EN catalogue, and dynamic SEO built in at the page level.",
-        "impact": "The workshop now sells across Europe and beyond, with reliable international checkout and far stronger search visibility for its catalogue."
-      },
-      "p8": {
+      "p9": {
         "title": "Riad Nour",
         "description": "An elegant, immersive website for a boutique riad, pairing a premium user interface with a booking module built to drive direct reservations.",
         "problem": "The riad had no website of its own to present the property, relying on third-party booking platforms that took a commission on every stay and offered no control over the brand experience.",
@@ -182,9 +189,18 @@
       "title": "What drives us"
     },
     "passions": {
-      "ux": { "title": "User Experience", "description": "Crafting intuitive interfaces that users love" },
-      "problem": { "title": "Problem Solving", "description": "Turning complex challenges into elegant solutions" },
-      "learning": { "title": "Continuous Learning", "description": "Always exploring new technologies and best practices" }
+      "ux": {
+        "title": "User Experience",
+        "description": "Crafting intuitive interfaces that users love"
+      },
+      "problem": {
+        "title": "Problem Solving",
+        "description": "Turning complex challenges into elegant solutions"
+      },
+      "learning": {
+        "title": "Continuous Learning",
+        "description": "Always exploring new technologies and best practices"
+      }
     },
     "ctaText": "Ready to bring your tech ideas to life?",
     "ctaButton": "Let's work together"
@@ -258,7 +274,7 @@
     "locations": "Marrakech — Remote — International",
     "navTitle": "Navigation",
     "socialTitle": "Social",
-    "copyright": "Mohamed Ouledelabd",
+    "copyright": "koda Atlas",
     "madeBy": "Code & Design by Koda Atlas",
     "legal": {
       "terms": "Terms of Service",
