@@ -86,6 +86,21 @@ export const STATS = [
 
 export const PROJECTS = [
     {
+        id: 10,
+        key: "p10",
+        // No screenshot supplied yet. Leaving `image` null makes ProjectCard and
+        // ProjectModal fall back to their built-in placeholder tile, instead of
+        // pointing at a file that doesn't exist and rendering a broken image.
+        image: null,
+        tags: ["React.js", "Spring Boot", "PostgreSQL", "Vercel"],
+        liveUrl: "https://pharmacie-kappa.vercel.app/",
+        githuburl: "#",
+        featured: true,
+        // Rendered uppercase by the card's CSS, so it is stored in normal case
+        // like every other category.
+        category: "Full-Stack Web App",
+    },
+    {
         id: 1,
         key: "p1",
         image: BURNCARE_IMG,
