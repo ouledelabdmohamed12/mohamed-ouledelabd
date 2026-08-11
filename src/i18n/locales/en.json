@@ -167,6 +167,13 @@
         "problem": "The riad had no website of its own to present the property, relying on third-party booking platforms that took a commission on every stay and offered no control over the brand experience.",
         "solution": "A React and Tailwind CSS site deployed on Vercel: immersive photography, a premium room presentation, and an integrated booking flow letting guests check availability and reserve directly.",
         "impact": "The riad now owns a branded storefront that turns visitors into direct bookings, reducing its dependence on commission-based platforms."
+      },
+      "p10": {
+        "title": "Pharmacie",
+        "description": "A complete web platform combining a customer-facing interface with a dedicated back office for prescription management, backed by a database.",
+        "problem": "Prescription handling needs two very different surfaces: something simple for the people placing requests, and something structured for the staff processing them.",
+        "solution": "A full-stack web application with a React front end, a Spring Boot API and a PostgreSQL database, split into a public interface and a dedicated back office for prescription management. Deployed on Vercel.",
+        "impact": "Prescriptions and their processing live in one place, with the customer-facing side kept separate from the staff back office."
       }
     }
   },
