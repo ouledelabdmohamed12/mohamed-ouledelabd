@@ -21,6 +21,7 @@ import { FaWhatsapp } from "react-icons/fa";
 // with object-cover, so roughly the top and bottom thirds are cropped off.
 import BURNCARE_IMG from "../assets/images/burncar.jpeg";
 
+import PHARMACIE_IMG from "../assets/images/pharmacie.png";
 import ARTISANAT_IMG from "../assets/images/artisana.png";
 import PROJECT_IMG_HOTEL from "../assets/images/gestion_hotel.webp";
 import PROJECT_IMG_EYEGUARD from "../assets/images/eyegard.webp";
@@ -88,10 +89,7 @@ export const PROJECTS = [
     {
         id: 10,
         key: "p10",
-        // No screenshot supplied yet. Leaving `image` null makes ProjectCard and
-        // ProjectModal fall back to their built-in placeholder tile, instead of
-        // pointing at a file that doesn't exist and rendering a broken image.
-        image: null,
+        image: PHARMACIE_IMG,
         tags: ["React.js", "Spring Boot", "PostgreSQL", "Vercel"],
         liveUrl: "https://pharmacie-kappa.vercel.app/",
         githuburl: "#",
