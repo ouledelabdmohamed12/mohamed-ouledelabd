@@ -261,14 +261,6 @@
       "email": "Email",
       "phone": "Phone"
     },
-    "availability": {
-      "badge": "Available immediately",
-      "text": "Koda Atlas is currently taking on new projects. Let's bring your ideas to life."
-    },
-    "calendly": {
-      "text": "Prefer to talk it through first?",
-      "cta": "Book a call"
-    },
     "success": {
       "title": "Message Sent!",
       "text": "Thank you for reaching out! I'll get back to you within 24 hours.",

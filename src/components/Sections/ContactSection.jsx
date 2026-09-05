@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Send, AlertCircle, Calendar } from 'lucide-react';
+import { Send, AlertCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { CONTACT_INFO, SOCIAL_LINKS } from '../../utils/data';
 import { containeVariants, itemVariants } from '../../utils/helper';
@@ -9,9 +9,6 @@ import SuccessModel from '../SuccessModel';
 import Turnstile from '../Turnstile';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-// Live Calendly booking link (1h intro call).
-const CALENDLY_URL = "https://calendly.com/esimo7500/1h";
 
 const ContactSection = () => {
     const { t } = useTranslation();
@@ -173,7 +170,7 @@ const ContactSection = () => {
                             ))}
                         </motion.div>
 
-                        <motion.div variants={itemVariants} className="flex flex-wrap gap-3 pb-8 border-b border-gray-200">
+                        <motion.div variants={itemVariants} className="flex flex-wrap gap-3">
                             {SOCIAL_LINKS.filter((s) => s.name === "LinkedIn" || s.name === "GitHub").map((social) => (
                                 <a
                                     key={social.name}
@@ -186,29 +183,6 @@ const ContactSection = () => {
                                     {social.name}
                                 </a>
                             ))}
-                        </motion.div>
-
-                        <motion.div variants={itemVariants} className="flex items-center gap-2.5 mt-8 mb-6">
-                            <span className="relative flex h-2 w-2">
-                                <span className="absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75 animate-ping" />
-                                <span className="relative inline-flex h-2 w-2 rounded-full bg-indigo-600" />
-                            </span>
-                            <span className="text-sm font-medium text-gray-600">
-                                {t("contact.availability.badge")}
-                            </span>
-                        </motion.div>
-
-                        <motion.div variants={itemVariants}>
-                            <p className="text-[15px] text-gray-500 mb-4">{t("contact.calendly.text")}</p>
-                            <a
-                                href={CALENDLY_URL}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 rounded-full bg-white hover:bg-gray-50 text-gray-700 border border-gray-200 px-6 py-3 text-sm font-semibold shadow-sm transition-colors"
-                            >
-                                <Calendar size={15} />
-                                {t("contact.calendly.cta")}
-                            </a>
                         </motion.div>
                     </motion.div>
 
