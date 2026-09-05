@@ -53,7 +53,9 @@ const Footer = () => {
           <div className="md:col-span-4">
             <h3 className="text-sm font-semibold text-gray-900 mb-5">{t("footer.socialTitle")}</h3>
             <div className="flex flex-wrap gap-3">
-              {SOCIAL_LINKS.map((social) => {
+              {SOCIAL_LINKS.filter(
+                (social) => social.name !== "LinkedIn" && social.name !== "GitHub"
+              ).map((social) => {
                 // Only http(s) links open in a new tab. mailto:/tel: are handed
                 // off to an external app, so target="_blank" would leave an
                 // empty "ghost" tab behind in the browser.
