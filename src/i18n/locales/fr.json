@@ -251,11 +251,9 @@
       "sending": "Envoi...",
       "error": "Veuillez remplir tous les champs.",
       "emailError": "Merci de saisir une adresse email valide.",
-      "errorGeneric": "Une erreur s'est produite. Veuillez réessayer plus tard.",
-      "captchaError": "Merci de valider la vérification ci-dessous."
+      "errorGeneric": "Une erreur s'est produite. Veuillez réessayer plus tard."
     },
     "infoTitle": "Informations de Contact",
-    "followTitle": "Me Suivre",
     "info": {
       "location": "Localisation",
       "email": "Email",

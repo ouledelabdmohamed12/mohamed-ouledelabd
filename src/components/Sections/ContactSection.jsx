@@ -2,11 +2,10 @@ import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Send, AlertCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { CONTACT_INFO, SOCIAL_LINKS } from '../../utils/data';
+import { CONTACT_INFO } from '../../utils/data';
 import { containeVariants, itemVariants } from '../../utils/helper';
 import TextInput from '../Input/TextInput';
 import SuccessModel from '../SuccessModel';
-import Turnstile from '../Turnstile';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -42,8 +41,6 @@ const ContactSection = () => {
     const [showSuccess, setShowSuccess] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [captchaToken, setCaptchaToken] = useState(null);
-    const turnstileRef = useRef(null);
 
     const sectionRef = useRef(null);
     const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
@@ -64,11 +61,6 @@ const ContactSection = () => {
 
         if (!EMAIL_REGEX.test(formData.email)) {
             setErrorMessage(t("contact.form.emailError"));
-            return;
-        }
-
-        if (!captchaToken) {
-            setErrorMessage(t("contact.form.captchaError"));
             return;
         }
 
@@ -108,8 +100,6 @@ const ContactSection = () => {
                 setIsSubmitting(false);
                 setShowSuccess(true);
                 setFormData({ name: "", email: "", phone: "", website: "", projectType: "", budget: "", message: "", company: "" });
-                setCaptchaToken(null);
-                turnstileRef.current?.reset();
                 setTimeout(() => setShowSuccess(false), 3000);
             })
             .catch(() => {
@@ -159,7 +149,7 @@ const ContactSection = () => {
                         variants={containeVariants}
                         className="lg:col-span-2 rounded-2xl border border-gray-100 bg-slate-50 p-8 shadow-sm"
                     >
-                        <motion.div variants={itemVariants} className="space-y-1 mb-8">
+                        <motion.div variants={itemVariants} className="space-y-1">
                             {CONTACT_INFO.map((info) => (
                                 <div key={info.id} className="flex items-center gap-4 py-3">
                                     <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white text-indigo-600 shadow-sm shrink-0">
@@ -167,21 +157,6 @@ const ContactSection = () => {
                                     </span>
                                     <span className="text-[15px] text-gray-700">{info.value}</span>
                                 </div>
-                            ))}
-                        </motion.div>
-
-                        <motion.div variants={itemVariants} className="flex flex-wrap gap-3">
-                            {SOCIAL_LINKS.filter((s) => s.name === "LinkedIn" || s.name === "GitHub").map((social) => (
-                                <a
-                                    key={social.name}
-                                    href={social.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-600 shadow-sm hover:text-indigo-600 hover:border-indigo-200 transition-colors"
-                                >
-                                    <social.icon size={15} />
-                                    {social.name}
-                                </a>
                             ))}
                         </motion.div>
                     </motion.div>
@@ -275,15 +250,6 @@ const ContactSection = () => {
                                     onChange={(e) => handleInputChange('company', e.target.value)}
                                 />
                             </div>
-
-                            <Turnstile
-                                ref={turnstileRef}
-                                onVerify={(token) => {
-                                    setCaptchaToken(token);
-                                    if (errorMessage) setErrorMessage("");
-                                }}
-                                onExpire={() => setCaptchaToken(null)}
-                            />
 
                             <button
                                 disabled={isSubmitting}

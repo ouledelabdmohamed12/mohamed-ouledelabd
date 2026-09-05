@@ -251,11 +251,9 @@
       "sending": "Sending...",
       "error": "Please fill in all fields.",
       "emailError": "Please enter a valid email address.",
-      "errorGeneric": "Something went wrong. Please try again later.",
-      "captchaError": "Please complete the verification below."
+      "errorGeneric": "Something went wrong. Please try again later."
     },
     "infoTitle": "Contact Information",
-    "followTitle": "Follow Me",
     "info": {
       "location": "Location",
       "email": "Email",
