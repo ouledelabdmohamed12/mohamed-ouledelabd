@@ -248,7 +248,7 @@ export const CONTACT_INFO = [
     {
         id: "phone",
         icon: Phone,
-        value: "0770 324 267",
+        value: "+212 770-324267",
     },
 ];
 
