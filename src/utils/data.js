@@ -228,7 +228,7 @@ export const SOCIAL_LINKS = [
     {
         name: "WhatsApp",
         icon: FaWhatsapp,
-        url: "https://wa.me/212682484400",
+        url: "https://wa.me/212770324267",
         color: "hover:text-[#25D366]",
         bgColor: "hover:bg-[#25D366]/10",
     },
@@ -248,7 +248,7 @@ export const CONTACT_INFO = [
     {
         id: "phone",
         icon: Phone,
-        value: "+212 682-484400",
+        value: "0770 324 267",
     },
 ];
 
