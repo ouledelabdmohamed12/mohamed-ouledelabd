@@ -6,6 +6,7 @@ import { CONTACT_INFO } from '../../utils/data';
 import { containeVariants, itemVariants } from '../../utils/helper';
 import TextInput from '../Input/TextInput';
 import SuccessModel from '../SuccessModel';
+import Turnstile from '../Turnstile';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -41,6 +42,8 @@ const ContactSection = () => {
     const [showSuccess, setShowSuccess] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [captchaToken, setCaptchaToken] = useState(null);
+    const turnstileRef = useRef(null);
 
     const sectionRef = useRef(null);
     const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
@@ -61,6 +64,11 @@ const ContactSection = () => {
 
         if (!EMAIL_REGEX.test(formData.email)) {
             setErrorMessage(t("contact.form.emailError"));
+            return;
+        }
+
+        if (!captchaToken) {
+            setErrorMessage(t("contact.form.captchaError"));
             return;
         }
 
@@ -100,6 +108,8 @@ const ContactSection = () => {
                 setIsSubmitting(false);
                 setShowSuccess(true);
                 setFormData({ name: "", email: "", phone: "", website: "", projectType: "", budget: "", message: "", company: "" });
+                setCaptchaToken(null);
+                turnstileRef.current?.reset();
                 setTimeout(() => setShowSuccess(false), 3000);
             })
             .catch(() => {
@@ -250,6 +260,15 @@ const ContactSection = () => {
                                     onChange={(e) => handleInputChange('company', e.target.value)}
                                 />
                             </div>
+
+                            <Turnstile
+                                ref={turnstileRef}
+                                onVerify={(token) => {
+                                    setCaptchaToken(token);
+                                    if (errorMessage) setErrorMessage("");
+                                }}
+                                onExpire={() => setCaptchaToken(null)}
+                            />
 
                             <button
                                 disabled={isSubmitting}

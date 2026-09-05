@@ -251,7 +251,8 @@
       "sending": "Sending...",
       "error": "Please fill in all fields.",
       "emailError": "Please enter a valid email address.",
-      "errorGeneric": "Something went wrong. Please try again later."
+      "errorGeneric": "Something went wrong. Please try again later.",
+      "captchaError": "Please complete the verification below."
     },
     "infoTitle": "Contact Information",
     "info": {
