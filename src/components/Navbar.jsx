@@ -9,7 +9,7 @@ import { pathForSection } from "../utils/helper";
 import { LogoLink } from "./Logo";
 
 const CONTACT_EMAIL = "ouledelabd.mohamed@gmail.com";
-const CONTACT_PHONE = "+212682484400";
+const CONTACT_PHONE = "+212770324267";
 
 // A plain mailto: depends on the visitor having a desktop mail client
 // registered for the protocol; when they don't, the click silently does
