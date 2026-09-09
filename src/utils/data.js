@@ -289,12 +289,15 @@ export const PRIVACY_SECTIONS = [
 
 // FAQ. Text lives in i18n under `faq.items.<id>`.
 export const FAQ_ITEMS = [
-    { id: "cost" },
-    { id: "start" },
-    { id: "time" },
-    { id: "revisions" },
-    { id: "chatbot" },
-    { id: "support" },
+    { id: "pages" },
+    { id: "languages" },
+    { id: "domain" },
+    { id: "hosting" },
+    { id: "mobile" },
+    { id: "booking" },
+    { id: "seo" },
+    { id: "ranking" },
+    { id: "whatsapp" },
 ];
 
 export const NAV_LINKS = [

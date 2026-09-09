@@ -308,33 +308,44 @@
     }
   },
   "faq": {
-    "badge": "Bon à savoir",
     "title": "Questions",
     "titleAccent": "fréquentes",
     "items": {
-      "cost": {
-        "q": "Combien coûte un site web ?",
-        "a": "Le coût d'un projet dépend entièrement de vos idées, de vos objectifs et de la complexité technique requise. Chaque client étant unique, je vous fournis une estimation précise et un devis sur-mesure après un premier échange de découverte."
+      "pages": {
+        "q": "Combien de pages sont incluses ?",
+        "a": "Le package comprend jusqu'à 5 pages principales : Accueil, Nos voitures, Détails des véhicules, À propos, et Contact/Réservation. La structure peut être adaptée à vos besoins."
       },
-      "start": {
-        "q": "De quoi ai-je besoin pour commencer ?",
-        "a": "Juste votre idée et vos objectifs. Si vous avez un logo, des textes ou des images, parfait — sinon, je peux vous aider à les créer."
+      "languages": {
+        "q": "Quelles langues sont incluses ?",
+        "a": "Le site est livré en deux langues : français et anglais. Cela vous permet de toucher à la fois les clients locaux et les touristes internationaux."
       },
-      "time": {
-        "q": "Combien de temps prend un projet ?",
-        "a": "Un site vitrine prend généralement 1 à 3 semaines ; les applications plus larges dépendent du périmètre. Je vous donne un planning clair avant de démarrer."
+      "domain": {
+        "q": "Le nom de domaine est-il inclus ?",
+        "a": "Oui, le nom de domaine est offert pendant la première année. À partir de la deuxième année, le renouvellement est à votre charge (environ 100-200 MAD/an selon l'extension)."
       },
-      "revisions": {
-        "q": "Et si le design ne me plaît pas ?",
-        "a": "On travaille par étapes. Vous voyez des aperçus tôt et les retouches sont incluses jusqu'à ce que le design vous convienne."
+      "hosting": {
+        "q": "L'hébergement est-il inclus ?",
+        "a": "Oui, l'hébergement est inclus pendant un an. À partir de la deuxième année, il est facturé séparément selon les options choisies."
       },
-      "chatbot": {
-        "q": "Pouvez-vous ajouter un chatbot IA ?",
-        "a": "Oui — j'intègre des assistants IA personnalisés, entraînés sur votre contenu, pour répondre aux clients et capter des prospects en continu."
+      "mobile": {
+        "q": "Le site fonctionne-t-il sur mobile ?",
+        "a": "Absolument. Le site est conçu en mobile-first, ce qui signifie qu'il est optimisé en priorité pour les smartphones, puis pour les tablettes et ordinateurs."
       },
-      "support": {
-        "q": "Proposez-vous un suivi après la mise en ligne ?",
-        "a": "Absolument. Une fois le projet en ligne, je propose un accompagnement adapté à votre croissance : soit via un forfait de maintenance mensuel pour une tranquillité d'esprit totale, soit par des interventions ponctuelles facturées à la carte pour chaque nouvelle fonctionnalité ajoutée."
+      "booking": {
+        "q": "Les clients peuvent-ils réserver directement ?",
+        "a": "Le site intègre un formulaire de demande de réservation qui vous envoie les demandes par email et WhatsApp. La confirmation finale reste à votre discrétion."
+      },
+      "seo": {
+        "q": "Le référencement SEO est-il inclus ?",
+        "a": "Oui. Le site est livré avec une optimisation SEO de base : structure des pages, balises meta, vitesse de chargement, et optimisation Google Business."
+      },
+      "ranking": {
+        "q": "Mon site sera-t-il premier sur Google ?",
+        "a": "Nous ne garantissons aucune position sur Google. Le SEO est un travail continu. Nous fournissons une base solide, mais le positionnement dépend de nombreux facteurs."
+      },
+      "whatsapp": {
+        "q": "Puis-je recevoir les demandes sur WhatsApp ?",
+        "a": "Oui. Le site intègre des boutons WhatsApp qui permettent aux clients de vous contacter directement depuis n'importe quelle page."
       }
     }
   },
