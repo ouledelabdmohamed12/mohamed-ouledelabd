@@ -19,17 +19,6 @@ const Footer = () => {
             <p className="text-[15px] leading-relaxed text-gray-500 max-w-sm">
               {t("footer.description")}
             </p>
-
-            <div className="space-y-2">
-              <div className="flex items-center gap-2.5">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75 animate-ping" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-indigo-600" />
-                </span>
-                <span className="text-sm font-medium text-gray-600">{t("footer.available")}</span>
-              </div>
-              <p className="text-sm text-gray-400">{t("footer.locations")}</p>
-            </div>
           </div>
 
           {/* Navigation */}
