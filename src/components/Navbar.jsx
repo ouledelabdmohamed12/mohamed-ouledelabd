@@ -8,7 +8,7 @@ import { NAV_LINKS } from "../utils/data";
 import { pathForSection } from "../utils/helper";
 import { LogoLink } from "./Logo";
 
-const CONTACT_EMAIL = "ouledelabd.mohamed@gmail.com";
+const CONTACT_EMAIL = "kodaatlas26@gmail.com";
 const CONTACT_PHONE = "+212770324267";
 
 // A plain mailto: depends on the visitor having a desktop mail client

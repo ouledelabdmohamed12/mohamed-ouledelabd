@@ -221,7 +221,7 @@ export const SOCIAL_LINKS = [
         // when the visitor has a desktop mail client registered for it.
         // The footer applies target="_blank" automatically to http(s) URLs.
         icon: Mail,
-        url: "https://mail.google.com/mail/u/0/?fs=1&to=ouledelabd.mohamed@gmail.com&tf=cm",
+        url: "https://mail.google.com/mail/u/0/?fs=1&to=kodaatlas26@gmail.com&tf=cm",
         color: "hover:text-green-400",
         bgColor: "hover:bg-green-500/10",
     },
@@ -243,7 +243,7 @@ export const CONTACT_INFO = [
     {
         id: "email",
         icon: Mail,
-        value: "ouledelabd.mohamed@gmail.com",
+        value: "kodaatlas26@gmail.com",
     },
     {
         id: "phone",
