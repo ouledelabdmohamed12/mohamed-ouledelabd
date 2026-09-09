@@ -308,33 +308,44 @@
     }
   },
   "faq": {
-    "badge": "Good to know",
     "title": "Frequently asked",
     "titleAccent": "questions",
     "items": {
-      "cost": {
-        "q": "How much does a website cost?",
-        "a": "The cost of a project depends entirely on your ideas, your goals and the technical complexity involved. Every client is different, so I provide a precise estimate and a tailor-made quote after an initial discovery call."
+      "pages": {
+        "q": "How many pages are included?",
+        "a": "The package covers up to 5 main pages: Home, Our Cars, Vehicle Details, About, and Contact/Booking. The structure can be adapted to your needs."
       },
-      "start": {
-        "q": "What do I need to get started?",
-        "a": "Just your idea and goals. If you have a logo, texts or images, great — if not, I can help create them."
+      "languages": {
+        "q": "Which languages are included?",
+        "a": "The site is delivered in two languages: French and English. That lets you reach both local customers and international tourists."
       },
-      "time": {
-        "q": "How long does a project take?",
-        "a": "A showcase website usually takes 1 to 3 weeks; larger apps depend on scope. I share a clear timeline before we start."
+      "domain": {
+        "q": "Is the domain name included?",
+        "a": "Yes, the domain name is free for the first year. From the second year onwards, the renewal is at your expense (around 100-200 MAD/year depending on the extension)."
       },
-      "revisions": {
-        "q": "What if I don't like the design?",
-        "a": "We work in rounds. You see previews early and revisions are included until the design feels right."
+      "hosting": {
+        "q": "Is hosting included?",
+        "a": "Yes, hosting is included for one year. From the second year onwards, it is billed separately according to the options you choose."
       },
-      "chatbot": {
-        "q": "Can you add an AI chatbot?",
-        "a": "Yes — I integrate custom AI assistants trained on your content to answer clients and capture leads around the clock."
+      "mobile": {
+        "q": "Does the site work on mobile?",
+        "a": "Absolutely. The site is built mobile-first, which means it is optimised for smartphones first, then for tablets and desktops."
       },
-      "support": {
-        "q": "Do you offer support after launch?",
-        "a": "Absolutely. Once your project is live, I offer support that scales with your growth: either a monthly maintenance plan for complete peace of mind, or one-off work billed per feature for each new addition."
+      "booking": {
+        "q": "Can customers book directly?",
+        "a": "The site includes a booking request form that sends you every request by email and WhatsApp. The final confirmation stays at your discretion."
+      },
+      "seo": {
+        "q": "Is SEO included?",
+        "a": "Yes. The site ships with basic SEO optimisation: page structure, meta tags, loading speed, and Google Business optimisation."
+      },
+      "ranking": {
+        "q": "Will my site rank first on Google?",
+        "a": "We do not guarantee any position on Google. SEO is ongoing work. We provide a solid foundation, but ranking depends on many factors."
+      },
+      "whatsapp": {
+        "q": "Can I receive requests on WhatsApp?",
+        "a": "Yes. The site includes WhatsApp buttons that let customers contact you directly from any page."
       }
     }
   },
