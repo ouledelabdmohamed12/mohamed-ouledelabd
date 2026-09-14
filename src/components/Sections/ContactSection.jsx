@@ -7,6 +7,7 @@ import { containeVariants, itemVariants } from '../../utils/helper';
 import TextInput from '../Input/TextInput';
 import SuccessModel from '../SuccessModel';
 import Turnstile from '../Turnstile';
+import { META_EVENTS, trackEvent } from '../../utils/tracking';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -105,6 +106,12 @@ const ContactSection = () => {
         })
             .then((res) => {
                 if (!res.ok) throw new Error("Request failed");
+                // Meta conversion event, fired only once the send actually
+                // succeeded. No-op until VITE_META_PIXEL_ID is configured.
+                trackEvent(META_EVENTS.lead, {
+                    content_name: "contact_form",
+                    content_category: formData.projectType || "unspecified",
+                });
                 setIsSubmitting(false);
                 setShowSuccess(true);
                 setFormData({ name: "", email: "", phone: "", website: "", projectType: "", budget: "", message: "", company: "" });

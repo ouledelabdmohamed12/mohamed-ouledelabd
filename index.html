@@ -1,59 +1,64 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/koda-atlas-logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#ffffff" />
 
-    <title>Koda Atlas — Web &amp; Mobile Development Studio in Marrakech</title>
+    <title>Koda Atlas — Développement web et mobile à Marrakech</title>
     <meta
       name="description"
-      content="Mohamed Ouledelabd, network and systems engineer in Marrakech. Infrastructure architecture, systems administration, security hardening and IAM."
+      content="Koda Atlas est un studio de développement web et mobile à Marrakech : sites vitrines, boutiques e-commerce, applications web, SaaS et applications mobiles sur-mesure. Devis gratuit, partout au Maroc."
     />
-    <meta name="author" content="Mohamed Ouledelabd" />
+    <meta name="author" content="Koda Atlas" />
 
     <!-- Canonical: static so crawlers that don't execute JavaScript still see it.
          useSEO rewrites it per route at runtime. -->
-    <link rel="canonical" href="https://mohamed-ouledelabd.vercel.app/" />
+    <link rel="canonical" href="https://kodaatlas.com/" />
 
-    <!-- Open Graph — this is all LinkedIn/Facebook ever read: their scrapers do
-         NOT run JavaScript, so the runtime useSEO tags are invisible to them. -->
+    <!-- Open Graph — this is all Facebook/Instagram/LinkedIn ever read: their
+         scrapers do NOT run JavaScript, so the runtime useSEO tags are
+         invisible to them. -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Mohamed Ouledelabd" />
-    <meta property="og:title" content="Mohamed Ouledelabd — Network &amp; Systems Engineer" />
+    <meta property="og:site_name" content="Koda Atlas" />
+    <meta property="og:title" content="Koda Atlas — Développement web et mobile à Marrakech" />
     <meta
       property="og:description"
-      content="Network and systems engineering in Marrakech: infrastructure architecture, systems administration, security hardening and IAM. Portfolio and selected projects."
+      content="Studio de développement web et mobile à Marrakech : sites vitrines, e-commerce, applications web, SaaS et applications mobiles sur-mesure. Devis gratuit, partout au Maroc."
     />
-    <meta property="og:url" content="https://mohamed-ouledelabd.vercel.app/" />
-    <meta property="og:image" content="https://mohamed-ouledelabd.vercel.app/og-image.png" />
-    <meta property="og:image:secure_url" content="https://mohamed-ouledelabd.vercel.app/og-image.png" />
+    <meta property="og:url" content="https://kodaatlas.com/" />
+    <meta property="og:image" content="https://kodaatlas.com/og-image.png" />
+    <meta property="og:image:secure_url" content="https://kodaatlas.com/og-image.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Mohamed Ouledelabd — network and systems engineer, Marrakech" />
-    <meta property="og:locale" content="en" />
-    <meta property="og:locale:alternate" content="fr" />
+    <meta property="og:image:alt" content="Koda Atlas — studio de développement web et mobile, Marrakech" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale:alternate" content="en_US" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Mohamed Ouledelabd — Network &amp; Systems Engineer" />
+    <meta name="twitter:title" content="Koda Atlas — Développement web et mobile à Marrakech" />
     <meta
       name="twitter:description"
-      content="Infrastructure architecture, systems administration, network security and IAM. Based in Marrakech."
+      content="Studio de développement web et mobile à Marrakech : sites vitrines, e-commerce, applications web, SaaS et mobile sur-mesure. Devis gratuit, partout au Maroc."
     />
-    <meta name="twitter:image" content="https://mohamed-ouledelabd.vercel.app/og-image.png" />
-    <meta name="twitter:image:alt" content="Mohamed Ouledelabd — network and systems engineer, Marrakech" />
+    <meta name="twitter:image" content="https://kodaatlas.com/og-image.png" />
+    <meta name="twitter:image:alt" content="Koda Atlas — studio de développement web et mobile, Marrakech" />
 
-    <!-- Structured data for local SEO -->
+    <!-- Structured data for local SEO.
+         NOTE: "telephone" and "email" below are the only copies of the contact
+         details not derived from src/utils/data.js (CONTACT_PHONE_E164 and
+         CONTACT_EMAIL) — this is static markup served before any JavaScript
+         runs, so it cannot import them. Update both together. -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         "name": "Koda Atlas",
-        "image": "https://mohamed-ouledelabd.vercel.app/og-image.png",
-        "url": "https://mohamed-ouledelabd.vercel.app/",
+        "image": "https://kodaatlas.com/og-image.png",
+        "url": "https://kodaatlas.com/",
         "telephone": "+212770324267",
         "email": "kodaatlas26@gmail.com",
         "address": {

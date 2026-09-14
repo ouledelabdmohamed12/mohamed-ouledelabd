@@ -31,6 +31,50 @@ import PROJECT_IMG_HOSPITAL from "../assets/images/gestion_hopital.webp";
 import PROJECT_IMG_APPOINTMENT from "../assets/images/gestion_rendezVous.webp";
 import PROJECT_IMG_RIAD from "../assets/images/riad.png";
 
+// ---------------------------------------------------------------------------
+// Contact phone — single source of truth.
+//
+// Every phone format and link in the app is derived from CONTACT_PHONE_E164,
+// so changing the number means changing this one line.
+//
+// The only copy that is NOT derived from here is the JSON-LD "telephone" field
+// in index.html: that is static markup served before any JavaScript runs, so it
+// cannot import this module and must be edited alongside it.
+// ---------------------------------------------------------------------------
+
+// E.164, used for tel: links.
+export const CONTACT_PHONE_E164 = "+212770324267";
+
+// Digits only, the form wa.me expects.
+export const CONTACT_PHONE_DIGITS = CONTACT_PHONE_E164.replace(/\D/g, "");
+
+// Human-readable, e.g. "+212 770-324267". Assumes the Moroccan +212 + 9 digits
+// layout, which is what this business line uses.
+export const CONTACT_PHONE_DISPLAY = `+${CONTACT_PHONE_DIGITS.slice(0, 3)} ${CONTACT_PHONE_DIGITS.slice(3, 6)}-${CONTACT_PHONE_DIGITS.slice(6)}`;
+
+// Base WhatsApp deep link. Callers may append their own ?text= payload.
+export const WHATSAPP_URL = `https://wa.me/${CONTACT_PHONE_DIGITS}`;
+
+// ---------------------------------------------------------------------------
+// Contact email — single source of truth.
+//
+// Switching to the domain address (contact@kodaatlas.com) is a one-line change
+// here: the compose link, the footer social link, the contact card and the
+// Terms/Privacy copy all derive from it. The legal text picks it up through the
+// {{email}} placeholder, wired as an i18next default variable in
+// src/i18n/index.js.
+//
+// As with the phone, the JSON-LD "email" field in index.html is static markup
+// that cannot import this module and must be edited alongside this line.
+// ---------------------------------------------------------------------------
+
+export const CONTACT_EMAIL = "kodaatlas26@gmail.com";
+
+// A plain mailto: depends on the visitor having a desktop mail client
+// registered for the protocol; when they do not, the click silently does
+// nothing. The Gmail compose URL works in any browser instead.
+export const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT_EMAIL}`;
+
 // NOTE: textual labels live in src/i18n/locales/*.json.
 // Data below keeps only structure (icons, images, links, ids) and references
 // translation keys via `id` / `key`.
@@ -217,18 +261,16 @@ export const SOCIAL_LINKS = [
     },
     {
         name: "Email",
-        // Gmail's web compose window rather than a mailto: — a mailto only works
-        // when the visitor has a desktop mail client registered for it.
         // The footer applies target="_blank" automatically to http(s) URLs.
         icon: Mail,
-        url: "https://mail.google.com/mail/u/0/?fs=1&to=kodaatlas26@gmail.com&tf=cm",
+        url: GMAIL_COMPOSE_URL,
         color: "hover:text-green-400",
         bgColor: "hover:bg-green-500/10",
     },
     {
         name: "WhatsApp",
         icon: FaWhatsapp,
-        url: "https://wa.me/212770324267",
+        url: WHATSAPP_URL,
         color: "hover:text-[#25D366]",
         bgColor: "hover:bg-[#25D366]/10",
     },
@@ -243,12 +285,12 @@ export const CONTACT_INFO = [
     {
         id: "email",
         icon: Mail,
-        value: "kodaatlas26@gmail.com",
+        value: CONTACT_EMAIL,
     },
     {
         id: "phone",
         icon: Phone,
-        value: "+212 770-324267",
+        value: CONTACT_PHONE_DISPLAY,
     },
 ];
 
