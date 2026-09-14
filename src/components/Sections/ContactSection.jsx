@@ -54,7 +54,7 @@ const ContactSection = () => {
         if (errorMessage) setErrorMessage("");
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setErrorMessage("");
 
@@ -99,30 +99,65 @@ const ContactSection = () => {
             title: "Koda Atlas Inquiry"
         };
 
-        fetch("/api/contact", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(templateParams),
-        })
-            .then((res) => {
-                if (!res.ok) throw new Error("Request failed");
-                // Meta conversion event, fired only once the send actually
-                // succeeded. No-op until VITE_META_PIXEL_ID is configured.
-                trackEvent(META_EVENTS.lead, {
-                    content_name: "contact_form",
-                    content_category: formData.projectType || "unspecified",
-                });
-                setIsSubmitting(false);
-                setShowSuccess(true);
-                setFormData({ name: "", email: "", phone: "", website: "", projectType: "", budget: "", message: "", company: "" });
-                setCaptchaToken(null);
-                turnstileRef.current?.reset();
-                setTimeout(() => setShowSuccess(false), 3000);
-            })
-            .catch(() => {
-                setIsSubmitting(false);
-                setErrorMessage(t("contact.form.errorGeneric"));
+        // Whether the message was actually delivered. Decided before any UI is
+        // touched, so nothing below can turn a failure into a success.
+        let delivered = false;
+
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(templateParams),
             });
+
+            // A 2xx alone is not proof of delivery: any intermediary (CDN,
+            // proxy, a catch-all rewrite) can answer 200 without the request
+            // ever reaching /api/contact. Only the endpoint's own
+            // { success: true } contract counts as sent.
+            let payload = null;
+            try {
+                payload = await res.json();
+            } catch {
+                payload = null; // non-JSON body — treat as a failed send
+            }
+
+            delivered = res.ok && payload?.success === true;
+        } catch {
+            delivered = false; // network error, request blocked, offline
+        }
+
+        setIsSubmitting(false);
+
+        if (!delivered) {
+            setErrorMessage(t("contact.form.errorGeneric"));
+            return;
+        }
+
+        // Past this point the message really was sent, so none of these may
+        // throw their way into the failure branch.
+        try {
+            // Meta conversion event. No-op until VITE_META_PIXEL_ID is set.
+            trackEvent(META_EVENTS.lead, {
+                content_name: "contact_form",
+                content_category: formData.projectType || "unspecified",
+            });
+        } catch {
+            // Tracking must never affect what the visitor is told.
+        }
+
+        setShowSuccess(true);
+        setFormData({ name: "", email: "", phone: "", website: "", projectType: "", budget: "", message: "", company: "" });
+        setCaptchaToken(null);
+
+        try {
+            // The widget can be in an error state (e.g. an unauthorized
+            // hostname), in which case reset() throws.
+            turnstileRef.current?.reset();
+        } catch {
+            // Nothing to do: the message is already sent.
+        }
+
+        setTimeout(() => setShowSuccess(false), 3000);
     };
 
     return (
