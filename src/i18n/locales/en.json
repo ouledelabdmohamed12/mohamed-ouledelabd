@@ -2,7 +2,7 @@
   "seo": {
     "home": {
       "title": "Koda Atlas — Web & Mobile Development Studio in Marrakech",
-      "description": "Full-stack engineer building web and mobile apps with React, React Native, Flutter, Java Spring Boot and PostgreSQL. Based in Marrakech, serving all of Morocco."
+      "description": "Web and mobile development studio in Marrakech: showcase websites, e-commerce stores, web apps, SaaS and mobile apps, built to measure. Free quote, anywhere in Morocco."
     },
     "services": {
       "title": "Web Apps, Mobile Apps, E-commerce & SaaS — Koda Atlas",
@@ -33,6 +33,11 @@
     "optional": "optional",
     "discussCta": "Discuss your project"
   },
+  "whatsapp": {
+    "aria": "Contact us on WhatsApp",
+    "tooltip": "Chat with us",
+    "message": "Hello, I would like to discuss a project"
+  },
   "nav": {
     "home": "Home",
     "skills": "Skills",
@@ -51,8 +56,8 @@
     "title1": "Building digital",
     "titleAccent": "experiences",
     "title2": "that matter",
-    "subtitle": "I design and build custom web and mobile applications. Turn your ideas into high-performing, intuitive and scalable digital solutions built to leave a mark.",
-    "ctaProjects": "See my Work",
+    "subtitle": "We design and build custom web and mobile applications. Turn your ideas into high-performing, intuitive and scalable digital solutions built to leave a mark.",
+    "ctaProjects": "See our Work",
     "ctaContact": "Get in Touch",
     "scroll": "Scroll to explore"
   },
@@ -88,12 +93,12 @@
   },
   "projects": {
     "badge": "Case Studies",
-    "title": "My",
+    "title": "Our",
     "titleAccent": "Work",
-    "subtitleMobile": "Explore my projects below.",
+    "subtitleMobile": "Explore our projects below.",
     "subtitleDesktop": "Click and drag to explore the projects.",
     "featured": "Featured",
-    "seeAll": "See all my work",
+    "seeAll": "See all our work",
     "demo": "Demo",
     "github": "GitHub",
     "openProject": "Open Project",
@@ -218,9 +223,9 @@
     "titleAccent": "Project",
     "subtitleBefore": "Based in ",
     "location": "Marrakech",
-    "subtitleAfter": ", I help you digitize your business anywhere in Morocco with tailor-made solutions.",
+    "subtitleAfter": ", we help you digitize your business anywhere in Morocco with tailor-made solutions.",
     "form": {
-      "title": "Send me a message",
+      "title": "Send us a message",
       "name": "Your Name",
       "email": "Email Address",
       "phone": "Phone",
@@ -262,7 +267,7 @@
     },
     "success": {
       "title": "Message Sent!",
-      "text": "Thank you for reaching out! I'll get back to you within 24 hours.",
+      "text": "Thank you for reaching out! We'll get back to you within 24 hours.",
       "close": "Close"
     }
   },
@@ -390,7 +395,7 @@
         },
         "contact": {
           "title": "Contact",
-          "body": "Questions about these terms can be sent to kodaatlas26@gmail.com."
+          "body": "Questions about these terms can be sent to {{email}}."
         }
       }
     },
@@ -424,7 +429,7 @@
         },
         "rights": {
           "title": "Your Rights",
-          "body": "You may request access to, correction of, or deletion of your personal data at any time by contacting us at kodaatlas26@gmail.com. Depending on your location, you may have additional rights under applicable data protection law (such as Morocco's Law 09-08 or the EU's GDPR)."
+          "body": "You may request access to, correction of, or deletion of your personal data at any time by contacting us at {{email}}. Depending on your location, you may have additional rights under applicable data protection law (such as Morocco's Law 09-08 or the EU's GDPR)."
         },
         "security": {
           "title": "Security",
@@ -432,7 +437,7 @@
         },
         "contact": {
           "title": "Contact",
-          "body": "For any question about this policy, contact us at kodaatlas26@gmail.com."
+          "body": "For any question about this policy, contact us at {{email}}."
         }
       }
     }

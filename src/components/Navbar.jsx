@@ -4,17 +4,14 @@ import { Link, NavLink } from "react-router-dom";
 import { Menu, X, Mail, Phone } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-import { NAV_LINKS } from "../utils/data";
+import {
+  NAV_LINKS,
+  CONTACT_PHONE_E164,
+  WHATSAPP_URL,
+  GMAIL_COMPOSE_URL,
+} from "../utils/data";
 import { pathForSection } from "../utils/helper";
 import { LogoLink } from "./Logo";
-
-const CONTACT_EMAIL = "kodaatlas26@gmail.com";
-const CONTACT_PHONE = "+212770324267";
-
-// A plain mailto: depends on the visitor having a desktop mail client
-// registered for the protocol; when they don't, the click silently does
-// nothing. The Gmail compose URL works in any browser instead.
-const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT_EMAIL}`;
 
 // Clean inline language links — active language in solid gray-900.
 const LanguageSwitch = ({ className = "" }) => {
@@ -86,7 +83,7 @@ const Navbar = () => {
               <Mail size={17} />
             </a>
             <a
-              href={`tel:${CONTACT_PHONE}`}
+              href={`tel:${CONTACT_PHONE_E164}`}
               aria-label="Phone"
               className="relative before:absolute before:-inset-2 before:content-[''] text-gray-400 hover:text-gray-900 transition-colors"
             >
@@ -156,7 +153,7 @@ const Navbar = () => {
               </Link>
 
               <a
-                href={`https://wa.me/${CONTACT_PHONE.replace("+", "")}`}
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full rounded-full bg-[#25D366] hover:bg-[#1eb956] text-white py-3 text-sm font-semibold shadow-sm transition-colors"

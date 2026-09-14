@@ -1,8 +1,8 @@
 {
   "seo": {
     "home": {
-      "title": "Koda Atlas — Studio de développement web & mobile à Marrakech",
-      "description": "Ingénieur full-stack : applications web et mobiles avec React, React Native, Flutter, Java Spring Boot et PostgreSQL. Basé à Marrakech, actif partout au Maroc."
+      "title": "Koda Atlas — Développement web et mobile à Marrakech",
+      "description": "Studio de développement web et mobile à Marrakech : sites vitrines, e-commerce, applications web, SaaS et applications mobiles sur-mesure. Devis gratuit, partout au Maroc."
     },
     "services": {
       "title": "Applications Web, Mobile, E-commerce & SaaS — Koda Atlas",
@@ -18,7 +18,7 @@
     },
     "contact": {
       "title": "Contact — Démarrer votre projet | Koda Atlas",
-      "description": "Contactez-moi pour votre projet d'application web, mobile ou e-commerce. Basé à Marrakech, actif à Casablanca, Rabat et partout au Maroc."
+      "description": "Contactez-nous pour votre projet d'application web, mobile ou e-commerce. Basé à Marrakech, actif à Casablanca, Rabat et partout au Maroc."
     },
     "terms": {
       "title": "Conditions Générales | Koda Atlas",
@@ -32,6 +32,11 @@
   "common": {
     "optional": "facultatif",
     "discussCta": "Discuter de votre projet"
+  },
+  "whatsapp": {
+    "aria": "Nous contacter sur WhatsApp",
+    "tooltip": "Discutons de votre projet",
+    "message": "Bonjour, je souhaite discuter d’un projet"
   },
   "nav": {
     "home": "Accueil",
@@ -48,12 +53,12 @@
   },
   "hero": {
     "badge": "Création de Sites Web & Applications",
-    "title1": "Je construis des",
+    "title1": "Nous construisons des",
     "titleAccent": "expériences",
     "title2": "numériques marquantes",
-    "subtitle": "Je conçois et développe des applications web et mobiles sur-mesure. Transformez vos idées en solutions numériques performantes, intuitives et scalables, conçues pour marquer les esprits.",
-    "ctaProjects": "Découvrir mes Projets",
-    "ctaContact": "Me Contacter",
+    "subtitle": "Nous concevons et développons des applications web et mobiles sur-mesure. Transformez vos idées en solutions numériques performantes, intuitives et scalables, conçues pour marquer les esprits.",
+    "ctaProjects": "Nos réalisations",
+    "ctaContact": "Nous Contacter",
     "scroll": "Faites défiler pour explorer"
   },
   "skills": {
@@ -88,12 +93,12 @@
   },
   "projects": {
     "badge": "Études de Cas",
-    "title": "Mes",
+    "title": "Nos",
     "titleAccent": "Réalisations",
-    "subtitleMobile": "Découvrez mes projets ci-dessous.",
+    "subtitleMobile": "Découvrez nos projets ci-dessous.",
     "subtitleDesktop": "Cliquez et faites glisser pour explorer les projets.",
     "featured": "À la une",
-    "seeAll": "Voir tous mes projets",
+    "seeAll": "Voir tous nos projets",
     "demo": "Démo",
     "github": "GitHub",
     "openProject": "Voir le projet",
@@ -216,11 +221,11 @@
     "badge": "Collaborons ensemble",
     "title": "Parlons de votre",
     "titleAccent": "Projet",
-    "subtitleBefore": "Basé à ",
+    "subtitleBefore": "Basés à ",
     "location": "Marrakech",
-    "subtitleAfter": ", je vous accompagne dans la digitalisation de votre activité partout au Maroc avec des solutions sur-mesure.",
+    "subtitleAfter": ", nous vous accompagnons dans la digitalisation de votre activité partout au Maroc avec des solutions sur-mesure.",
     "form": {
-      "title": "Envoyez-moi un message",
+      "title": "Envoyez-nous un message",
       "name": "Votre Nom",
       "email": "Adresse Email",
       "phone": "Téléphone",
@@ -262,7 +267,7 @@
     },
     "success": {
       "title": "Message Envoyé !",
-      "text": "Merci de m'avoir contacté ! Je vous répondrai sous 24 heures.",
+      "text": "Merci de nous avoir contactés ! Nous vous répondrons sous 24 heures.",
       "close": "Fermer"
     }
   },
@@ -390,7 +395,7 @@
         },
         "contact": {
           "title": "Contact",
-          "body": "Pour toute question concernant ces conditions, contactez-nous à kodaatlas26@gmail.com."
+          "body": "Pour toute question concernant ces conditions, contactez-nous à {{email}}."
         }
       }
     },
@@ -424,7 +429,7 @@
         },
         "rights": {
           "title": "Vos droits",
-          "body": "Vous pouvez demander l'accès, la rectification ou la suppression de vos données personnelles à tout moment en nous contactant à kodaatlas26@gmail.com. Selon votre localisation, vous pouvez disposer de droits supplémentaires en vertu de la loi applicable en matière de protection des données (comme la loi marocaine 09-08 ou le RGPD européen)."
+          "body": "Vous pouvez demander l'accès, la rectification ou la suppression de vos données personnelles à tout moment en nous contactant à {{email}}. Selon votre localisation, vous pouvez disposer de droits supplémentaires en vertu de la loi applicable en matière de protection des données (comme la loi marocaine 09-08 ou le RGPD européen)."
         },
         "security": {
           "title": "Sécurité",
@@ -432,7 +437,7 @@
         },
         "contact": {
           "title": "Contact",
-          "body": "Pour toute question concernant cette politique, contactez-nous à kodaatlas26@gmail.com."
+          "body": "Pour toute question concernant cette politique, contactez-nous à {{email}}."
         }
       }
     }
