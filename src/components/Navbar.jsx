@@ -8,7 +8,7 @@ import {
   NAV_LINKS,
   CONTACT_PHONE_E164,
   WHATSAPP_URL,
-  GMAIL_COMPOSE_URL,
+  CONTACT_MAILTO_URL,
 } from "../utils/data";
 import { pathForSection } from "../utils/helper";
 import { LogoLink } from "./Logo";
@@ -74,9 +74,7 @@ const Navbar = () => {
                 target. `before:-inset-2` grows the clickable area to 33px
                 without affecting layout, so spacing stays identical. */}
             <a
-              href={GMAIL_COMPOSE_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={CONTACT_MAILTO_URL}
               aria-label="Email"
               className="relative z-10 before:absolute before:-inset-2 before:content-[''] text-gray-400 hover:text-gray-900 transition-colors"
             >
