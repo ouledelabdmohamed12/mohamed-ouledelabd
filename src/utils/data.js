@@ -58,22 +58,21 @@ export const WHATSAPP_URL = `https://wa.me/${CONTACT_PHONE_DIGITS}`;
 // ---------------------------------------------------------------------------
 // Contact email — single source of truth.
 //
-// Switching to the domain address (contact@kodaatlas.com) is a one-line change
-// here: the compose link, the footer social link, the contact card and the
-// Terms/Privacy copy all derive from it. The legal text picks it up through the
-// {{email}} placeholder, wired as an i18next default variable in
-// src/i18n/index.js.
+// Changing the address is a one-line change here: the mailto: link, the footer
+// social link, the contact card and the Terms/Privacy copy all derive from it.
+// The legal text picks it up through the {{email}} placeholder, wired as an
+// i18next default variable in src/i18n/index.js.
 //
 // As with the phone, the JSON-LD "email" field in index.html is static markup
 // that cannot import this module and must be edited alongside this line.
 // ---------------------------------------------------------------------------
 
-export const CONTACT_EMAIL = "kodaatlas26@gmail.com";
+export const CONTACT_EMAIL = "contact@kodaatlas.com";
 
-// A plain mailto: depends on the visitor having a desktop mail client
-// registered for the protocol; when they do not, the click silently does
-// nothing. The Gmail compose URL works in any browser instead.
-export const GMAIL_COMPOSE_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT_EMAIL}`;
+// The mailbox is on Namecheap Private Email, not Google Workspace, so a Gmail
+// compose URL would be the wrong destination. A mailto: is the expected
+// behaviour for a domain address, and WhatsApp is the primary channel anyway.
+export const CONTACT_MAILTO_URL = `mailto:${CONTACT_EMAIL}`;
 
 // NOTE: textual labels live in src/i18n/locales/*.json.
 // Data below keeps only structure (icons, images, links, ids) and references
@@ -261,9 +260,10 @@ export const SOCIAL_LINKS = [
     },
     {
         name: "Email",
-        // The footer applies target="_blank" automatically to http(s) URLs.
+        // mailto: is handed off to an external mail app, so the footer
+        // deliberately does not add target="_blank" (it would leave a ghost tab).
         icon: Mail,
-        url: GMAIL_COMPOSE_URL,
+        url: CONTACT_MAILTO_URL,
         color: "hover:text-green-400",
         bgColor: "hover:bg-green-500/10",
     },
