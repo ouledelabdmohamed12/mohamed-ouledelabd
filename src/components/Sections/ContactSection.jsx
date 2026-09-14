@@ -37,7 +37,7 @@ const ContactSection = () => {
         projectType: "",
         budget: "",
         message: "",
-        company: "", // honeypot — left empty by real users, hidden from view
+        kd_ref_field: "", // honeypot — see the field markup below for why this name
     });
 
     const [showSuccess, setShowSuccess] = useState(false);
@@ -73,15 +73,11 @@ const ContactSection = () => {
             return;
         }
 
-        // Honeypot: real visitors never see or fill this field. If it's
-        // filled, silently pretend success instead of tipping off the bot.
-        if (formData.company) {
-            setShowSuccess(true);
-            setFormData({ name: "", email: "", phone: "", website: "", projectType: "", budget: "", message: "", company: "" });
-            setTimeout(() => setShowSuccess(false), 3000);
-            return;
-        }
-
+        // The honeypot is deliberately NOT short-circuited here. Deciding it
+        // client-side returned before any network call, so a false positive — a
+        // real visitor whose browser autofilled the field — was dropped with no
+        // record anywhere. Every submission now reaches /api/contact, which
+        // makes the same call and logs it.
         setIsSubmitting(true);
 
         const projectTypeLabel = projectTypeOptions.find((opt) => opt.value === formData.projectType)?.label || "";
@@ -95,7 +91,7 @@ const ContactSection = () => {
             projectType: projectTypeLabel,
             budget: budgetLabel,
             message: formData.message,
-            company: formData.company,
+            kd_ref_field: formData.kd_ref_field,
             title: "Koda Atlas Inquiry"
         };
 
@@ -146,7 +142,7 @@ const ContactSection = () => {
         }
 
         setShowSuccess(true);
-        setFormData({ name: "", email: "", phone: "", website: "", projectType: "", budget: "", message: "", company: "" });
+        setFormData({ name: "", email: "", phone: "", website: "", projectType: "", budget: "", message: "", kd_ref_field: "" });
         setCaptchaToken(null);
 
         try {
@@ -289,17 +285,27 @@ const ContactSection = () => {
                                 handleInpuChange={(text) => handleInputChange('message', text)}
                             />
 
-                            {/* Honeypot — hidden from real visitors, bots tend to fill every field */}
-                            <div className="absolute -left-[9999px] w-px h-px overflow-hidden" aria-hidden="true">
-                                <label htmlFor="company">Company</label>
+                            {/* Honeypot — hidden from real visitors, bots tend to fill every field.
+                                The name, id and label text are deliberately arbitrary. Chrome, Brave
+                                and password managers autofill by matching those against known field
+                                types, so the previous name="company" with a "Company" label was
+                                exactly what they target: a real visitor got silently flagged as a bot
+                                and lost their message. Nothing here may resemble a real field name. */}
+                            <div className="absolute -left-[9999px] top-0 w-px h-px overflow-hidden" aria-hidden="true">
+                                <label htmlFor="kd_ref_field">Leave this field empty</label>
                                 <input
                                     type="text"
-                                    id="company"
-                                    name="company"
+                                    id="kd_ref_field"
+                                    name="kd_ref_field"
                                     tabIndex={-1}
-                                    autoComplete="off"
-                                    value={formData.company}
-                                    onChange={(e) => handleInputChange('company', e.target.value)}
+                                    /* An unrecognised token rather than "off", which Chrome ignores
+                                       on fields its heuristics think it recognises. */
+                                    autoComplete="kd-nope"
+                                    autoCorrect="off"
+                                    autoCapitalize="off"
+                                    spellCheck={false}
+                                    value={formData.kd_ref_field}
+                                    onChange={(e) => handleInputChange('kd_ref_field', e.target.value)}
                                 />
                             </div>
 
