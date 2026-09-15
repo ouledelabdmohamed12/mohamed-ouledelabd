@@ -203,7 +203,19 @@ const ContactSection = () => {
                                     <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white text-indigo-600 shadow-sm shrink-0">
                                         <info.icon size={17} />
                                     </span>
-                                    <span className="text-[15px] text-gray-700">{info.value}</span>
+                                    {info.href ? (
+                                        /* `before:-inset-2` grows the touch target from the
+                                           text's own ~23px to ~39px without changing layout —
+                                           the same trick the navbar icons use. */
+                                        <a
+                                            href={info.href}
+                                            className="relative text-[15px] text-gray-700 hover:text-indigo-600 transition-colors break-all before:absolute before:-inset-2 before:content-['']"
+                                        >
+                                            {info.value}
+                                        </a>
+                                    ) : (
+                                        <span className="text-[15px] text-gray-700">{info.value}</span>
+                                    )}
                                 </div>
                             ))}
                         </motion.div>

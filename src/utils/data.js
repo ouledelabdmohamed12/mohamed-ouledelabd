@@ -55,6 +55,10 @@ export const CONTACT_PHONE_DISPLAY = `+${CONTACT_PHONE_DIGITS.slice(0, 3)} ${CON
 // Base WhatsApp deep link. Callers may append their own ?text= payload.
 export const WHATSAPP_URL = `https://wa.me/${CONTACT_PHONE_DIGITS}`;
 
+// Dialler link. On a phone this opens the dialler; on a desktop without a
+// handler it does nothing, which is the accepted trade-off for tel:.
+export const CONTACT_TEL_URL = `tel:${CONTACT_PHONE_E164}`;
+
 // ---------------------------------------------------------------------------
 // Contact email — single source of truth.
 //
@@ -276,6 +280,9 @@ export const SOCIAL_LINKS = [
     },
 ];
 
+// `href` marks an entry as actionable: the contact card renders those as
+// links so they can be tapped on a phone. Location has none — there is nothing
+// useful to hand off to.
 export const CONTACT_INFO = [
     {
         id: "location",
@@ -286,11 +293,13 @@ export const CONTACT_INFO = [
         id: "email",
         icon: Mail,
         value: CONTACT_EMAIL,
+        href: CONTACT_MAILTO_URL,
     },
     {
         id: "phone",
         icon: Phone,
         value: CONTACT_PHONE_DISPLAY,
+        href: CONTACT_TEL_URL,
     },
 ];
 
