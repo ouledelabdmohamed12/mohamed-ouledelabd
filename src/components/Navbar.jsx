@@ -6,7 +6,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import {
   NAV_LINKS,
-  CONTACT_PHONE_E164,
+  CONTACT_TEL_URL,
   WHATSAPP_URL,
   CONTACT_MAILTO_URL,
 } from "../utils/data";
@@ -81,7 +81,7 @@ const Navbar = () => {
               <Mail size={17} />
             </a>
             <a
-              href={`tel:${CONTACT_PHONE_E164}`}
+              href={CONTACT_TEL_URL}
               aria-label="Phone"
               className="relative before:absolute before:-inset-2 before:content-[''] text-gray-400 hover:text-gray-900 transition-colors"
             >
