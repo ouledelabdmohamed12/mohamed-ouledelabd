@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 
-// The mark is the same file the browser tab uses, so the tab icon, header and
-// footer stay in sync. It lives in /public, so it is referenced by absolute
+// The KA monogram, not the full lockup: the wordmark next to it already reads
+// "Koda Atlas", and the full logo contains that text too — using it here would
+// print the brand name twice. Same file the browser tab uses, so tab icon,
+// header and footer stay in sync. Lives in /public, referenced by absolute
 // path (never imported/bundled).
-const LOGO_SRC = "/koda-atlas-logo.svg";
+const LOGO_SRC = "/koda-atlas-mark.svg";
 
 // Icon + wordmark lockup. The icon is decorative here (alt="") because the
 // visible "Koda Atlas" text already names the brand — giving both a label
