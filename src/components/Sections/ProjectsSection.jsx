@@ -7,12 +7,24 @@ import { PROJECTS } from "../../utils/data";
 import { containeVariants, itemVariants } from "../../utils/helper";
 import ProjectCard from "../ProjectCard";
 import ProjectModal from "../ProjectModal";
+import { isBot } from "../../lib/isBot";
 
-const ProjectsSection = ({ limit } = {}) => {
+/**
+ * `lead` marks the instance that owns its page's <h1>: standalone on /work its
+ * title IS the page title, while on the home page the hero already holds the
+ * only <h1>. Classes are identical either way — only the tag changes.
+ */
+const ProjectsSection = ({ limit, lead = false } = {}) => {
+  const Title = motion[lead ? "h1" : "h2"];
   const { t } = useTranslation();
   const navigate = useNavigate();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  // Crawlers never scroll, so `isInView` would stay false and every block
+  // below would be screenshotted at `opacity: 0`. Treating a bot as "already
+  // in view" renders the resting state immediately — same markup, same copy,
+  // only the entrance animation is skipped.
+  const visible = isBot || isInView;
   const [activeIndex, setActiveIndex] = useState(null);
 
   // A project counts as live once it has a real production/demo URL ("#" is the
@@ -35,8 +47,8 @@ const ProjectsSection = ({ limit } = {}) => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          initial={isBot ? false : "hidden"}
+          animate={visible ? "visible" : "hidden"}
           variants={containeVariants}
           className="text-center max-w-2xl mx-auto mb-16"
         >
@@ -48,19 +60,19 @@ const ProjectsSection = ({ limit } = {}) => {
             {t("projects.badge")}
           </motion.span>
 
-          <motion.h2
+          <Title
             variants={itemVariants}
             className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900"
           >
             {t("projects.title")}{" "}
             <span className="text-indigo-600">{t("projects.titleAccent")}</span>
-          </motion.h2>
+          </Title>
         </motion.div>
 
         {/* Grid */}
         <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          initial={isBot ? false : "hidden"}
+          animate={visible ? "visible" : "hidden"}
           variants={containeVariants}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
@@ -70,14 +82,16 @@ const ProjectsSection = ({ limit } = {}) => {
               project={project}
               index={index}
               onOpen={setActiveIndex}
+              /* Always one level under the section title above. */
+              headingTag={lead ? "h2" : "h3"}
             />
           ))}
         </motion.div>
 
         {limit && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            initial={isBot ? false : { opacity: 0 }}
+            animate={visible ? { opacity: 1 } : { opacity: 0 }}
             className="text-center mt-14"
           >
             <button

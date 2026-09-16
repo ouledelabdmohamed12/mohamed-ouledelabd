@@ -5,20 +5,35 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { SERVICES } from "../../utils/data";
 import { containeVariants, itemVariants } from "../../utils/helper";
+import { isBot } from "../../lib/isBot";
 
-const ServicesSection = () => {
+/**
+ * `lead` marks the instance that owns its page's <h1>. This section renders on
+ * two routes: standalone on /services, where its title IS the page title, and
+ * on the home page underneath the hero, which already holds the only <h1>
+ * there. Promoting the title unconditionally would give the home page two.
+ * The classes are untouched either way — only the tag name changes.
+ */
+const ServicesSection = ({ lead = false } = {}) => {
+  const Title = motion[lead ? "h1" : "h2"];
+  const CardTitle = lead ? "h2" : "h3";
   const { t } = useTranslation();
   const navigate = useNavigate();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  // Crawlers never scroll, so `isInView` would stay false and every block
+  // below would be screenshotted at `opacity: 0`. Treating a bot as "already
+  // in view" renders the resting state immediately — same markup, same copy,
+  // only the entrance animation is skipped.
+  const visible = isBot || isInView;
 
   return (
     <section id="services" ref={sectionRef} className="bg-white py-24 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          initial={isBot ? false : "hidden"}
+          animate={visible ? "visible" : "hidden"}
           variants={containeVariants}
           className="text-center max-w-2xl mx-auto mb-16"
         >
@@ -30,13 +45,13 @@ const ServicesSection = () => {
             {t("services.badge")}
           </motion.span>
 
-          <motion.h2
+          <Title
             variants={itemVariants}
             className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4"
           >
             {t("services.title")}{" "}
             <span className="text-indigo-600">{t("services.titleAccent")}</span>
-          </motion.h2>
+          </Title>
 
           <motion.p variants={itemVariants} className="text-lg text-gray-500 leading-relaxed">
             {t("services.subtitle")}
@@ -45,8 +60,8 @@ const ServicesSection = () => {
 
         {/* Cards */}
         <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          initial={isBot ? false : "hidden"}
+          animate={visible ? "visible" : "hidden"}
           variants={containeVariants}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
@@ -61,9 +76,10 @@ const ServicesSection = () => {
                 <service.icon size={22} strokeWidth={2} />
               </span>
 
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+              {/* One level under the section title, so the outline never skips. */}
+              <CardTitle className="text-xl font-semibold text-gray-900 mb-3">
                 {t(`services.items.${service.id}.title`)}
-              </h3>
+              </CardTitle>
 
               <p className="text-[15px] text-gray-500 leading-relaxed mb-6">
                 {t(`services.items.${service.id}.description`)}
@@ -82,8 +98,8 @@ const ServicesSection = () => {
 
         {/* CTA */}
         <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          initial={isBot ? false : "hidden"}
+          animate={visible ? "visible" : "hidden"}
           variants={itemVariants}
           className="text-center mt-16"
         >

@@ -4,7 +4,11 @@ import { FiGithub } from "react-icons/fi";
 import { useTranslation } from "react-i18next";
 import { itemVariants } from "../utils/helper";
 
-const ProjectCard = ({ project, index, onOpen }) => {
+const ProjectCard = ({ project, index, onOpen, headingTag = "h3" }) => {
+  // Bound to a local const rather than renamed in the parameter list: without
+  // eslint-plugin-react the linter cannot see JSX usage, and the repo's
+  // `varsIgnorePattern` allowlist covers PascalCase variables, not arguments.
+  const Heading = headingTag;
   const { t } = useTranslation();
 
   const title = t(`projects.items.${project.key}.title`);
@@ -57,7 +61,7 @@ const ProjectCard = ({ project, index, onOpen }) => {
           {project.category}
         </span>
 
-        <h3 className="text-xl font-semibold text-gray-900 mb-3">{title}</h3>
+        <Heading className="text-xl font-semibold text-gray-900 mb-3">{title}</Heading>
 
         <p className="text-[15px] text-gray-500 leading-relaxed mb-5 flex-1">{description}</p>
 

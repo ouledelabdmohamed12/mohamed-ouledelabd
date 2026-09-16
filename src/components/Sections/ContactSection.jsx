@@ -8,10 +8,18 @@ import TextInput from '../Input/TextInput';
 import SuccessModel from '../SuccessModel';
 import Turnstile from '../Turnstile';
 import { META_EVENTS, trackEvent } from '../../utils/tracking';
+import { isBot } from '../../lib/isBot';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const ContactSection = () => {
+/**
+ * `lead` marks the instance that owns its page's <h1>: standalone on /contact
+ * its title IS the page title, while on the home page the hero already holds
+ * the only <h1>. Classes are identical either way — only the tag changes.
+ */
+const ContactSection = ({ lead = false } = {}) => {
+    const Title = motion[lead ? 'h1' : 'h2'];
+    const FormTitle = motion[lead ? 'h2' : 'h3'];
     const { t } = useTranslation();
 
     const projectTypeOptions = [
@@ -48,6 +56,11 @@ const ContactSection = () => {
 
     const sectionRef = useRef(null);
     const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
+    // Crawlers never scroll, so `isInView` would stay false and every block
+    // below would be screenshotted at `opacity: 0`. Treating a bot as "already
+    // in view" renders the resting state immediately — same markup, same copy,
+    // only the entrance animation is skipped.
+    const visible = isBot || isInView;
 
     const handleInputChange = (key, value) => {
         setFormData({ ...formData, [key]: value });
@@ -161,8 +174,8 @@ const ContactSection = () => {
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <motion.div
-                    initial="hidden"
-                    animate={isInView ? 'visible' : 'hidden'}
+                    initial={isBot ? false : 'hidden'}
+                    animate={visible ? 'visible' : 'hidden'}
                     variants={containeVariants}
                     className="text-center max-w-2xl mx-auto mb-16"
                 >
@@ -174,13 +187,13 @@ const ContactSection = () => {
                         {t("contact.badge")}
                     </motion.span>
 
-                    <motion.h2
+                    <Title
                         variants={itemVariants}
                         className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4"
                     >
                         {t("contact.title")}{" "}
                         <span className="text-indigo-600">{t("contact.titleAccent")}</span>
-                    </motion.h2>
+                    </Title>
 
                     <motion.p variants={itemVariants} className="text-lg text-gray-500 leading-relaxed">
                         {t("contact.subtitleBefore")}
@@ -192,8 +205,8 @@ const ContactSection = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
                     {/* LEFT — details card */}
                     <motion.div
-                        initial="hidden"
-                        animate={isInView ? 'visible' : 'hidden'}
+                        initial={isBot ? false : 'hidden'}
+                        animate={visible ? 'visible' : 'hidden'}
                         variants={containeVariants}
                         className="lg:col-span-2 rounded-2xl border border-gray-100 bg-slate-50 p-8 shadow-sm"
                     >
@@ -223,17 +236,19 @@ const ContactSection = () => {
 
                     {/* RIGHT — form card */}
                     <motion.div
-                        initial="hidden"
-                        animate={isInView ? 'visible' : 'hidden'}
+                        initial={isBot ? false : 'hidden'}
+                        animate={visible ? 'visible' : 'hidden'}
                         variants={containeVariants}
                         className="lg:col-span-3 rounded-2xl border border-gray-100 bg-white p-8 shadow-sm"
                     >
-                        <motion.h3
+                        {/* One level under the section title, so the outline
+                            never skips on either route. */}
+                        <FormTitle
                             variants={itemVariants}
                             className="text-xl font-semibold tracking-tight text-gray-900 mb-8"
                         >
                             {t("contact.form.title")}
-                        </motion.h3>
+                        </FormTitle>
 
                         {errorMessage && (
                             <motion.div
