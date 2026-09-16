@@ -3,18 +3,24 @@ import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { isBot } from "../../lib/isBot";
 
 const AboutTeaserSection = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  // Crawlers never scroll, so `isInView` would stay false and every block
+  // below would be screenshotted at `opacity: 0`. Treating a bot as "already
+  // in view" renders the resting state immediately — same markup, same copy,
+  // only the entrance animation is skipped.
+  const visible = isBot || isInView;
 
   return (
     <section ref={sectionRef} className="bg-white py-24 px-6">
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+        initial={isBot ? false : { opacity: 0, y: 24 }}
+        animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
         transition={{ duration: 0.6 }}
         className="max-w-4xl mx-auto rounded-2xl border border-gray-100 bg-slate-50 px-8 py-14 text-center shadow-sm"
       >

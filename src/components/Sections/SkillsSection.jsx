@@ -10,6 +10,7 @@ import {
   SiDigitalocean, SiNodedotjs, SiFirebase, SiPostgresql,
   SiReact, SiNextdotjs, SiTailwindcss
 } from "react-icons/si";
+import { isBot } from "../../lib/isBot";
 import { TbApi } from "react-icons/tb";
 
 const TECH_ICONS = [
@@ -37,14 +38,19 @@ const SkillsSection = () => {
   const { t } = useTranslation();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  // Crawlers never scroll, so `isInView` would stay false and every block
+  // below would be screenshotted at `opacity: 0`. Treating a bot as "already
+  // in view" renders the resting state immediately — same markup, same copy,
+  // only the entrance animation is skipped.
+  const visible = isBot || isInView;
 
   return (
     <section ref={sectionRef} id="skills" className="bg-slate-50 py-24 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          initial={isBot ? false : "hidden"}
+          animate={visible ? "visible" : "hidden"}
           variants={containeVariants}
           className="text-center max-w-2xl mx-auto mb-16"
         >
@@ -71,8 +77,8 @@ const SkillsSection = () => {
 
         {/* Tech grid */}
         <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          initial={isBot ? false : "hidden"}
+          animate={visible ? "visible" : "hidden"}
           variants={containeVariants}
           className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 mb-16"
         >
@@ -90,8 +96,8 @@ const SkillsSection = () => {
 
         {/* Category cards */}
         <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          initial={isBot ? false : "hidden"}
+          animate={visible ? "visible" : "hidden"}
           variants={containeVariants}
           className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16"
         >
@@ -131,8 +137,8 @@ const SkillsSection = () => {
 
         {/* Stats */}
         <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          initial={isBot ? false : "hidden"}
+          animate={visible ? "visible" : "hidden"}
           variants={containeVariants}
           className="grid grid-cols-2 md:grid-cols-4 gap-6"
         >

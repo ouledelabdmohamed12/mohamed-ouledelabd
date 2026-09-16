@@ -6,7 +6,8 @@ import ProjectsSection from "../components/Sections/ProjectsSection";
 const WorkPage = () => (
   <>
     <Seo page="work" path="/work" />
-    <ProjectsSection />
+    {/* Leads the page, so it owns the <h1>. */}
+    <ProjectsSection lead />
   </>
 );
 

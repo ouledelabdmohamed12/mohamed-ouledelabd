@@ -4,7 +4,8 @@ import ServicesSection from "../components/Sections/ServicesSection";
 const ServicesPage = () => (
   <>
     <Seo page="services" path="/services" />
-    <ServicesSection />
+    {/* Leads the page, so it owns the <h1>. */}
+    <ServicesSection lead />
   </>
 );
 

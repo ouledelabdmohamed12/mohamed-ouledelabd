@@ -5,12 +5,18 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { FAQ_ITEMS } from "../../utils/data";
 import { containeVariants, itemVariants } from "../../utils/helper";
+import { isBot } from "../../lib/isBot";
 
 const FaqSection = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  // Crawlers never scroll, so `isInView` would stay false and every block
+  // below would be screenshotted at `opacity: 0`. Treating a bot as "already
+  // in view" renders the resting state immediately — same markup, same copy,
+  // only the entrance animation is skipped.
+  const visible = isBot || isInView;
   const [open, setOpen] = useState(null);
 
   return (
@@ -18,8 +24,8 @@ const FaqSection = () => {
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          initial={isBot ? false : "hidden"}
+          animate={visible ? "visible" : "hidden"}
           variants={containeVariants}
           className="text-center mb-12 md:mb-16"
         >
@@ -34,8 +40,8 @@ const FaqSection = () => {
 
         {/* Accordion */}
         <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          initial={isBot ? false : "hidden"}
+          animate={visible ? "visible" : "hidden"}
           variants={containeVariants}
           className="space-y-4"
         >
@@ -97,8 +103,8 @@ const FaqSection = () => {
 
         {/* CTA */}
         <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          initial={isBot ? false : "hidden"}
+          animate={visible ? "visible" : "hidden"}
           variants={itemVariants}
           className="text-center mt-14"
         >

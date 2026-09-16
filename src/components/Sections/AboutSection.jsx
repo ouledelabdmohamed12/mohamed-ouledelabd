@@ -5,20 +5,26 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { PASSIONS } from "../../utils/data";
 import { containeVariants, itemVariants } from "../../utils/helper";
+import { isBot } from "../../lib/isBot";
 
 const AboutSection = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  // Crawlers never scroll, so `isInView` would stay false and every block
+  // below would be screenshotted at `opacity: 0`. Treating a bot as "already
+  // in view" renders the resting state immediately — same markup, same copy,
+  // only the entrance animation is skipped.
+  const visible = isBot || isInView;
 
   return (
     <section id="about" ref={sectionRef} className="bg-white pt-32 pb-24 px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          initial={isBot ? false : "hidden"}
+          animate={visible ? "visible" : "hidden"}
           variants={containeVariants}
           className="text-center max-w-3xl mx-auto mb-14"
         >
@@ -30,13 +36,16 @@ const AboutSection = () => {
             {t("about.badge")}
           </motion.span>
 
-          <motion.h2
+          {/* This section only ever renders on /about, where it leads the page,
+              so it owns the <h1> outright — no `lead` prop needed. Same classes
+              as the <h2> it replaces, so nothing moves visually. */}
+          <motion.h1
             variants={itemVariants}
             className="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6"
           >
             {t("about.title")}{" "}
             <span className="text-indigo-600">{t("about.titleAccent")}</span>
-          </motion.h2>
+          </motion.h1>
 
           <motion.p
             variants={itemVariants}
@@ -52,8 +61,8 @@ const AboutSection = () => {
 
         {/* Values */}
         <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          initial={isBot ? false : "hidden"}
+          animate={visible ? "visible" : "hidden"}
           variants={containeVariants}
           className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
         >
@@ -66,9 +75,11 @@ const AboutSection = () => {
               <span className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 mb-6">
                 <passion.icon size={22} strokeWidth={2} />
               </span>
-              <h4 className="text-lg font-semibold text-gray-900 mb-2">
+              {/* Was an <h4> under an <h2> — a skipped level even before this
+                  change. Now a straight h1 -> h2 step. */}
+              <h2 className="text-lg font-semibold text-gray-900 mb-2">
                 {t(`about.passions.${passion.id}.title`)}
-              </h4>
+              </h2>
               <p className="text-[15px] text-gray-500 leading-relaxed">
                 {t(`about.passions.${passion.id}.description`)}
               </p>
@@ -78,8 +89,8 @@ const AboutSection = () => {
 
         {/* CTA */}
         <motion.div
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          initial={isBot ? false : "hidden"}
+          animate={visible ? "visible" : "hidden"}
           variants={itemVariants}
           className="rounded-2xl bg-slate-50 border border-gray-100 px-8 py-12 text-center"
         >

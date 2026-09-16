@@ -12,6 +12,7 @@ import {
 } from "../utils/data";
 import { pathForSection } from "../utils/helper";
 import { LogoLink } from "./Logo";
+import { isBot } from "../lib/isBot";
 
 // Clean inline language links — active language in solid gray-900.
 const LanguageSwitch = ({ className = "" }) => {
@@ -49,7 +50,7 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
+      initial={isBot ? false : { y: -100 }}
       animate={{ y: 0 }}
       className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-sm"
     >

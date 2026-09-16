@@ -3,8 +3,10 @@ import { useTranslation } from "react-i18next";
 const LegalSection = ({ i18nKey, sections }) => {
   const { t } = useTranslation();
 
+  // Min-height capped at 1000px rather than a full viewport height — see
+  // HeroSection for why Googlebot needs the cap.
   return (
-    <section className="bg-white min-h-screen pt-32 pb-24 px-6">
+    <section className="bg-white min-h-[min(100vh,1000px)] pt-32 pb-24 px-6">
       <div className="max-w-3xl mx-auto">
         <span className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-1.5 text-sm font-medium text-gray-600 shadow-sm mb-6">
           <span className="w-1.5 h-1.5 rounded-full bg-indigo-600" />

@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { containeVariants, itemVariants } from "../../utils/helper";
+import { isBot } from "../../lib/isBot";
 
 const HeroSection = () => {
   const { t } = useTranslation();
@@ -11,7 +12,14 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white px-6 pt-32 pb-24"
+      /* The min-height is capped at 1000px instead of being a plain full
+         viewport height. Googlebot renders with the viewport resized to the
+         whole document height (~10 000px), so an uncapped viewport unit
+         stretched this section that far and centred the headline around the
+         5 000th pixel — off the screenshot entirely. The cap keeps a
+         full-height hero on real screens while bounding it for the crawler.
+         Deliberately a min, never a max: long pages must never be clipped. */
+      className="relative min-h-[min(100vh,1000px)] flex items-center justify-center overflow-hidden bg-white px-6 pt-32 pb-24"
     >
       {/* Soft ambient gradient glow behind the headline.
           Sits at z-0 (not -z-10) so the section's white background
@@ -22,7 +30,10 @@ const HeroSection = () => {
       />
 
       <motion.div
-        initial="hidden"
+        /* Crawlers screenshot before a staggered entrance animation finishes,
+           so they skip straight to the resting state. `initial={false}`
+           propagates down the variant tree, so the children below inherit it. */
+        initial={isBot ? false : "hidden"}
         animate="visible"
         variants={containeVariants}
         className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto"
