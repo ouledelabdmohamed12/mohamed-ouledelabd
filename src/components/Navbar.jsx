@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, X, Mail, Phone } from "lucide-react";
+// Instagram/Facebook are deprecated brand icons in lucide (slated for removal
+// in v1.0). They are kept here so the header matches the stroke style of the
+// other lucide icons; swap for inline SVGs before upgrading past 0.x.
+import { Menu, X, Instagram, Facebook } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import {
   NAV_LINKS,
-  CONTACT_TEL_URL,
   WHATSAPP_URL,
-  CONTACT_MAILTO_URL,
+  INSTAGRAM_URL,
+  FACEBOOK_URL,
 } from "../utils/data";
 import { pathForSection } from "../utils/helper";
 import { LogoLink } from "./Logo";
@@ -75,18 +78,22 @@ const Navbar = () => {
                 target. `before:-inset-2` grows the clickable area to 33px
                 without affecting layout, so spacing stays identical. */}
             <a
-              href={CONTACT_MAILTO_URL}
-              aria-label="Email"
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t("footer.socialAria.instagram")}
               className="relative z-10 before:absolute before:-inset-2 before:content-[''] text-gray-400 hover:text-gray-900 transition-colors"
             >
-              <Mail size={17} />
+              <Instagram size={17} />
             </a>
             <a
-              href={CONTACT_TEL_URL}
-              aria-label="Phone"
+              href={FACEBOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t("footer.socialAria.facebook")}
               className="relative before:absolute before:-inset-2 before:content-[''] text-gray-400 hover:text-gray-900 transition-colors"
             >
-              <Phone size={17} />
+              <Facebook size={17} />
             </a>
 
             <LanguageSwitch />
