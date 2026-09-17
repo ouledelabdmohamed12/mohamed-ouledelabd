@@ -275,6 +275,10 @@
     "description": "Un studio de développement qui conçoit des solutions digitales sur-mesure pour accompagner la transformation numérique des entreprises au Maroc.",
     "navTitle": "Navigation",
     "socialTitle": "Réseaux",
+    "socialAria": {
+      "instagram": "Instagram de Koda Atlas",
+      "facebook": "Facebook de Koda Atlas"
+    },
     "copyright": "koda Atlas",
     "madeBy": "Code & Design par Koda Atlas",
     "legal": {

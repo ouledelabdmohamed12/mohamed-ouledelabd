@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 import { FiGithub, FiLinkedin } from "react-icons/fi";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaInstagram, FaFacebookF } from "react-icons/fa";
 
 // NOTE: burncar.jpeg is square (2048x2048) while the card renders a ~1.76:1 box
 // with object-cover, so roughly the top and bottom thirds are cropped off.
@@ -77,6 +77,16 @@ export const CONTACT_EMAIL = "contact@kodaatlas.com";
 // compose URL would be the wrong destination. A mailto: is the expected
 // behaviour for a domain address, and WhatsApp is the primary channel anyway.
 export const CONTACT_MAILTO_URL = `mailto:${CONTACT_EMAIL}`;
+
+// ---------------------------------------------------------------------------
+// Social profiles — single source of truth for the app.
+//
+// As with the phone and email, the JSON-LD "sameAs" list in index.html is
+// static markup that cannot import this module and must be edited alongside.
+// ---------------------------------------------------------------------------
+
+export const INSTAGRAM_URL = "https://www.instagram.com/kodaatlas1/";
+export const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61594415549192";
 
 // NOTE: textual labels live in src/i18n/locales/*.json.
 // Data below keeps only structure (icons, images, links, ids) and references
@@ -277,6 +287,23 @@ export const SOCIAL_LINKS = [
         url: WHATSAPP_URL,
         color: "hover:text-[#25D366]",
         bgColor: "hover:bg-[#25D366]/10",
+    },
+    {
+        name: "Instagram",
+        // Translated accessible name, under `footer.socialAria.<ariaKey>`.
+        ariaKey: "instagram",
+        icon: FaInstagram,
+        url: INSTAGRAM_URL,
+        color: "hover:text-[#E4405F]",
+        bgColor: "hover:bg-[#E4405F]/10",
+    },
+    {
+        name: "Facebook",
+        ariaKey: "facebook",
+        icon: FaFacebookF,
+        url: FACEBOOK_URL,
+        color: "hover:text-[#1877F2]",
+        bgColor: "hover:bg-[#1877F2]/10",
     },
 ];
 
