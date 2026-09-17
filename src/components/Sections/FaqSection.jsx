@@ -2,14 +2,14 @@ import { useRef, useState } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { useContactCta } from "../../hooks/useContactCta";
 import { FAQ_ITEMS } from "../../utils/data";
 import { containeVariants, itemVariants } from "../../utils/helper";
 import { isBot } from "../../lib/isBot";
 
 const FaqSection = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const goToContact = useContactCta();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   // Crawlers never scroll, so `isInView` would stay false and every block
@@ -110,7 +110,7 @@ const FaqSection = () => {
         >
           <button
             type="button"
-            onClick={() => navigate("/contact")}
+            onClick={() => goToContact("faq_section")}
             className="group inline-flex items-center gap-2 rounded-full bg-accent hover:bg-accent-dark text-white px-9 py-4 text-sm font-semibold shadow-[0_12px_30px_-8px_rgba(92,51,255,0.55)] hover:shadow-[0_18px_40px_-10px_rgba(92,51,255,0.65)] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
           >
             {t("common.discussCta")}

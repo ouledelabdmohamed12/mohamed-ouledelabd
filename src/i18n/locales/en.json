@@ -33,6 +33,13 @@
     "optional": "optional",
     "discussCta": "Discuss your project"
   },
+  "consent": {
+    "aria": "Analytics consent choice",
+    "text": "We use analytics tools to understand where our visitors come from. No tracking is enabled without your consent.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "learnMore": "Learn more"
+  },
   "whatsapp": {
     "aria": "Contact us on WhatsApp",
     "tooltip": "Chat with us",
@@ -413,7 +420,7 @@
         },
         "dataCollected": {
           "title": "Data We Collect",
-          "body": "When you use our contact form, we collect the information you provide: your name, email address, phone number (optional), website (optional), project type, and message content. We do not collect payment information through this website."
+          "body": "When you use our contact form, we collect the information you provide: your name, email address, phone number (optional), website (optional), project type, estimated budget, and message content. We do not collect payment information through this website."
         },
         "dataUse": {
           "title": "How We Use Your Data",
@@ -425,7 +432,11 @@
         },
         "cookies": {
           "title": "Cookies & Local Storage",
-          "body": "This site uses your browser's local storage to remember your language choice (English/French). No advertising or tracking cookies are used."
+          "body": "This site uses your browser's local storage to remember your language preference (French/English) and your analytics choice. Measurement and advertising cookies are only set after you explicitly accept them."
+        },
+        "analytics": {
+          "title": "Analytics & advertising",
+          "body": "With your consent, we use the Meta pixel (Facebook/Instagram) and Google Analytics 4 to measure site traffic and how well our ad campaigns perform. These tools record page views and actions such as submitting the contact form or clicking through to WhatsApp. No tracking script is loaded before you accept, and declining costs you nothing on the site: just click “Decline” in the banner. To change your mind, clear this site's data in your browser. We also keep, for the duration of your visit only, the campaign parameters in your landing URL (utm_source, utm_campaign…) so we know which ad your enquiry came from; they are attached to the message you send us."
         },
         "retention": {
           "title": "Data Retention",

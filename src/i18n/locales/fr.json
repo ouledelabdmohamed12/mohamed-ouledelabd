@@ -33,6 +33,13 @@
     "optional": "facultatif",
     "discussCta": "Discuter de votre projet"
   },
+  "consent": {
+    "aria": "Choix de consentement pour la mesure d'audience",
+    "text": "Nous utilisons des outils de mesure d'audience pour comprendre d'où viennent nos visiteurs. Aucun suivi n'est activé sans votre accord.",
+    "accept": "Accepter",
+    "decline": "Refuser",
+    "learnMore": "En savoir plus"
+  },
   "whatsapp": {
     "aria": "Nous contacter sur WhatsApp",
     "tooltip": "Discutons de votre projet",
@@ -413,7 +420,7 @@
         },
         "dataCollected": {
           "title": "Données collectées",
-          "body": "Lorsque vous utilisez notre formulaire de contact, nous collectons les informations que vous fournissez : votre nom, adresse email, numéro de téléphone (facultatif), site web (facultatif), type de projet, et le contenu de votre message. Nous ne collectons aucune information de paiement via ce site."
+          "body": "Lorsque vous utilisez notre formulaire de contact, nous collectons les informations que vous fournissez : votre nom, adresse email, numéro de téléphone (facultatif), site web (facultatif), type de projet, budget estimé, et le contenu de votre message. Nous ne collectons aucune information de paiement via ce site."
         },
         "dataUse": {
           "title": "Utilisation des données",
@@ -425,7 +432,11 @@
         },
         "cookies": {
           "title": "Cookies & stockage local",
-          "body": "Ce site utilise le stockage local de votre navigateur pour mémoriser votre préférence de langue (français/anglais). Aucun cookie publicitaire ou de suivi n'est utilisé."
+          "body": "Ce site utilise le stockage local de votre navigateur pour mémoriser votre préférence de langue (français/anglais) et votre choix concernant la mesure d'audience. Les cookies de mesure et de publicité ne sont déposés qu'après votre acceptation explicite."
+        },
+        "analytics": {
+          "title": "Mesure d'audience & publicité",
+          "body": "Avec votre accord, nous utilisons le pixel Meta (Facebook/Instagram) et Google Analytics 4 pour mesurer l'audience du site et l'efficacité de nos campagnes publicitaires. Ces outils enregistrent des pages vues et des actions comme l'envoi du formulaire de contact ou un clic vers WhatsApp. Aucun script de suivi n'est chargé avant votre acceptation, et vous pouvez refuser sans perdre l'accès au site : il suffit de cliquer sur « Refuser » dans le bandeau. Pour revenir sur votre choix, effacez les données de ce site dans votre navigateur. Nous conservons également, le temps de votre visite uniquement, les paramètres de campagne présents dans l'adresse d'arrivée (utm_source, utm_campaign…) afin de savoir de quelle annonce provient votre demande ; ils sont joints au message que vous nous envoyez."
         },
         "retention": {
           "title": "Conservation des données",
