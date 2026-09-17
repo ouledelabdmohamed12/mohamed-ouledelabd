@@ -44,7 +44,7 @@ export default async function handler(req, res) {
 
   try {
     await emailjs.send(
-      "service_gq5hc6f",
+      "service_prx83vw",
       "template_bbujlih",
       { name, email, phone, website, projectType, message, title: "Koda Atlas Inquiry" },
       {
