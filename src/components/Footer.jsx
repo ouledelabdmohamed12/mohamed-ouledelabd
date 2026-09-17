@@ -58,7 +58,11 @@ const Footer = () => {
                       target: "_blank",
                       rel: "noopener noreferrer",
                     })}
-                    aria-label={social.name}
+                    aria-label={
+                      social.ariaKey
+                        ? t(`footer.socialAria.${social.ariaKey}`)
+                        : social.name
+                    }
                     className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 bg-white text-gray-500 shadow-sm hover:text-indigo-600 hover:border-indigo-200 transition-colors"
                   >
                     <social.icon size={16} />

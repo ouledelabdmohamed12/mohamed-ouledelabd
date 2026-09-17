@@ -275,6 +275,10 @@
     "description": "A development studio building tailor-made digital solutions to support the digital transformation of businesses in Morocco.",
     "navTitle": "Navigation",
     "socialTitle": "Social",
+    "socialAria": {
+      "instagram": "Koda Atlas on Instagram",
+      "facebook": "Koda Atlas on Facebook"
+    },
     "copyright": "koda Atlas",
     "madeBy": "Code & Design by Koda Atlas",
     "legal": {
