@@ -5,7 +5,8 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import CustomCursor from './components/CustomCursor'
 import WhatsAppButton from './components/WhatsAppButton'
-import MetaPixel from './components/MetaPixel'
+import Analytics from './components/Analytics'
+import ConsentBanner from './components/ConsentBanner'
 import HomePage from './pages/HomePage'
 import ServicesPage from './pages/ServicesPage'
 import WorkPage from './pages/WorkPage'
@@ -30,7 +31,7 @@ const App = () => {
   return (
     <>
       <ScrollToTop />
-      <MetaPixel />
+      <Analytics />
       <CustomCursor />
       <div className="relative">
         <Navbar />
@@ -52,6 +53,7 @@ const App = () => {
       </div>
       {/* Fixed bottom-right on every route, so it stays outside the router. */}
       <WhatsAppButton />
+      <ConsentBanner />
     </>
   )
 }

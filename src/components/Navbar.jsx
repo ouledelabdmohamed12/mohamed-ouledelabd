@@ -7,12 +7,9 @@ import { Link, NavLink } from "react-router-dom";
 import { Menu, X, Instagram, Facebook } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-import {
-  NAV_LINKS,
-  WHATSAPP_URL,
-  INSTAGRAM_URL,
-  FACEBOOK_URL,
-} from "../utils/data";
+import { NAV_LINKS, INSTAGRAM_URL, FACEBOOK_URL } from "../utils/data";
+import { buildWhatsAppUrl } from "../utils/whatsapp";
+import { EVENTS, track } from "../lib/analytics";
 import { pathForSection } from "../utils/helper";
 import { LogoLink } from "./Logo";
 import { isBot } from "../lib/isBot";
@@ -45,6 +42,11 @@ const LanguageSwitch = ({ className = "" }) => {
 const Navbar = () => {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Quote-request intent, the step before the form itself. Custom event, so it
+  // can be optimised for separately from an actual Lead.
+  const trackDevisClick = (location) =>
+    track(EVENTS.devisClick, { content_name: "discuss_project_cta", button_location: location });
 
   const linkClass = ({ isActive }) =>
     `text-sm font-medium transition-colors ${
@@ -101,6 +103,7 @@ const Navbar = () => {
 
           <Link
             to="/contact"
+            onClick={() => trackDevisClick("navbar_desktop")}
             className="rounded-full bg-gray-900 hover:bg-gray-800 text-white text-sm font-semibold px-5 py-2.5 shadow-sm transition-colors whitespace-nowrap"
           >
             {t("common.discussCta")}
@@ -152,16 +155,26 @@ const Navbar = () => {
 
               <Link
                 to="/contact"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => {
+                  trackDevisClick("navbar_mobile_menu");
+                  setIsMenuOpen(false);
+                }}
                 className="flex items-center justify-center w-full rounded-full bg-gray-900 hover:bg-gray-800 text-white py-3 text-sm font-semibold shadow-sm transition-colors"
               >
                 {t("common.discussCta")}
               </Link>
 
               <a
-                href={WHATSAPP_URL}
+                href={buildWhatsAppUrl(t("whatsapp.message"))}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  track(EVENTS.contact, {
+                    content_name: "whatsapp_mobile_menu",
+                    content_category: "whatsapp",
+                    button_location: "navbar_mobile_menu",
+                  })
+                }
                 className="flex items-center justify-center gap-2 w-full rounded-full bg-[#25D366] hover:bg-[#1eb956] text-white py-3 text-sm font-semibold shadow-sm transition-colors"
               >
                 <FaWhatsapp size={17} />

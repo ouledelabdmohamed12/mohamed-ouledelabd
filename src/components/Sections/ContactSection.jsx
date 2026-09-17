@@ -7,7 +7,7 @@ import { containeVariants, itemVariants } from '../../utils/helper';
 import TextInput from '../Input/TextInput';
 import SuccessModel from '../SuccessModel';
 import Turnstile from '../Turnstile';
-import { META_EVENTS, trackEvent } from '../../utils/tracking';
+import { EVENTS, getUtmString, track } from '../../lib/analytics';
 import { isBot } from '../../lib/isBot';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -20,7 +20,7 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const ContactSection = ({ lead = false } = {}) => {
     const Title = motion[lead ? 'h1' : 'h2'];
     const FormTitle = motion[lead ? 'h2' : 'h3'];
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     const projectTypeOptions = [
         { value: "showcase", label: t("contact.form.projectType.options.showcase") },
@@ -104,9 +104,19 @@ const ContactSection = ({ lead = false } = {}) => {
             projectType: projectTypeLabel,
             budget: budgetLabel,
             message: formData.message,
+            // Which language the visitor filled the form in, so the reply goes
+            // back in the same one.
+            language: i18n.resolvedLanguage || "fr",
+            // Campaign the visit came from, empty for direct traffic. This is
+            // what ties an enquiry to the ad that paid for it.
+            utm: getUtmString(),
             kd_ref_field: formData.kd_ref_field,
             title: "Koda Atlas Inquiry"
         };
+
+        // Empty optional fields are turned into readable text server-side, in
+        // api/contact.js, so the same guard also covers anything else that
+        // posts to that endpoint.
 
         // Whether the message was actually delivered. Decided before any UI is
         // touched, so nothing below can turn a failure into a success.
@@ -145,10 +155,12 @@ const ContactSection = ({ lead = false } = {}) => {
         // Past this point the message really was sent, so none of these may
         // throw their way into the failure branch.
         try {
-            // Meta conversion event. No-op until VITE_META_PIXEL_ID is set.
-            trackEvent(META_EVENTS.lead, {
+            // Conversion event. No-op until a tracker is configured and the
+            // visitor has accepted it.
+            track(EVENTS.lead, {
                 content_name: "contact_form",
                 content_category: formData.projectType || "unspecified",
+                budget: formData.budget || "unspecified",
             });
         } catch {
             // Tracking must never affect what the visitor is told.
@@ -222,6 +234,13 @@ const ContactSection = ({ lead = false } = {}) => {
                                            the same trick the navbar icons use. */
                                         <a
                                             href={info.href}
+                                            onClick={() =>
+                                                track(EVENTS.contact, {
+                                                    content_name: `${info.id}_contact_card`,
+                                                    content_category: info.id,
+                                                    button_location: "contact_card",
+                                                })
+                                            }
                                             className="relative text-[15px] text-gray-700 hover:text-indigo-600 transition-colors break-all before:absolute before:-inset-2 before:content-['']"
                                         >
                                             {info.value}

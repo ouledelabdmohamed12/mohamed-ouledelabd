@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { useContactCta } from "../../hooks/useContactCta";
 import { SERVICES } from "../../utils/data";
 import { containeVariants, itemVariants } from "../../utils/helper";
 import { isBot } from "../../lib/isBot";
@@ -18,7 +18,7 @@ const ServicesSection = ({ lead = false } = {}) => {
   const Title = motion[lead ? "h1" : "h2"];
   const CardTitle = lead ? "h2" : "h3";
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const goToContact = useContactCta();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   // Crawlers never scroll, so `isInView` would stay false and every block
@@ -69,7 +69,7 @@ const ServicesSection = ({ lead = false } = {}) => {
             <motion.button
               key={service.id}
               variants={itemVariants}
-              onClick={() => navigate("/contact")}
+              onClick={() => goToContact(`service_card_${service.id}`)}
               className="group text-left rounded-2xl border border-gray-100 bg-white p-8 shadow-sm hover:shadow-md hover:border-gray-200 transition-all duration-300"
             >
               <span className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
@@ -104,7 +104,7 @@ const ServicesSection = ({ lead = false } = {}) => {
           className="text-center mt-16"
         >
           <button
-            onClick={() => navigate("/contact")}
+            onClick={() => goToContact("services_section")}
             className="inline-flex items-center gap-2 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 text-sm font-semibold shadow-lg shadow-indigo-600/25 transition-colors"
           >
             {t("common.discussCta")}

@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { SOCIAL_LINKS, NAV_LINKS } from "../utils/data";
+import { EVENTS, SOCIAL_EVENT, track } from "../lib/analytics";
+import { buildWhatsAppUrl } from "../utils/whatsapp";
 import { pathForSection } from "../utils/helper";
 import { LogoLink } from "./Logo";
 
@@ -50,14 +52,32 @@ const Footer = () => {
                 // empty "ghost" tab behind in the browser.
                 const opensInNewTab = /^https?:/i.test(social.url);
 
+                // WhatsApp gets the same prefilled message and campaign
+                // suffix as the floating button, so a chat started from the
+                // footer is attributed to the right ad too.
+                const href =
+                  social.name === "WhatsApp"
+                    ? buildWhatsAppUrl(t("whatsapp.message"))
+                    : social.url;
+
                 return (
                   <a
                     key={social.name}
-                    href={social.url}
+                    href={href}
                     {...(opensInNewTab && {
                       target: "_blank",
                       rel: "noopener noreferrer",
                     })}
+                    onClick={() =>
+                      /* Email and WhatsApp are real contact attempts; a
+                         profile visit is not, and counting it as one would
+                         inflate the conversion the ads optimise for. */
+                      track(SOCIAL_EVENT[social.name] || EVENTS.socialClick, {
+                        content_name: `${social.name.toLowerCase()}_footer`,
+                        content_category: social.name.toLowerCase(),
+                        button_location: "footer",
+                      })
+                    }
                     aria-label={
                       social.ariaKey
                         ? t(`footer.socialAria.${social.ariaKey}`)

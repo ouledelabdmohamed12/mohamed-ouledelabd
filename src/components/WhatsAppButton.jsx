@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { META_EVENTS, trackEvent } from "../utils/tracking";
-import { WHATSAPP_URL } from "../utils/data";
+import { EVENTS, track } from "../lib/analytics";
+import { buildWhatsAppUrl } from "../utils/whatsapp";
 
 // Official WhatsApp glyph, inlined so the button pulls in no extra dependency.
 const WhatsAppIcon = (props) => (
@@ -19,13 +19,14 @@ const WhatsAppIcon = (props) => (
 const WhatsAppButton = () => {
   const { t } = useTranslation();
 
-  const href = `${WHATSAPP_URL}?text=${encodeURIComponent(t("whatsapp.message"))}`;
+  const href = buildWhatsAppUrl(t("whatsapp.message"));
 
   const handleClick = () => {
-    // Meta conversion event — a no-op until VITE_META_PIXEL_ID is configured.
-    trackEvent(META_EVENTS.contact, {
+    // Conversion event — a no-op until a tracker is configured and accepted.
+    track(EVENTS.contact, {
       content_name: "whatsapp_floating_button",
       content_category: "whatsapp",
+      button_location: "floating",
     });
   };
 

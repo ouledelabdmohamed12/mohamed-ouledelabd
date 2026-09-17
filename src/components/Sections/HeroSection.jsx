@@ -2,12 +2,14 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import { useContactCta } from "../../hooks/useContactCta";
 import { containeVariants, itemVariants } from "../../utils/helper";
 import { isBot } from "../../lib/isBot";
 
 const HeroSection = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const goToContact = useContactCta();
 
   return (
     <section
@@ -71,7 +73,7 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row items-center gap-4"
         >
           <button
-            onClick={() => navigate("/contact")}
+            onClick={() => goToContact("hero")}
             className="group inline-flex items-center gap-2 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 text-sm font-semibold shadow-lg shadow-indigo-600/25 transition-colors"
           >
             {t("hero.ctaContact")}

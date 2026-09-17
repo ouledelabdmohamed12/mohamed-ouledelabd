@@ -359,6 +359,7 @@ export const PRIVACY_SECTIONS = [
     { id: "dataUse" },
     { id: "dataSharing" },
     { id: "cookies" },
+    { id: "analytics" },
     { id: "retention" },
     { id: "rights" },
     { id: "security" },
