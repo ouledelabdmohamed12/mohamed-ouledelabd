@@ -236,8 +236,13 @@ const installGa4Queue = (): void => {
   if (!GA4_ID || window.gtag) return;
 
   window.dataLayer = window.dataLayer || [];
-  const gtag: NonNullable<Window["gtag"]> = (...args: unknown[]) => {
-    window.dataLayer!.push(args);
+  // Must push the `arguments` object itself, exactly like Google's snippet.
+  // gtag.js only processes Arguments entries in the dataLayer: a plain array
+  // (what `(...args) => push(args)` produces) is silently ignored, so the
+  // config never ran and not a single hit reached GA4.
+  const gtag: NonNullable<Window["gtag"]> = function () {
+    // eslint-disable-next-line prefer-rest-params
+    window.dataLayer!.push(arguments);
   };
   window.gtag = gtag;
 
