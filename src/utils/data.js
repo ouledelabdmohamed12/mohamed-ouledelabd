@@ -22,7 +22,7 @@ import { FaWhatsapp, FaInstagram, FaFacebookF } from "react-icons/fa";
 import BURNCARE_IMG from "../assets/images/burncar.webp";
 
 import PHARMACIE_IMG from "../assets/images/pharmacie.webp";
-import ARTISANAT_IMG from "../assets/images/artisana.web";
+import ARTISANAT_IMG from "../assets/images/artisana.webp";
 import PROJECT_IMG_HOTEL from "../assets/images/gestion_hotel.webp";
 import PROJECT_IMG_EYEGUARD from "../assets/images/eyegard.webp";
 import PROJECT_IMG_STOCK from "../assets/images/gestion_stock.webp";
