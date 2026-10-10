@@ -13,6 +13,7 @@ dist-ssr
 *.local
 .env
 .env.local
+.claude
 
 # Personal Claude Code overrides (not shared)
 .claude/settings.local.json
