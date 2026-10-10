@@ -19,17 +19,17 @@ import { FaWhatsapp, FaInstagram, FaFacebookF } from "react-icons/fa";
 
 // NOTE: burncar.jpeg is square (2048x2048) while the card renders a ~1.76:1 box
 // with object-cover, so roughly the top and bottom thirds are cropped off.
-import BURNCARE_IMG from "../assets/images/burncar.jpeg";
+import BURNCARE_IMG from "../assets/images/burncar.webp";
 
-import PHARMACIE_IMG from "../assets/images/pharmacie.png";
-import ARTISANAT_IMG from "../assets/images/artisana.png";
+import PHARMACIE_IMG from "../assets/images/pharmacie.webp";
+import ARTISANAT_IMG from "../assets/images/artisana.web";
 import PROJECT_IMG_HOTEL from "../assets/images/gestion_hotel.webp";
 import PROJECT_IMG_EYEGUARD from "../assets/images/eyegard.webp";
 import PROJECT_IMG_STOCK from "../assets/images/gestion_stock.webp";
 import PROJECT_IMG_ATTENDANCE from "../assets/images/AI_presence.webp";
 import PROJECT_IMG_HOSPITAL from "../assets/images/gestion_hopital.webp";
 import PROJECT_IMG_APPOINTMENT from "../assets/images/gestion_rendezVous.webp";
-import PROJECT_IMG_RIAD from "../assets/images/riad.png";
+import PROJECT_IMG_RIAD from "../assets/images/riad.webp";
 
 // ---------------------------------------------------------------------------
 // Contact phone — single source of truth.
