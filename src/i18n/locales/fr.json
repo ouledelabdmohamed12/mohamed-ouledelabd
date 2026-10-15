@@ -264,7 +264,9 @@
       "error": "Veuillez remplir tous les champs.",
       "emailError": "Merci de saisir une adresse email valide.",
       "errorGeneric": "Une erreur s'est produite. Veuillez réessayer plus tard.",
-      "captchaError": "Merci de valider la vérification ci-dessous."
+      "captchaError": "Merci de valider la vérification ci-dessous.",
+      "serviceError": "Le service est temporairement indisponible. Vos champs sont conservés. Réessayez plus tard.",
+      "timeoutError": "L’envoi n’a pas pu être confirmé. Vos champs sont conservés. Attendez avant de réessayer pour éviter un doublon."
     },
     "infoTitle": "Informations de Contact",
     "info": {

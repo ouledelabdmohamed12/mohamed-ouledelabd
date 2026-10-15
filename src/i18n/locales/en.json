@@ -264,7 +264,9 @@
       "error": "Please fill in all fields.",
       "emailError": "Please enter a valid email address.",
       "errorGeneric": "Something went wrong. Please try again later.",
-      "captchaError": "Please complete the verification below."
+      "captchaError": "Please complete the verification below.",
+      "serviceError": "The service is temporarily unavailable. Your fields have been preserved.",
+      "timeoutError": "Sending could not be confirmed. Your fields have been preserved. Please wait before retrying to avoid duplicates."
     },
     "infoTitle": "Contact Information",
     "info": {

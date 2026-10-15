@@ -1,9 +1,7 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 
-// Cloudflare's official public test key ("always passes"). Replace with your
-// real site key via the VITE_TURNSTILE_SITE_KEY env var once you have one —
-// see https://dash.cloudflare.com/?to=/:account/turnstile
-const SITE_KEY = (import.meta.env.VITE_TURNSTILE_SITE_KEY || "1x00000000000000000000AA").trim();
+// Use the public test key only in development. Production requires a real key.
+const SITE_KEY = (import.meta.env.VITE_TURNSTILE_SITE_KEY || (import.meta.env.DEV ? "1x00000000000000000000AA" : "")).trim();
 
 const Turnstile = forwardRef(({ onVerify, onExpire }, ref) => {
   const containerRef = useRef(null);
@@ -20,12 +18,14 @@ const Turnstile = forwardRef(({ onVerify, onExpire }, ref) => {
     let pollId;
 
     const render = () => {
-      if (cancelled || !containerRef.current || !window.turnstile) return;
+      if (!SITE_KEY || cancelled || !containerRef.current || !window.turnstile) return;
       widgetId.current = window.turnstile.render(containerRef.current, {
         sitekey: SITE_KEY,
         theme: "light",
         callback: (token) => onVerify(token),
         "expired-callback": () => onExpire && onExpire(),
+        "error-callback": () => onExpire && onExpire(),
+        "timeout-callback": () => onExpire && onExpire(),
       });
     };
 

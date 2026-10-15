@@ -53,6 +53,7 @@ const ContactSection = ({ lead = false } = {}) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [captchaToken, setCaptchaToken] = useState(null);
     const turnstileRef = useRef(null);
+    const submittingRef = useRef(false);
 
     const sectionRef = useRef(null);
     const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
@@ -69,14 +70,15 @@ const ContactSection = ({ lead = false } = {}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (submittingRef.current) return;
         setErrorMessage("");
 
-        if (!formData.name || !formData.email || !formData.message) {
+        if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
             setErrorMessage(t("contact.form.error"));
             return;
         }
 
-        if (!EMAIL_REGEX.test(formData.email)) {
+        if (!EMAIL_REGEX.test(formData.email.trim())) {
             setErrorMessage(t("contact.form.emailError"));
             return;
         }
@@ -91,6 +93,7 @@ const ContactSection = ({ lead = false } = {}) => {
         // real visitor whose browser autofilled the field — was dropped with no
         // record anywhere. Every submission now reaches /api/contact, which
         // makes the same call and logs it.
+        submittingRef.current = true;
         setIsSubmitting(true);
 
         const projectTypeLabel = projectTypeOptions.find((opt) => opt.value === formData.projectType)?.label || "";
@@ -111,6 +114,7 @@ const ContactSection = ({ lead = false } = {}) => {
             // what ties an enquiry to the ad that paid for it.
             utm: getUtmString(),
             kd_ref_field: formData.kd_ref_field,
+            captchaToken,
             title: "Koda Atlas Inquiry"
         };
 
@@ -118,15 +122,17 @@ const ContactSection = ({ lead = false } = {}) => {
         // api/contact.js, so the same guard also covers anything else that
         // posts to that endpoint.
 
-        // Whether the message was actually delivered. Decided before any UI is
+        // Whether EmailJS confirmed acceptance. Decided before any UI is
         // touched, so nothing below can turn a failure into a success.
         let delivered = false;
+        let failureMessage = t("contact.form.errorGeneric");
 
         try {
             const res = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(templateParams),
+                signal: AbortSignal.timeout(22000),
             });
 
             // A 2xx alone is not proof of delivery: any intermediary (CDN,
@@ -141,18 +147,24 @@ const ContactSection = ({ lead = false } = {}) => {
             }
 
             delivered = res.ok && payload?.success === true;
+            const messages = { INVALID_FIELDS: "error", CAPTCHA_FAILED: "captchaError", SERVICE_UNAVAILABLE: "serviceError", EMAIL_FAILED: "errorGeneric", DELIVERY_UNKNOWN: "timeoutError" };
+            failureMessage = t(`contact.form.${messages[payload?.code] || "errorGeneric"}`);
         } catch {
+            failureMessage = t("contact.form.timeoutError");
             delivered = false; // network error, request blocked, offline
         }
 
+        submittingRef.current = false;
         setIsSubmitting(false);
+        setCaptchaToken(null);
+        try { turnstileRef.current?.reset(); } catch { /* Widget may be unavailable. */ }
 
         if (!delivered) {
-            setErrorMessage(t("contact.form.errorGeneric"));
+            setErrorMessage(failureMessage);
             return;
         }
 
-        // Past this point the message really was sent, so none of these may
+        // Past this point EmailJS confirmed the send, so none of these may
         // throw their way into the failure branch.
         try {
             // Conversion event. No-op until a tracker is configured and the
@@ -273,6 +285,7 @@ const ContactSection = ({ lead = false } = {}) => {
                             <motion.div
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
+                                role="alert"
                                 className="mb-6 flex items-center gap-3 rounded-xl border border-red-100 bg-red-50 p-4"
                             >
                                 <AlertCircle size={18} className="text-red-500 shrink-0" />
@@ -280,7 +293,7 @@ const ContactSection = ({ lead = false } = {}) => {
                             </motion.div>
                         )}
 
-                        <motion.div variants={itemVariants} className="space-y-5">
+                        <motion.form onSubmit={handleSubmit} noValidate aria-busy={isSubmitting} variants={itemVariants} className="space-y-5">
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                 <TextInput
                                     value={formData.name}
@@ -288,6 +301,7 @@ const ContactSection = ({ lead = false } = {}) => {
                                     label={t("contact.form.name")}
                                 />
                                 <TextInput
+                                    type="email"
                                     label={t("contact.form.email")}
                                     value={formData.email}
                                     handleInpuChange={(text) => handleInputChange('email', text)}
@@ -366,7 +380,7 @@ const ContactSection = ({ lead = false } = {}) => {
 
                             <button
                                 disabled={isSubmitting}
-                                onClick={handleSubmit}
+                                type="submit"
                                 className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 text-white py-4 text-sm font-semibold shadow-lg shadow-indigo-600/25 transition-colors"
                             >
                                 {isSubmitting ? (
@@ -385,7 +399,7 @@ const ContactSection = ({ lead = false } = {}) => {
                                     </>
                                 )}
                             </button>
-                        </motion.div>
+                        </motion.form>
                     </motion.div>
                 </div>
             </div>

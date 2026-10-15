@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -84,13 +84,14 @@ const CustomSelect = ({ value, handleInpuChange, options, placeholder }) => {
   );
 };
 
-const TextInput = ({ value, handleInpuChange, textarea, select, options, placeholder, label, optional }) => {
+const TextInput = ({ value, handleInpuChange, textarea, select, options, placeholder, label, optional, type = "text" }) => {
   const { t } = useTranslation();
+  const fieldId = useId();
   const InputComponent = textarea ? "textarea" : "input";
 
   return (
     <div className="relative">
-      <label className="block text-sm font-medium text-gray-700 mb-2">
+      <label htmlFor={select ? undefined : fieldId} className="block text-sm font-medium text-gray-700 mb-2">
         {label}
         {optional && (
           <span className="font-normal text-gray-400"> ({t("common.optional")})</span>
@@ -105,7 +106,9 @@ const TextInput = ({ value, handleInpuChange, textarea, select, options, placeho
         />
       ) : (
         <InputComponent
-          type="text"
+          id={fieldId}
+          type={type}
+          required={!optional}
           rows={textarea ? 4 : undefined}
           className={FIELD_CLASS}
           value={value}

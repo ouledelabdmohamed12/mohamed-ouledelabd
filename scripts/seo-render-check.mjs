@@ -139,7 +139,7 @@ const run = async () => {
 
   mkdirSync(OUT_DIR, { recursive: true });
 
-  const browser = await chromium.launch();
+  const browser = await chromium.launch({ channel: process.env.PLAYWRIGHT_CHANNEL || undefined });
   const context = await browser.newContext({
     ...devices["Pixel 5"],
     userAgent: GOOGLEBOT_UA,
