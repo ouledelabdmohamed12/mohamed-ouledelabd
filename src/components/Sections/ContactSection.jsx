@@ -99,7 +99,7 @@ const ContactSection = ({ lead = false } = {}) => {
         const projectTypeLabel = projectTypeOptions.find((opt) => opt.value === formData.projectType)?.label || "";
         const budgetLabel = budgetOptions.find((opt) => opt.value === formData.budget)?.label || "";
 
-        const templateParams = {
+        const contactPayload = {
             name: formData.name,
             email: formData.email,
             phone: formData.phone,
@@ -114,12 +114,11 @@ const ContactSection = ({ lead = false } = {}) => {
             // what ties an enquiry to the ad that paid for it.
             utm: getUtmString(),
             kd_ref_field: formData.kd_ref_field,
-            captchaToken,
-            title: "Koda Atlas Inquiry"
+            captchaToken
         };
 
         // Empty optional fields are turned into readable text server-side, in
-        // api/contact.js, so the same guard also covers anything else that
+        // server/contact-emails.js after validation, covering anything else that
         // posts to that endpoint.
 
         // Whether the email provider confirmed acceptance. Decided before any UI is
@@ -131,7 +130,7 @@ const ContactSection = ({ lead = false } = {}) => {
             const res = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(templateParams),
+                body: JSON.stringify(contactPayload),
                 signal: AbortSignal.timeout(22000),
             });
 
