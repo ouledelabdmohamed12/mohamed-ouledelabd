@@ -36,3 +36,6 @@ scripts/.seo-shots
 .vercel
 .env.*
 !.env.example
+
+# Generated contact email previews (sample data only)
+scripts/.email-previews

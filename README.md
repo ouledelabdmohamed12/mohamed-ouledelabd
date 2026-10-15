@@ -1,18 +1,23 @@
-# React + Vite
+# Koda Atlas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Site React 19 / Vite 7, Tailwind et React Router, déployé sur Vercel avec une fonction Node 22 dans `api/contact.js`.
 
-Currently, two official plugins are available:
+Le formulaire utilise exclusivement Resend pour la notification interne et l'accusé de réception client. Cloudflare Turnstile, honeypot, validations serveur et idempotence sont conservés. Les secrets ne sont jamais exposés au frontend.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Configuration, modèles et validation réelle avant publication](docs/resend-migration.md)
+- [Préparation Vercel](docs/vercel-deployment.md)
+- [Diagnostic des alertes navigateur](docs/contact-debugging.md)
 
-## Expanding the ESLint configuration
+Copier `.env.example` vers `.env` et configurer les secrets localement, ou utiliser les variables du projet Vercel. `vite` seul ne sert pas les fonctions Vercel.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```powershell
+npm ci
+npm test
+npm run lint
+npm run check:deployment
+npm run test:contact:integration
+npm run test:contact:ui
+npm run email:preview
+```
 
-## Formulaire de contact
-
-Voir [le diagnostic et la procédure de déploiement](docs/contact-debugging.md) pour la configuration EmailJS/Turnstile, les tests et la vérification de réception réelle.
-
-Préparation avant mise en ligne : [variables Vercel, vérifications et commandes Git](docs/vercel-deployment.md). `npm run check:deployment` vérifie le build et l'absence des secrets serveur dans le frontend, sans déployer.
+`npm run email:test:live` sans arguments n'envoie rien. L'envoi réel exige `--send`, une adresse client contrôlée et une clé serveur configurée ; voir la documentation. Aucun déploiement Production avant validation explicite des tests réels.

@@ -266,7 +266,8 @@
       "errorGeneric": "Something went wrong. Please try again later.",
       "captchaError": "Please complete the verification below.",
       "serviceError": "The service is temporarily unavailable. Your fields have been preserved.",
-      "timeoutError": "Sending could not be confirmed. Your fields have been preserved. Please wait before retrying to avoid duplicates."
+      "timeoutError": "Sending could not be confirmed. Your fields have been preserved. Please wait before retrying to avoid duplicates.",
+      "rateLimitError": "Too many attempts. Please wait a few minutes before trying again."
     },
     "infoTitle": "Contact Information",
     "info": {
@@ -430,7 +431,7 @@
         },
         "dataSharing": {
           "title": "Data Sharing",
-          "body": "Contact form submissions are processed through EmailJS, a third-party email delivery service, solely to deliver your message to us by email. We do not share your data with any other third party for marketing purposes."
+          "body": "Contact form submissions are processed through Resend, a third-party email delivery service, to deliver your enquiry to us and email you an acknowledgment. We do not share your data with any other third party for marketing purposes."
         },
         "cookies": {
           "title": "Cookies & Local Storage",

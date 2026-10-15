@@ -12,10 +12,13 @@
     "test": "node --test tests/*.test.mjs",
     "test:contact:ui": "node scripts/contact-form-check.mjs",
     "contact:diagnose": "node scripts/contact-production-diagnostics.mjs",
-    "check:deployment": "node scripts/deployment-check.mjs"
+    "check:deployment": "node scripts/deployment-check.mjs",
+    "test:contact:integration": "node scripts/contact-resend-check.mjs",
+    "email:preview": "node scripts/contact-email-preview.mjs",
+    "email:test:live": "node scripts/resend-live-check.mjs",
+    "email:test": "node scripts/resend-live-check.mjs"
   },
   "dependencies": {
-    "@emailjs/nodejs": "^5.0.2",
     "@tailwindcss/vite": "^4.1.11",
     "framer-motion": "^12.23.1",
     "i18next": "^26.3.6",

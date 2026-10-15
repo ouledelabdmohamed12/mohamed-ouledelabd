@@ -266,7 +266,8 @@
       "errorGeneric": "Une erreur s'est produite. Veuillez réessayer plus tard.",
       "captchaError": "Merci de valider la vérification ci-dessous.",
       "serviceError": "Le service est temporairement indisponible. Vos champs sont conservés. Réessayez plus tard.",
-      "timeoutError": "L’envoi n’a pas pu être confirmé. Vos champs sont conservés. Attendez avant de réessayer pour éviter un doublon."
+      "timeoutError": "L’envoi n’a pas pu être confirmé. Vos champs sont conservés. Attendez avant de réessayer pour éviter un doublon.",
+      "rateLimitError": "Trop de tentatives. Veuillez patienter quelques minutes avant de réessayer."
     },
     "infoTitle": "Informations de Contact",
     "info": {
@@ -430,7 +431,7 @@
         },
         "dataSharing": {
           "title": "Partage des données",
-          "body": "Les soumissions du formulaire de contact sont traitées via EmailJS, un service tiers d'envoi d'emails, dans le seul but de nous transmettre votre message par email. Nous ne partageons vos données avec aucun autre tiers à des fins commerciales."
+          "body": "Les soumissions du formulaire de contact sont traitées via Resend, un service tiers d'envoi d'emails, afin de nous transmettre votre demande et de vous adresser un accusé de réception par email. Nous ne partageons vos données avec aucun autre tiers à des fins commerciales."
         },
         "cookies": {
           "title": "Cookies & stockage local",

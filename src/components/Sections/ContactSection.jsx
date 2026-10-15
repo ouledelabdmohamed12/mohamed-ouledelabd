@@ -122,7 +122,7 @@ const ContactSection = ({ lead = false } = {}) => {
         // api/contact.js, so the same guard also covers anything else that
         // posts to that endpoint.
 
-        // Whether EmailJS confirmed acceptance. Decided before any UI is
+        // Whether the email provider confirmed acceptance. Decided before any UI is
         // touched, so nothing below can turn a failure into a success.
         let delivered = false;
         let failureMessage = t("contact.form.errorGeneric");
@@ -147,7 +147,7 @@ const ContactSection = ({ lead = false } = {}) => {
             }
 
             delivered = res.ok && payload?.success === true;
-            const messages = { INVALID_FIELDS: "error", CAPTCHA_FAILED: "captchaError", SERVICE_UNAVAILABLE: "serviceError", EMAIL_FAILED: "errorGeneric", DELIVERY_UNKNOWN: "timeoutError" };
+            const messages = { INVALID_FIELDS: "error", CAPTCHA_FAILED: "captchaError", SERVICE_UNAVAILABLE: "serviceError", EMAIL_FAILED: "errorGeneric", DELIVERY_UNKNOWN: "timeoutError", RATE_LIMITED: "rateLimitError" };
             failureMessage = t(`contact.form.${messages[payload?.code] || "errorGeneric"}`);
         } catch {
             failureMessage = t("contact.form.timeoutError");
@@ -164,7 +164,7 @@ const ContactSection = ({ lead = false } = {}) => {
             return;
         }
 
-        // Past this point EmailJS confirmed the send, so none of these may
+        // Past this point the email provider confirmed the send, so none of these may
         // throw their way into the failure branch.
         try {
             // Conversion event. No-op until a tracker is configured and the
